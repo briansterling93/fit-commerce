@@ -1,4 +1,4 @@
-## E-Fit Commerce
+## Fit Commerce
 
 E-Fit Commerce is a fictional fitness related e-commerce store which will provide the visitors with the ability to view items and their details, as well as add selected items into the user's personal cart. Additionally, E-Fit Commerce will have an Admin Login. Within the Admin scope, the individual will have the ability to update items listed within the UI.
 
