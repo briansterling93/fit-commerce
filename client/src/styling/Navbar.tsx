@@ -21,8 +21,8 @@ export const TextDiv = styled.div`
     font-weight: 400;
     font-size: 1.2rem;
 
-    hover: {
-      color: blue;
+    :hover {
+      color: green;
     }
   }
 `;
