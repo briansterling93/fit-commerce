@@ -10,10 +10,15 @@ import {
   ButtonStyling,
   ButtonPadding1,
   ButtonPadding2,
+  ErrorMsg,
+  PopUp,
 } from "../styling/AdminPortal";
 import AdminFlair from "../components/AdminFlair";
 
 const AdminPortal: React.FC = () => {
+  const [error, setError] = useState<string>("");
+  const [popUp, setMessage] = useState<string>("");
+
   return (
     <div>
       <AdminFlair />
@@ -27,21 +32,29 @@ const AdminPortal: React.FC = () => {
                   <InputStyling>
                     <input placeholder="Email address" type="text" />
                   </InputStyling>
+                  <ErrorMsg>{error}</ErrorMsg>
                 </FormPadding>
                 <FormPadding>
                   <InputStyling>
                     <input type="password" placeholder="Password" />
                   </InputStyling>
+                  <ErrorMsg>{error}</ErrorMsg>
                 </FormPadding>
                 <FormPadding>
                   <ButtonStyling>
                     <ButtonPadding1>
-                      <button>
+                      <button
+                        onMouseOver={(e) => setMessage("Sign In")}
+                        onMouseOut={(e) => setMessage("")}
+                      >
                         <i className="fa fa-sign-in" aria-hidden="true"></i>
                       </button>
                     </ButtonPadding1>
                     <ButtonPadding2>
-                      <button>
+                      <button
+                        onMouseOver={(e) => setMessage("Create account")}
+                        onMouseOut={(e) => setMessage("")}
+                      >
                         <i className="fa fa-user-plus" aria-hidden="true"></i>
                       </button>
                     </ButtonPadding2>
@@ -49,6 +62,7 @@ const AdminPortal: React.FC = () => {
                 </FormPadding>
               </PortalForm>
             </form>
+            <PopUp>{popUp}</PopUp>
           </PortalBox>
         </SecondarySection>
       </MainSection>

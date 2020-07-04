@@ -22,20 +22,22 @@ export const SecondarySection = styled.div`
 `;
 
 export const PortalBox = styled.div`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 15rem;
-  width: 30rem;
+  width: 26rem;
   border: 1px solid black;
+  color: black;
   background-color: white;
+  // background: rgba(0, 0, 0, 0.9);
 `;
 
 export const Title = styled.div`
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 600;
   padding-bottom: 0.5rem;
 `;
 
@@ -45,15 +47,16 @@ export const PortalForm = styled.form`
   align-items: center;
 
   input {
+    font-size: 1rem;
     outline: none;
     border: none;
-    width: 14rem;
+    width: 16rem;
   }
 
   button {
     background-color: transparent;
     border: 1px solid #999;
-    border-radius: 1rem;
+    border-radius: 0.2rem;
     outline: none;
     cursor: pointer;
   }
@@ -66,24 +69,45 @@ export const FormPadding = styled.span`
 export const InputStyling = styled.div`
   border: none;
   border-bottom: 1px solid #999;
-  width: 14rem;
+  width: 16rem;
 `;
 
 export const ButtonStyling = styled.div`
   display: flex;
   justify-content: row;
-  padding-top: 1rem;
+  padding-top: 0.2rem;
 
   button {
     width: 4rem;
     font-size: 0.8rem;
+    background-color: ;
+  }
+
+  i {
+    font-size: 1rem;
+    color: black;
+    // background-color: #000e52;
   }
 `;
 
 export const ButtonPadding1 = styled.div`
-  padding-right: 1.6rem;
+  padding-right: 1.2rem;
 `;
 
 export const ButtonPadding2 = styled.div`
-  padding-left: 1.6rem;
+  padding-left: 1.2rem;
+`;
+
+export const ErrorMsg = styled.div`
+  height: 0.3rem;
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+`;
+
+export const PopUp = styled.div`
+  color: #000c4a;
+  font-size: 0.9rem;
+  opacity: 1;
+  height: 0.2rem;
 `;
