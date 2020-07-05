@@ -7,8 +7,10 @@ const Home: React.FC = () => {
   return (
     <div>
       <Flair />
-      <Navbar />
-      <MainSection>Hello Home</MainSection>
+      <MainSection>
+        <Navbar />
+        Hello Home
+      </MainSection>
     </div>
   );
 };

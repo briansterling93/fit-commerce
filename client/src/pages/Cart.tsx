@@ -7,8 +7,9 @@ const Cart: React.FC = () => {
   return (
     <div>
       <Flair />
-      <Navbar />
-      <MainSection></MainSection>
+      <MainSection>
+        <Navbar />
+      </MainSection>
     </div>
   );
 };

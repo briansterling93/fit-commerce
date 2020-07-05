@@ -7,8 +7,10 @@ const Shop: React.FC = () => {
   return (
     <div>
       <Flair />
-      <Navbar />
-      <MainSection></MainSection>
+
+      <MainSection>
+        <Navbar />
+      </MainSection>
     </div>
   );
 };

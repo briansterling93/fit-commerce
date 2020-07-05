@@ -7,8 +7,13 @@ const Navbar: React.FC = () => {
     <MainSection>
       <TextDiv>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/shop">Shop</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
+        <NavLink to="/shop">
+          Shop
+          <i className="fa fa-caret-down" aria-hidden="true"></i>
+        </NavLink>
+        <NavLink to="/cart">
+          Cart <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </NavLink>
       </TextDiv>
     </MainSection>
   );

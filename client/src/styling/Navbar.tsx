@@ -7,6 +7,10 @@ export const MainSection = styled.div`
   justify-content: center;
   padding: 0.1rem;
   text-transform: uppercase;
+
+  i {
+    padding-left: 0.5rem;
+  }
 `;
 
 export const TextDiv = styled.div`
@@ -15,12 +19,11 @@ export const TextDiv = styled.div`
   align-items: center;
 
   a {
-    padding: 1.2rem;
+    padding: 2rem;
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: 400;
-    font-size: 1.2rem;
-
+    font-size: 1.1rem;
     :hover {
       color: green;
     }

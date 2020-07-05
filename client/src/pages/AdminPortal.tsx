@@ -13,6 +13,7 @@ import {
   ErrorMsg,
   PopUp,
 } from "../styling/AdminPortal";
+import { NavLink } from "react-router-dom";
 import AdminFlair from "../components/AdminFlair";
 
 const AdminPortal: React.FC = () => {
@@ -51,12 +52,20 @@ const AdminPortal: React.FC = () => {
                       </button>
                     </ButtonPadding1>
                     <ButtonPadding2>
-                      <button
+                      <NavLink to="/signup">
+                        <button
+                          onMouseOver={(e) => setMessage("Create account")}
+                          onMouseOut={(e) => setMessage("")}
+                        >
+                          <i className="fa fa-user-plus" aria-hidden="true"></i>
+                        </button>
+                      </NavLink>
+                      {/* <button
                         onMouseOver={(e) => setMessage("Create account")}
                         onMouseOut={(e) => setMessage("")}
                       >
                         <i className="fa fa-user-plus" aria-hidden="true"></i>
-                      </button>
+                      </button> */}
                     </ButtonPadding2>
                   </ButtonStyling>
                 </FormPadding>
