@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import AdminFlair from "../components/AdminFlair";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
 import {
   MainSection,
   SecondarySection,
@@ -7,16 +9,35 @@ import {
   Title,
   PortalForm,
   FormPadding,
+  FormPaddingLink,
   InputStyling,
   ButtonStyling,
-  ButtonPadding1,
-  ButtonPadding2,
+  ButtonPadding,
   ErrorMsg,
   PopUp,
-} from "../styling/AdminPortal";
+} from "../styling/AdminSignUp";
 
 const AdminSignUp: React.FC = () => {
   const [error, setError] = useState<string>("");
+
+  const testReq = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      let res = await axios.get("/admin");
+
+      console.log(res);
+
+      // JSON.stringify(res);
+      // const allJobs = await res.data.findAll;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <AdminFlair />
@@ -46,18 +67,18 @@ const AdminSignUp: React.FC = () => {
                 </FormPadding>
                 <FormPadding>
                   <ButtonStyling>
-                    <ButtonPadding1>
-                      <button>
-                        <i className="fa fa-sign-in" aria-hidden="true"></i>
-                      </button>
-                    </ButtonPadding1>
-                    <ButtonPadding2>
-                      <button>
+                    <ButtonPadding>
+                      <button onClick={testReq}>
                         <i className="fa fa-user-plus" aria-hidden="true"></i>
+                        Create Account
                       </button>
-                    </ButtonPadding2>
+                    </ButtonPadding>
                   </ButtonStyling>
                 </FormPadding>
+                <FormPaddingLink>
+                  Already have an account?{" "}
+                  <NavLink to="/admin">Sign in here</NavLink>
+                </FormPaddingLink>
               </PortalForm>
             </form>
           </PortalBox>

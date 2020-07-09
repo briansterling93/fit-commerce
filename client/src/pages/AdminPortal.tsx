@@ -60,12 +60,6 @@ const AdminPortal: React.FC = () => {
                           <i className="fa fa-user-plus" aria-hidden="true"></i>
                         </button>
                       </NavLink>
-                      {/* <button
-                        onMouseOver={(e) => setMessage("Create account")}
-                        onMouseOut={(e) => setMessage("")}
-                      >
-                        <i className="fa fa-user-plus" aria-hidden="true"></i>
-                      </button> */}
                     </ButtonPadding2>
                   </ButtonStyling>
                 </FormPadding>

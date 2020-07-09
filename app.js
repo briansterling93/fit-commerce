@@ -1,10 +1,20 @@
 const express = require("express");
 
+const db = require("./config/database.js");
+
+db.authenticate(async () => {
+  try {
+    console.log("db connected");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("hi");
-});
+app.use(express.json({ extended: false })); //body parser
+
+app.use("/admin", require("./routes/admin.js"));
 
 const PORT = process.env.PORT || 5000;
 

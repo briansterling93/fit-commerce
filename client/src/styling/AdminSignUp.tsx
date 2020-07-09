@@ -27,7 +27,7 @@ export const PortalBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 15rem;
+  height: 20rem;
   width: 26rem;
   border: 1px solid black;
   color: black;
@@ -66,6 +66,14 @@ export const FormPadding = styled.span`
   padding: 0.6rem;
 `;
 
+export const FormPaddingLink = styled.span`
+  font-size: 0.8rem;
+
+  a {
+    text-decoration: none;
+  }
+`;
+
 export const InputStyling = styled.div`
   border: none;
   border-bottom: 1px solid #999;
@@ -74,28 +82,24 @@ export const InputStyling = styled.div`
 
 export const ButtonStyling = styled.div`
   display: flex;
-  justify-content: row;
+  flex-direction: column;
   padding-top: 0.2rem;
 
   button {
-    width: 4rem;
+    width: 9rem;
     font-size: 0.8rem;
     background-color: ;
   }
 
   i {
     font-size: 1rem;
-    color: black;
-    // background-color: #000e52;
+    color: green;
+    padding-right: 0.3rem;
   }
 `;
 
-export const ButtonPadding1 = styled.div`
-  padding-right: 1.2rem;
-`;
-
-export const ButtonPadding2 = styled.div`
-  padding-left: 1.2rem;
+export const ButtonPadding = styled.div`
+  // padding-left: 1.2rem;
 `;
 
 export const ErrorMsg = styled.div`
