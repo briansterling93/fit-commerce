@@ -9,7 +9,7 @@ export interface IState {
 }
 
 export const initialState = {
-  email_address: "",
+  email_address: "fdf",
   password: "",
   item: "",
   price: "",
@@ -24,7 +24,7 @@ type AppAction = { [key: string]: (state: IState, action: any) => IState };
 
 export const appActions: AppAction = {
   [APP_ACTIONS.UPDATE_EMAIL]: (state: IState, actions: any) => {
-    return { ...state, email: actions.payload };
+    return { ...state, email_address: actions.payload };
   },
 };
 
