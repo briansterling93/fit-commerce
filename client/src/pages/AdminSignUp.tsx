@@ -14,13 +14,24 @@ import {
   ButtonStyling,
   ButtonPadding,
   ErrorMsg,
-  PopUp,
 } from "../styling/AdminSignUp";
 
 const AdminSignUp: React.FC = () => {
   const [error, setError] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+  const [confirmError, setConfirmError] = useState<string>("");
 
-  const testReq = async () => {
+  const [email_address, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const addNewUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    let user = { password, email_address };
+
+    console.log(user);
+
     try {
       const config = {
         headers: {
@@ -28,16 +39,16 @@ const AdminSignUp: React.FC = () => {
         },
       };
 
-      let res = await axios.get("/admin");
+      const body = JSON.stringify(user);
+
+      let res = await axios.post("/admin", body, config);
 
       console.log(res);
-
-      // JSON.stringify(res);
-      // const allJobs = await res.data.findAll;
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div>
       <AdminFlair />
@@ -45,11 +56,15 @@ const AdminSignUp: React.FC = () => {
         <SecondarySection>
           <PortalBox>
             <Title>Welcome, Sign Up!</Title>
-            <form onSubmit={() => console.log("hi")}>
+            <form onSubmit={addNewUser}>
               <PortalForm>
                 <FormPadding>
                   <InputStyling>
-                    <input placeholder="Enter your email address" type="text" />
+                    <input
+                      placeholder="Enter your email address"
+                      type="text"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </InputStyling>
                   <ErrorMsg>{error}</ErrorMsg>
                 </FormPadding>
@@ -61,14 +76,18 @@ const AdminSignUp: React.FC = () => {
                 </FormPadding>
                 <FormPadding>
                   <InputStyling>
-                    <input placeholder="Confirm password" type="password" />
+                    <input
+                      placeholder="Confirm password"
+                      type="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
                   </InputStyling>
                   <ErrorMsg>{error}</ErrorMsg>
                 </FormPadding>
                 <FormPadding>
                   <ButtonStyling>
                     <ButtonPadding>
-                      <button onClick={testReq}>
+                      <button>
                         <i className="fa fa-user-plus" aria-hidden="true"></i>
                         Create Account
                       </button>

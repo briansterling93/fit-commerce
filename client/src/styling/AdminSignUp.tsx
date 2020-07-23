@@ -109,9 +109,3 @@ export const ErrorMsg = styled.div`
   font-size: 0.9rem;
 `;
 
-export const PopUp = styled.div`
-  color: #000c4a;
-  font-size: 0.9rem;
-  opacity: 1;
-  height: 0.2rem;
-`;

@@ -16,6 +16,10 @@ app.use(express.json({ extended: false })); //body parser
 
 app.use("/admin", require("./routes/admin.js"));
 
+app.get("/", (req, res) => {
+  res.send("hello world from port /");
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
