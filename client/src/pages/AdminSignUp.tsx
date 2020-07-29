@@ -15,12 +15,16 @@ import {
   ButtonPadding,
   ErrorMsg,
 } from "../styling/AdminSignUp";
-import { StateContext, initialState } from "../context/StateContext";
+import {
+  StateContext,
+  initialState,
+  APP_ACTIONS,
+} from "../context/StateContext";
 
 const AdminSignUp: React.FC = () => {
   const { state, dispatch } = useContext(StateContext);
 
-  const { email_address, password } = initialState;
+  // const { email_address, password } = state;
 
   const [error, setError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
@@ -57,17 +61,18 @@ const AdminSignUp: React.FC = () => {
       <MainSection>
         <SecondarySection>
           <PortalBox>
-            <Title>Welcome, Sign Up! {email_address}</Title>
+            <Title>Welcome, Sign Up!</Title>
             <form>
               <PortalForm>
                 <FormPadding>
+                  {state.email_address}
                   <InputStyling>
                     <input
                       placeholder="Enter your email address"
                       type="text"
                       onChange={(e) =>
                         dispatch({
-                          type: "UPDATE_EMAIL",
+                          type: APP_ACTIONS.UPDATE_EMAIL,
                           payload: e.target.value,
                         })
                       }
