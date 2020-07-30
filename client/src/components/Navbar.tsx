@@ -12,7 +12,10 @@ const Navbar: React.FC = () => {
           <i className="fa fa-caret-down" aria-hidden="true"></i>
         </NavLink>
         <NavLink to="/cart">
-          Cart <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </NavLink>
+        <NavLink to="/signin">
+          Sign In<i className="fa fa-user" aria-hidden="true"></i>
         </NavLink>
       </TextDiv>
     </MainSection>

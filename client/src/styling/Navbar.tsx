@@ -23,7 +23,7 @@ export const TextDiv = styled.div`
     text-decoration: none;
     color: white;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     :hover {
       color: green;
     }
