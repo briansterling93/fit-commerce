@@ -87,4 +87,9 @@ export const UiBtn = styled.div`
   p {
     font-size: 0.9rem;
   }
+
+  a {
+    color: #68a5ff;
+    text-decoration: none;
+  }
 `;

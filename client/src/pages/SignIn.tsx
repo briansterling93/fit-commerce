@@ -7,6 +7,7 @@ import {
   UIinputPadding,
   UiBtn,
 } from "../styling/SignIn";
+import { NavLink } from "react-router-dom";
 import Flair from "../components/Flair";
 import Navbar from "../components/Navbar";
 const SignIn: React.FC = () => {
@@ -32,7 +33,10 @@ const SignIn: React.FC = () => {
             </UIinputPadding>
             <UiBtn>
               <button>Login</button>
-              <p>Don't have an account? Create one here</p>
+              <p>
+                <NavLink to="/newuser">Create an account here</NavLink> -{" "}
+                <NavLink to="/admin">Sign in as an Admin</NavLink>
+              </p>
             </UiBtn>
           </AuthUI>
         </AuthBoxBorder>
