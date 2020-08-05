@@ -57,6 +57,10 @@ export const UIinput = styled.div`
   height: 1.3rem;
   padding: 0.5rem;
 
+  input {
+    padding-left: 0.5rem;
+  }
+
   i {
     color: #07006b;
   }
@@ -70,7 +74,7 @@ export const UiBtn = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 1rem;
+  padding-top: 0.2rem;
   button {
     background-color: black;
     color: white;
@@ -89,4 +93,10 @@ export const UiBtn = styled.div`
     color: #68a5ff;
     text-decoration: none;
   }
+`;
+
+export const ErrorMsg = styled.div`
+  height: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
 `;

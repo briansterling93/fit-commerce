@@ -22,7 +22,7 @@ const Universal = createGlobalStyle`
 `;
 
 function App() {
-  const [state, dispatch] = useReducer<any>(initialState, reducer);
+  const [state, dispatch] = useReducer<any>(reducer, initialState);
   return (
     <StateContext.Provider value={{ state, dispatch }}>
       <Router>
