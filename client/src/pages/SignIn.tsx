@@ -34,8 +34,8 @@ const SignIn: React.FC = () => {
             <UiBtn>
               <button>Login</button>
               <p>
-                <NavLink to="/newuser">Create an account here</NavLink> -{" "}
-                <NavLink to="/admin">Sign in as an Admin</NavLink>
+                Don't have an account?{" "}
+                <NavLink to="/signup">Create one here</NavLink>
               </p>
             </UiBtn>
           </AuthUI>

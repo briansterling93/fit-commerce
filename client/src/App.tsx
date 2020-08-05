@@ -5,8 +5,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import SignIn from "./pages/SignIn";
-import AdminPortal from "./pages/AdminPortal";
-import AdminSignUp from "./pages/AdminSignUp";
+import SignUp from "./pages/SignUp";
 import { StateContext, initialState, reducer } from "./context/StateContext";
 
 const Universal = createGlobalStyle`
@@ -33,8 +32,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/admin" component={AdminPortal} />
-          <Route exact path="/adminsignup" component={AdminSignUp} />
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </Router>
     </StateContext.Provider>

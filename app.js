@@ -14,10 +14,10 @@ const app = express();
 
 app.use(express.json({ extended: false })); //body parser
 
-app.use("/admin", require("./routes/admin.js"));
+app.use("/user", require("./routes/user.js"));
 
 app.get("/", (req, res) => {
-  res.send("hello world from port /");
+  res.send("hello world from express");
 });
 
 const PORT = process.env.PORT || 5000;
