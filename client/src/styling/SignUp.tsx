@@ -99,4 +99,5 @@ export const ErrorMsg = styled.div`
   height: 0.6rem;
   text-align: center;
   font-size: 0.8rem;
+  color: #ff6969;
 `;

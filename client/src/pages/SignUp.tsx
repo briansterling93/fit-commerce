@@ -16,15 +16,46 @@ import {
   initialState,
   APP_ACTIONS,
 } from "../context/StateContext";
+import axios from "axios";
 
 const SignUp: React.FC = () => {
   const [UIname, nameError] = useState<string>("");
   const [UIemail, emailError] = useState<string>("");
   const [UIpassword, passwordError] = useState<string>("");
   const [confirmPassword, passwordConfirmError] = useState<string>("");
+  const [password2, setPassword2] = useState<string>("");
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { name, email_address, password } = state;
+
+  // handle create user
+  const handleCreate = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      if (!state.name) {
+        nameError("Name is required");
+      } else nameError("");
+
+      if (!state.email_address.includes("@" && ".")) {
+        emailError("Please enter a valid email addres");
+      } else emailError("");
+
+      if (!state.password || state.password.length < 5) {
+        passwordError("Password must be at least 5 characters");
+      } else {
+        passwordError("");
+      }
+
+      if (state.password !== password2) {
+        passwordConfirmError("The passwords do not match");
+      } else {
+        passwordConfirmError("");
+      }
+
+      console.log("success");
+    } catch (error) {}
+  };
   return (
     <div>
       <Flair />
@@ -47,7 +78,7 @@ const SignUp: React.FC = () => {
                   }}
                 ></input>{" "}
               </UIinput>
-              <ErrorMsg></ErrorMsg>
+              <ErrorMsg>{UIname}</ErrorMsg>
             </UIinputPadding>
             <UIinputPadding>
               <UIinput>
@@ -63,7 +94,7 @@ const SignUp: React.FC = () => {
                   }}
                 ></input>{" "}
               </UIinput>
-              <ErrorMsg></ErrorMsg>
+              <ErrorMsg>{UIemail}</ErrorMsg>
             </UIinputPadding>
             <UIinputPadding>
               <UIinput>
@@ -79,20 +110,21 @@ const SignUp: React.FC = () => {
                   }}
                 ></input>
               </UIinput>
-              <ErrorMsg></ErrorMsg>
+              <ErrorMsg>{UIpassword}</ErrorMsg>
             </UIinputPadding>
             <UIinputPadding>
               <UIinput>
                 <i className="fa fa-unlock-alt" aria-hidden="true"></i>
                 <input
+                  onChange={(e) => setPassword2(e.target.value)}
                   type="password"
                   placeholder="Confirm password"
                 ></input>{" "}
               </UIinput>
-              <ErrorMsg></ErrorMsg>
+              <ErrorMsg>{confirmPassword}</ErrorMsg>
             </UIinputPadding>
             <UiBtn>
-              <button>Create account</button>
+              <button onClick={handleCreate}>Create account</button>
               <p>
                 Already have an account?{" "}
                 <NavLink to="/signin">Sign in here</NavLink>

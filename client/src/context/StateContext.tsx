@@ -9,7 +9,7 @@ export interface IState {
 }
 
 export const initialState = {
-  name: "test",
+  name: "",
   email_address: "",
   password: "",
   item: "",
