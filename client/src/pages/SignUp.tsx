@@ -53,8 +53,24 @@ const SignUp: React.FC = () => {
         passwordConfirmError("");
       }
 
-      console.log("success");
-    } catch (error) {}
+      if (name && email_address && password && password2) {
+        let newUser = { name, email_address, password };
+
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const body = JSON.stringify(newUser);
+
+        const res = await axios.post("/user/newuser", body, config);
+
+        console.log(":D");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>

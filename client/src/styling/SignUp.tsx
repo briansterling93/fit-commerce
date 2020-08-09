@@ -67,14 +67,14 @@ export const UIinput = styled.div`
 `;
 
 export const UIinputPadding = styled.div`
-  padding: 0.3rem;
+  padding: 0.5rem;
 `;
 
 export const UiBtn = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 0.2rem;
+  padding-top: 0.3rem;
   button {
     background-color: black;
     color: white;
