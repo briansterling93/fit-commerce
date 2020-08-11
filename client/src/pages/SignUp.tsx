@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
         passwordConfirmError("");
       }
 
-      if (name && email_address && password && password2) {
+      if (name && email_address && password === password2) {
         let newUser = { name, email_address, password };
 
         const config = {
