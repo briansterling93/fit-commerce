@@ -8,6 +8,9 @@ const Item = db.define("items", {
   price: {
     type: Sequelize.STRING,
   },
+  path: {
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = Item;
