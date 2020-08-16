@@ -7,6 +7,7 @@ import {
   PreviewItem,
 } from "../styling/Admin";
 import AdminFlair from "../components/AdminFlair";
+import axios from "axios";
 
 const Admin: React.FC = () => {
   const [name, setName] = useState<string>("");

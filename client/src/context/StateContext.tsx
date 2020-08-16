@@ -14,7 +14,7 @@ export const initialState = {
   password: "",
   item: "",
   price: "",
-  stock: "",
+  path: "",
 };
 
 export enum APP_ACTIONS {
@@ -23,6 +23,7 @@ export enum APP_ACTIONS {
   UPDATE_PASSWORD = "UPDATE_PASSWORD",
   UPDATE_ITEM = "UPDATE_ITEM",
   UPDATE_PRICE = "UPDATE_PRICE",
+  UPDATE_PATH = "UPD",
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
@@ -42,6 +43,9 @@ export const appActions: AppAction = {
   },
   [APP_ACTIONS.UPDATE_PRICE]: (state: IState, actions: any) => {
     return { ...state, price: actions.payload };
+  },
+  [APP_ACTIONS.UPDATE_PATH]: (state: IState, actions: any) => {
+    return { ...state, path: actions.payload };
   },
 };
 
