@@ -1,18 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   MainSection,
   AdminBox,
   AddItem,
   InputSpacer,
   PreviewItem,
+  ErrorMsg,
 } from "../styling/Admin";
+import {
+  StateContext,
+  initialState,
+  APP_ACTIONS,
+} from "../context/StateContext";
 import AdminFlair from "../components/AdminFlair";
 import axios from "axios";
 
 const Admin: React.FC = () => {
-  const [name, setName] = useState<string>("");
-  const [price, setPrice] = useState<number>();
-  const [img, setImg] = useState<string>("");
+  const [itemError, setItemError] = useState<string>("");
+  const [priceError, setPriceError] = useState<string>("");
+  const [pathError, setPathError] = useState<string>("");
+  const { state, dispatch } = useContext<any>(StateContext);
+  const { item, price, path } = state;
+
+  const handlePreview: any = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!state.item) {
+      setItemError("Item name is required");
+    } else {
+      setItemError("");
+    }
+    if (!state.price) {
+      setPriceError("Please enter a price for the item");
+    } else {
+      setPriceError("");
+    }
+    if (!state.path) {
+      setPathError("Valid src/path url is required for the image");
+    } else {
+      setPathError("");
+    }
+  };
 
   return (
     <div>
@@ -22,30 +50,50 @@ const Admin: React.FC = () => {
           <h1>Add a new item below</h1>
           <AddItem>
             <InputSpacer>
-              <input type="text" placeholder="Enter the name of the item" />
-            </InputSpacer>
-            <InputSpacer>
-              <input type="text" placeholder="Price of item (0.00)" />
+              <input
+                type="text"
+                placeholder="Enter the name of the item"
+                onChange={(e) =>
+                  dispatch({
+                    type: APP_ACTIONS.UPDATE_ITEM,
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <ErrorMsg>{itemError}</ErrorMsg>
             </InputSpacer>
             <InputSpacer>
               <input
                 type="text"
-                placeholder="Enter the image src link here"
-                onChange={(e) => setImg(e.target.value)}
+                placeholder="Price of item (0.00)"
+                onChange={(e) =>
+                  dispatch({
+                    type: APP_ACTIONS.UPDATE_PRICE,
+                    payload: e.target.value,
+                  })
+                }
               />
+              <ErrorMsg>{priceError}</ErrorMsg>
             </InputSpacer>
             <InputSpacer>
-              <button>Preview Item</button>
+              <input
+                type="text"
+                placeholder="Enter the image src url"
+                onChange={(e) =>
+                  dispatch({
+                    type: APP_ACTIONS.UPDATE_PATH,
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <ErrorMsg>{pathError}</ErrorMsg>
+            </InputSpacer>
+            <InputSpacer>
+              <button onClick={handlePreview}>Add Item</button>
             </InputSpacer>
           </AddItem>
           <h1>Preview Item Below</h1>
-          <PreviewItem>
-            <div>
-              <img src={img} />
-            </div>
-            <div>Item name:</div>
-            <div>Item price:</div>
-          </PreviewItem>
+          <PreviewItem></PreviewItem>
         </AdminBox>
       </MainSection>
     </div>

@@ -53,3 +53,10 @@ export const PreviewItem = styled.div`
     max-width: 10rem;
   }
 `;
+
+export const ErrorMsg = styled.div`
+  height: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: red;
+`;
