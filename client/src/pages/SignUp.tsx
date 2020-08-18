@@ -65,8 +65,6 @@ const SignUp: React.FC = () => {
         const body = JSON.stringify(newUser);
 
         const res = await axios.post("/user/newuser", body, config);
-
-        console.log(":D");
       }
     } catch (error) {
       console.log(error);

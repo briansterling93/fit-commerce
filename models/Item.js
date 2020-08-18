@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const db = require("../config/database.js");
 
 const Item = db.define("items", {
-  name: {
+  item: {
     type: Sequelize.STRING,
   },
   price: {

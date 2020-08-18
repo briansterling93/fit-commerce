@@ -25,20 +25,39 @@ const Admin: React.FC = () => {
   const handlePreview: any = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!state.item) {
-      setItemError("Item name is required");
-    } else {
-      setItemError("");
-    }
-    if (!state.price) {
-      setPriceError("Please enter a price for the item");
-    } else {
-      setPriceError("");
-    }
-    if (!state.path) {
-      setPathError("Valid src/path url is required for the image");
-    } else {
-      setPathError("");
+    try {
+      if (!state.item) {
+        setItemError("Item name is required");
+      } else {
+        setItemError("");
+      }
+      if (!state.price) {
+        setPriceError("Please enter a price for the item");
+      } else {
+        setPriceError("");
+      }
+      if (!state.path) {
+        setPathError("Valid src/path url is required for the image");
+      } else {
+        setPathError("");
+      }
+      if (item && price && path) {
+        let newItem = { item, price, path };
+
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const body = JSON.stringify(newItem);
+
+        const res = await axios.post("/admin", body, config);
+
+        console.log(res);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

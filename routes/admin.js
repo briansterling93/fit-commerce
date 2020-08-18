@@ -2,7 +2,6 @@ const express = require("express");
 const router = new express.Router();
 const { check, validationResult } = require("express-validator");
 const Item = require("../models/Item");
-const User = require("../models/User");
 
 //GET route
 //Populate all items (admin route)
@@ -21,7 +20,7 @@ router.get("/", async (req, res) => {
 router.post(
   "/",
   [
-    check("name", "item name is required").not().isEmpty(),
+    check("item", "item name is required").not().isEmpty(),
     check("price", "item's price is required").not().isEmpty(),
     check("path", "item's link/path is required").not().isEmpty(),
   ],
@@ -32,11 +31,11 @@ router.post(
       if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() });
       } else {
-        let { name, price, path } = req.body;
+        let { item, price, path } = req.body;
 
         await Item.create({
           //create new item
-          name: name,
+          item: item,
           price: price,
           path: path,
         });
