@@ -16,7 +16,6 @@ export const MainSection = styled.div`
 export const AuthBoxBorder = styled.div`
   display: flex;
   justify-content: center;
-  background-color: white;
   margin-top: 10rem;
   background-color: transparent;
 `;

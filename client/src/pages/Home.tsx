@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { MainSection } from "../styling/Home";
+import { MainSection, SecondarySection, ItemBox } from "../styling/Home";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
 import {
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     populateItems();
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
-  const [items, updateItems] = useState<[]>();
+  const [itemList, updateItems] = useState<[]>();
 
   const populateItems = async () => {
     try {
@@ -26,9 +26,14 @@ const Home: React.FC = () => {
 
       const res = await axios.get("/admin");
 
-      const res2 = res.data.findAll;
+      const res2 = res.data.findAll.map((e: any) => (
+        <ul>
+          <li key={e.id}></li>
+          {e.item} | {e.price} <img src={e.path} />
+        </ul>
+      ));
 
-      console.log(res2);
+      updateItems(res2);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +44,10 @@ const Home: React.FC = () => {
       <Flair />
       <MainSection>
         <Navbar />
-        Hello Home
+        <SecondarySection>
+          <h1>New Arrivals</h1>
+          <ItemBox>{itemList}</ItemBox>
+        </SecondarySection>
       </MainSection>
     </div>
   );
