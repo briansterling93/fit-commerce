@@ -23,7 +23,7 @@ export enum APP_ACTIONS {
   UPDATE_PASSWORD = "UPDATE_PASSWORD",
   UPDATE_ITEM = "UPDATE_ITEM",
   UPDATE_PRICE = "UPDATE_PRICE",
-  UPDATE_PATH = "UPD",
+  UPDATE_PATH = "UPDATE_PATH",
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
