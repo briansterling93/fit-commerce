@@ -9,7 +9,7 @@ export const MainSection = styled.div`
       rgba(51, 51, 51, 0.8),
       rgba(64, 64, 64, 0.8)
     ),
-    url("https://images.unsplash.com/photo-1540496905036-5937c10647cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    // url("https://images.unsplash.com/photo-1540496905036-5937c10647cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   overflow: scroll;
 `;
@@ -24,7 +24,8 @@ export const SecondarySection = styled.div`
 
   h1 {
     font-size: 1.5rem;
-    color: white;
+    // color: white;
+    color: black;
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 0.2rem;
@@ -40,8 +41,8 @@ export const ItemArray = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  height: 15rem;
-  width: 70rem;
+  height: 12rem;
+  width: 75rem;
   // background-color: #999;
 `;
 
@@ -51,14 +52,34 @@ export const ItemBox = styled.div`
   // padding-top: 1rem;
   padding: 1.4rem;
   border-radius: 0.3rem;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
 
   img {
-    height: 8rem;
-    width: 10rem;
+    height: 10rem;
+    width: 12rem;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 1px solid #999;
+    height: 1.7rem;
+    width: 6rem;
+    border-radius: 1rem;
+    outline: none;
+
+    :hover {
+      background-color: green;
+    }
   }
 `;
 
 export const ItemText = styled.div`
-  padding-top: 1rem;
-  text-align: center;
+  font-size: 1.1rem;
+  color: black;
+  font-weight: 200;
+  padding-top: 0.5rem;
 `;

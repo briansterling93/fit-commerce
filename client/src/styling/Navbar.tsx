@@ -21,7 +21,7 @@ export const TextDiv = styled.div`
   a {
     padding: 2rem;
     text-decoration: none;
-    color: white;
+    color: black;
     font-weight: 400;
     font-size: 0.9rem;
     :hover {

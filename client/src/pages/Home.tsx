@@ -39,8 +39,9 @@ const Home: React.FC = () => {
               <div>
                 <img src={e.path} />
               </div>
+
+              <div>{e.item}</div>
               <ItemText>
-                <div>{e.item}</div>
                 <div>{e.price}</div>
                 <div>
                   <div>
