@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { MainSection, SecondarySection, ItemBox } from "../styling/Home";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
 import {
@@ -8,6 +7,13 @@ import {
   APP_ACTIONS,
 } from "../context/StateContext";
 import axios from "axios";
+import {
+  MainSection,
+  SecondarySection,
+  ItemArray,
+  ItemBox,
+  ItemText,
+} from "../styling/Home";
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -28,8 +34,22 @@ const Home: React.FC = () => {
 
       const res2 = res.data.findAll.map((e: any) => (
         <ul>
-          <li key={e.id}></li>
-          {e.item} | {e.price} <img src={e.path} />
+          <li key={e.id}>
+            <ItemBox>
+              <div>
+                <img src={e.path} />
+              </div>
+              <ItemText>
+                <div>{e.item}</div>
+                <div>{e.price}</div>
+                <div>
+                  <div>
+                    <button>Add to Cart</button>
+                  </div>
+                </div>
+              </ItemText>
+            </ItemBox>
+          </li>
         </ul>
       ));
 
@@ -46,7 +66,7 @@ const Home: React.FC = () => {
         <Navbar />
         <SecondarySection>
           <h1>New Arrivals</h1>
-          <ItemBox>{itemList}</ItemBox>
+          <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
       </MainSection>
     </div>
