@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import Cart from "../pages/Cart";
 
 export interface IState {
   email_address: string;
@@ -6,6 +7,8 @@ export interface IState {
   item: string;
   price: string;
   stock: string;
+  cart: string[];
+  purchase_history: string[];
 }
 
 export const initialState = {
@@ -15,6 +18,7 @@ export const initialState = {
   item: "",
   price: "",
   path: "",
+  cart: [],
 };
 
 export enum APP_ACTIONS {
@@ -24,6 +28,7 @@ export enum APP_ACTIONS {
   UPDATE_ITEM = "UPDATE_ITEM",
   UPDATE_PRICE = "UPDATE_PRICE",
   UPDATE_PATH = "UPDATE_PATH",
+  UPDATE_CART = "UPDATE_CART",
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
@@ -47,6 +52,12 @@ export const appActions: AppAction = {
   [APP_ACTIONS.UPDATE_PATH]: (state: IState, actions: any) => {
     return { ...state, path: actions.payload };
   },
+  [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
+    return { ...state, cart: [actions.payload] };
+  },
+  // [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
+  //   return { ...state, cart: [...actions.payload, cart.push(actions.payload)] };
+  // },
 };
 
 export const reducer = (state: IState, action: any) => {

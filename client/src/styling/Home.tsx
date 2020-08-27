@@ -68,7 +68,7 @@ export const ItemBox = styled.div`
     border: 1px solid #999;
     height: 1.7rem;
     width: 6rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     outline: none;
 
     :hover {

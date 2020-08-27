@@ -14,6 +14,7 @@ import {
   ItemBox,
   ItemText,
 } from "../styling/Home";
+import Cart from "./Cart";
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -32,20 +33,29 @@ const Home: React.FC = () => {
 
       const res = await axios.get("/admin");
 
-      const res2 = res.data.findAll.map((e: any) => (
+      const res2 = res.data.findAll.map((i: any) => (
         <ul>
-          <li key={e.id}>
+          <li key={i.id}>
             <ItemBox>
               <div>
-                <img src={e.path} />
+                <img src={i.path} />
               </div>
 
-              <div>{e.item}</div>
+              <div>{i.item}</div>
               <ItemText>
-                <div>{e.price}</div>
+                <div>{i.price}</div>
                 <div>
                   <div>
-                    <button>Add to Cart</button>
+                    <button
+                      onClick={(e) =>
+                        dispatch({
+                          type: APP_ACTIONS.UPDATE_CART,
+                          payload: i.id,
+                        })
+                      }
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </ItemText>
@@ -65,6 +75,8 @@ const Home: React.FC = () => {
       <Flair />
       <MainSection>
         <Navbar />
+        {state.cart}
+        {state.item}
         <SecondarySection>
           <h1>New Arrivals</h1>
           <ItemArray>{itemList}</ItemArray>
