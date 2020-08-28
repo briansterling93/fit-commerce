@@ -24,7 +24,6 @@ export const SecondarySection = styled.div`
 
   h1 {
     font-size: 1.5rem;
-    // color: white;
     color: black;
     text-transform: uppercase;
     font-weight: 300;

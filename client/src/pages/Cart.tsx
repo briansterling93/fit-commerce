@@ -1,7 +1,14 @@
 import React from "react";
-import { MainSection } from "../styling/Cart";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
+import {
+  MainSection,
+  SecondarySection,
+  CartBox,
+  TotalBox,
+  BoxDiv,
+  BoxSpacer,
+} from "../styling/Cart";
 
 const Cart: React.FC = () => {
   return (
@@ -9,6 +16,23 @@ const Cart: React.FC = () => {
       <Flair />
       <MainSection>
         <Navbar />
+        <SecondarySection>
+          <h1>Shopping Cart</h1>
+          <BoxDiv>
+            <BoxSpacer>
+              {" "}
+              <CartBox>
+                <h1>Current Items</h1>
+              </CartBox>
+            </BoxSpacer>
+            <BoxSpacer>
+              {" "}
+              <TotalBox>
+                <h1>Total</h1>
+              </TotalBox>
+            </BoxSpacer>
+          </BoxDiv>
+        </SecondarySection>
       </MainSection>
     </div>
   );
