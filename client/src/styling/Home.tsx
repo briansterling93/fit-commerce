@@ -49,7 +49,6 @@ export const ItemArray = styled.div`
 export const ItemBox = styled.div`
   align-items: center;
   background-color: white;
-  // padding-top: 1rem;
   padding: 1.4rem;
   border-radius: 0.3rem;
   text-align: center;
@@ -67,19 +66,20 @@ export const ItemBox = styled.div`
     color: white;
     border: 1px solid #999;
     height: 1.7rem;
-    width: 6rem;
+    width: 10rem;
     border-radius: 0.5rem;
     outline: none;
+    font-weight: 500;
 
     :hover {
-      background-color: green;
+      background-color: #00521e;
     }
   }
 `;
 
 export const ItemText = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: black;
-  font-weight: 200;
-  padding-top: 0.5rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
 `;

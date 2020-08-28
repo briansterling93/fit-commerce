@@ -43,7 +43,7 @@ const Home: React.FC = () => {
 
               <div>{i.item}</div>
               <ItemText>
-                <div>{i.price}</div>
+                <div>${i.price}</div>
                 <div>
                   <div>
                     <button
