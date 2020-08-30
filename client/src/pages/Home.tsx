@@ -23,7 +23,7 @@ const Home: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();
 
-  const populateItems = async () => {
+  const populateItems: any = async () => {
     try {
       const config = {
         headers: {

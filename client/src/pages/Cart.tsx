@@ -19,7 +19,36 @@ const Cart: React.FC = () => {
     populateCart();
   }, []);
 
-  const populateCart = () => {};
+  const populateCart = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const res = await axios.get("/cart");
+
+      const res2 = res.data.findAll.map((i: any) => (
+        <ul key={i.id}>
+          <li>
+            <div>
+              {" "}
+              <div>
+                <img src={i.path} />
+              </div>
+              <div>{i.item}</div>
+              <div>{i.price}</div>
+            </div>
+          </li>
+        </ul>
+      ));
+
+      updateCart(res2);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <Flair />
@@ -33,7 +62,6 @@ const Cart: React.FC = () => {
               <CartBox>
                 <h1>Current Items</h1>
                 {cartItems}
-                {state.cart}
               </CartBox>
             </BoxSpacer>
             <BoxSpacer>
