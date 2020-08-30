@@ -50,7 +50,7 @@ const Home: React.FC = () => {
                       onClick={(e) =>
                         dispatch({
                           type: APP_ACTIONS.UPDATE_CART,
-                          payload: i.id,
+                          payload: [i.item, i.price],
                         })
                       }
                     >
@@ -75,7 +75,6 @@ const Home: React.FC = () => {
       <Flair />
       <MainSection>
         <Navbar />
-        {state.cart}
         {state.item}
         <SecondarySection>
           <h1>New Arrivals</h1>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
+import axios from "axios";
+import { StateContext, initialState } from "../context/StateContext";
 import {
   MainSection,
   SecondarySection,
@@ -11,6 +13,13 @@ import {
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
+  const { state, dispatch } = useContext<any>(StateContext);
+  const [cartItems, updateCart] = useState<any>();
+  useEffect(() => {
+    populateCart();
+  }, []);
+
+  const populateCart = () => {};
   return (
     <div>
       <Flair />
@@ -23,6 +32,8 @@ const Cart: React.FC = () => {
               {" "}
               <CartBox>
                 <h1>Current Items</h1>
+                {cartItems}
+                {state.cart}
               </CartBox>
             </BoxSpacer>
             <BoxSpacer>

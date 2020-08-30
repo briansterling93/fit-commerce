@@ -53,7 +53,7 @@ export const appActions: AppAction = {
     return { ...state, path: actions.payload };
   },
   [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
-    return { ...state, cart: [actions.payload] };
+    return { ...state, cart: [...state.cart, actions.payload] };
   },
   // [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
   //   return { ...state, cart: [...actions.payload, cart.push(actions.payload)] };
