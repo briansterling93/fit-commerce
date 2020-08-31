@@ -22,6 +22,7 @@ const Home: React.FC = () => {
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();
+  const [addedItem, updateAddedItem] = useState<any>();
 
   const populateItems: any = async () => {
     try {
@@ -47,12 +48,25 @@ const Home: React.FC = () => {
                 <div>
                   <div>
                     <button
-                      onClick={(e) =>
-                        dispatch({
-                          type: APP_ACTIONS.UPDATE_CART,
-                          payload: [i.item, i.price],
-                        })
-                      }
+                      onClick={async (e) => {
+                        let item = i.item;
+                        let price = i.price;
+                        let path = i.path;
+
+                        let newItem = { item, price, path };
+
+                        const config = {
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                        };
+
+                        const body = JSON.stringify(newItem);
+
+                        const res = await axios.post("/cart", body, config);
+
+                        console.log(res);
+                      }}
                     >
                       Add to Cart
                     </button>
@@ -70,12 +84,14 @@ const Home: React.FC = () => {
     }
   };
 
+  //test function to input items into
+
   return (
     <div>
       <Flair />
       <MainSection>
         <Navbar />
-        {state.item}
+        {addedItem}
         <SecondarySection>
           <h1>New Arrivals</h1>
           <ItemArray>{itemList}</ItemArray>
