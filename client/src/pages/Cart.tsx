@@ -10,6 +10,7 @@ import {
   TotalBox,
   BoxDiv,
   BoxSpacer,
+  CartItems,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -33,12 +34,13 @@ const Cart: React.FC = () => {
         <ul key={i.id}>
           <li>
             <div>
-              {" "}
-              <div>
-                <img src={i.path} />
-              </div>
-              <div>{i.item}</div>
-              <div>{i.price}</div>
+              <CartItems>
+                <div>
+                  <img src={i.path} />
+                </div>
+                <div>{i.item}</div>
+                <div>{i.price}</div>
+              </CartItems>
             </div>
           </li>
         </ul>
@@ -55,12 +57,11 @@ const Cart: React.FC = () => {
       <MainSection>
         <Navbar />
         <SecondarySection>
-          <h1>Shopping Cart</h1>
           <BoxDiv>
             <BoxSpacer>
               {" "}
               <CartBox>
-                <h1>Current Items</h1>
+                <h1>Current Item(s)</h1>
                 {cartItems}
               </CartBox>
             </BoxSpacer>

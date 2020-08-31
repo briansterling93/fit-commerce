@@ -19,13 +19,17 @@ export const SecondarySection = styled.div`
   margin-top: 1rem;
   background-color: transparent;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+
+  li {
+    list-style-type: none;
+  }
 
   h1 {
     font-size: 1.2rem;
     color: black;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     font-weight: 300;
     letter-spacing: 0.2rem;
   }
@@ -34,7 +38,7 @@ export const SecondarySection = styled.div`
 export const BoxDiv = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 0.5rem;
+  justify-content: center;
 `;
 
 export const BoxSpacer = styled.div`
@@ -46,12 +50,13 @@ export const CartBox = styled.div`
   width: 27rem;
   border-radius: 0.2rem;
   // background-color: black;
-  border: 0.2px solid #626262;
+  // border: 0.2px solid #626262;
 
   h1 {
     text-align: center;
-    font-size: 0.9rem;
-    font-weight: bold;
+    // font-size: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 350;
   }
 `;
 
@@ -60,11 +65,23 @@ export const TotalBox = styled.div`
   width: 27rem;
   border-radius: 0.2rem;
   // background-color: white;
-  border: 0.2px solid #626262;
+  // border: 0.2px solid #626262;
 
   h1 {
     text-align: center;
-    font-size: 0.9rem;
-    font-weight: bold;
+    // font-size: 0.9rem;
+    // font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 350;
   }
+`;
+
+export const CartItems = styled.div`
+  // background-color: white;
+  img {
+    height: 3rem;
+    width: 3rem;
+  }
+  display: flex;
+  flex-direction: row;
 `;
