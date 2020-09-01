@@ -11,6 +11,8 @@ import {
   BoxDiv,
   BoxSpacer,
   CartItems,
+  CartItem,
+  CartPrice,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -38,8 +40,9 @@ const Cart: React.FC = () => {
                 <div>
                   <img src={i.path} />
                 </div>
-                <div>{i.item}</div>
-                <div>{i.price}</div>
+                <CartItem>{i.item}</CartItem>
+
+                <CartPrice>{i.price}</CartPrice>
               </CartItems>
             </div>
           </li>

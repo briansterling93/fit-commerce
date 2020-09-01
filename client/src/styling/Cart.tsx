@@ -11,20 +11,19 @@ export const MainSection = styled.div`
     ),
     // url("https://images.unsplash.com/photo-1540496905036-5937c10647cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
+  overflow: scroll;
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
   background-color: transparent;
   flex-direction: column;
-  align-items: left;
-
+  align-items: center;
   li {
     list-style-type: none;
   }
-
   h1 {
     font-size: 1.2rem;
     color: black;
@@ -36,6 +35,10 @@ export const SecondarySection = styled.div`
 `;
 
 export const BoxDiv = styled.div`
+  background-color: #f0eeee;
+  border: 1px solid #dfdfdf;
+  min-height: 80vh;
+  width: 60rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -46,12 +49,8 @@ export const BoxSpacer = styled.div`
 `;
 
 export const CartBox = styled.div`
-  height: 25rem;
   width: 27rem;
   border-radius: 0.2rem;
-  // background-color: black;
-  // border: 0.2px solid #626262;
-
   h1 {
     text-align: center;
     // font-size: 0.9rem;
@@ -61,12 +60,9 @@ export const CartBox = styled.div`
 `;
 
 export const TotalBox = styled.div`
-  height: 25rem;
-  width: 27rem;
+  height: 10rem;
+  width: 17rem;
   border-radius: 0.2rem;
-  // background-color: white;
-  // border: 0.2px solid #626262;
-
   h1 {
     text-align: center;
     // font-size: 0.9rem;
@@ -77,11 +73,24 @@ export const TotalBox = styled.div`
 `;
 
 export const CartItems = styled.div`
-  // background-color: white;
+  border: 3px solid #fdfdfd;
+  width: 30rem;
+  align-items: center;
   img {
-    height: 3rem;
-    width: 3rem;
+    height: 5rem;
+    width: 5rem;
+    padding-right: 1rem;
   }
   display: flex;
   flex-direction: row;
+`;
+
+export const CartItem = styled.div`
+  font-size: 1.2rem;
+  padding: 0.5rem;
+`;
+
+export const CartPrice = styled.div`
+  font-size: 1.2rem;
+  padding: 0.5rem;
 `;
