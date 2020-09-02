@@ -35,7 +35,8 @@ export const SecondarySection = styled.div`
 `;
 
 export const BoxDiv = styled.div`
-  background-color: #f0eeee;
+  // background-color: #f0eeee;
+  background-color: white;
   border: 1px solid #dfdfdf;
   min-height: 80vh;
   width: 60rem;
@@ -73,12 +74,12 @@ export const TotalBox = styled.div`
 `;
 
 export const CartItems = styled.div`
-  border: 3px solid #fdfdfd;
-  width: 30rem;
+  border-bottom: 3px solid #f0eeee;
+  width: 25rem;
   align-items: center;
   img {
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     padding-right: 1rem;
   }
   display: flex;
@@ -86,7 +87,7 @@ export const CartItems = styled.div`
 `;
 
 export const CartItem = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.5rem;
 `;
 

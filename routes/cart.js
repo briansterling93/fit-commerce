@@ -49,4 +49,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+//GET
+//GET all cart items total cost
+router.get("/total", async (req, res) => {
+  try {
+    const findAll = await Cart.findAll({
+      attributes: ["price"],
+    });
+
+    res.json({ findAll });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
