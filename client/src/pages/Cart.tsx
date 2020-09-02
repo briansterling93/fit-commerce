@@ -56,7 +56,9 @@ const Cart: React.FC = () => {
 
       const res4 = res3.data.findAll.map((p: any) => p.price);
 
-      console.log(res4);
+      const res5 = res4.map((p: any) => Number(p)).join(" + ");
+
+      console.log(eval(res5));
     } catch (error) {
       console.log(error);
     }
