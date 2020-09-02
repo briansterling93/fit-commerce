@@ -18,6 +18,9 @@ import {
 const Cart: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [cartItems, updateCart] = useState<any>();
+  const [cartTotal, updateTotal] = useState<any>();
+  const [shippingCost, updateShippingCost] = useState<any>();
+  const [shippingTotal, updateShippingTotal] = useState<any>();
   useEffect(() => {
     populateCart();
   }, []);
@@ -52,13 +55,30 @@ const Cart: React.FC = () => {
       updateCart(res2);
 
       //get cart total
+
       const res3 = await axios.get("/cart/total");
 
       const res4 = res3.data.findAll.map((p: any) => p.price);
 
       const res5 = res4.map((p: any) => Number(p)).join(" + ");
 
-      console.log(eval(res5));
+      let total: number = eval(res5);
+
+      if (total < 30) {
+        updateShippingCost(12);
+        updateShippingTotal("Shipping Cost: $12.00");
+      } else {
+        updateShippingCost(0);
+        updateShippingTotal("Shipping Cost: $0.00");
+      }
+
+      if (total === undefined) {
+        updateTotal("Subtotal: $0.00");
+      } else {
+        updateTotal(`Subtotal: $${total + shippingCost}.00`); //add both shipping cost & total (when needed)
+      }
+
+      console.log(total + 15);
     } catch (error) {
       console.log(error);
     }
@@ -81,6 +101,9 @@ const Cart: React.FC = () => {
               {" "}
               <TotalBox>
                 <h1>Total</h1>
+                <p>{shippingTotal}</p>
+                {/* <br /> */}
+                <p>{cartTotal}</p>
               </TotalBox>
             </BoxSpacer>
           </BoxDiv>
