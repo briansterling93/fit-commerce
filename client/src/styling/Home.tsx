@@ -70,6 +70,7 @@ export const ItemBox = styled.div`
     border-radius: 0.5rem;
     outline: none;
     font-weight: 500;
+    font-family: Montserrat, sans-serif;
 
     :hover {
       background-color: #00521e;

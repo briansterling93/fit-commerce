@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { StateContext, initialState } from "../context/StateContext";
 import {
@@ -13,6 +14,9 @@ import {
   CartItems,
   CartItem,
   CartPrice,
+  TotalBoxBtns,
+  BtnPadding,
+  CartRemoveBtn,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -46,6 +50,13 @@ const Cart: React.FC = () => {
                 <CartItem>{i.item}</CartItem>
 
                 <CartPrice>{i.price}</CartPrice>
+                <CartRemoveBtn>
+                  <i
+                    title="Remove Item"
+                    className="fa fa-trash-o"
+                    aria-hidden="true"
+                  ></i>
+                </CartRemoveBtn>
               </CartItems>
             </div>
           </li>
@@ -75,7 +86,7 @@ const Cart: React.FC = () => {
       if (total === undefined) {
         updateTotal("Subtotal: $0.00");
       } else {
-        updateTotal(`Subtotal: $${total + shippingCost}.00`); //add both shipping cost & total (when needed)
+        updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)
       }
 
       console.log(total + 15);
@@ -104,6 +115,18 @@ const Cart: React.FC = () => {
                 <p>{shippingTotal}</p>
                 {/* <br /> */}
                 <p>{cartTotal}</p>
+                <TotalBoxBtns>
+                  <BtnPadding>
+                    {" "}
+                    <NavLink to="/">
+                      <button>Continue Shopping</button>
+                    </NavLink>
+                  </BtnPadding>
+                  <BtnPadding>
+                    {" "}
+                    <button>Checkout</button>
+                  </BtnPadding>
+                </TotalBoxBtns>
               </TotalBox>
             </BoxSpacer>
           </BoxDiv>

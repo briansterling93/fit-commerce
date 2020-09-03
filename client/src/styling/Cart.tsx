@@ -12,6 +12,7 @@ export const MainSection = styled.div`
     // url("https://images.unsplash.com/photo-1540496905036-5937c10647cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   overflow: scroll;
+  font-family: Montserrat, sans-serif;
 `;
 
 export const SecondarySection = styled.div`
@@ -29,14 +30,13 @@ export const SecondarySection = styled.div`
     color: black;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 550;
+    font-weight: 750;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
 `;
 
 export const BoxDiv = styled.div`
-  // background-color: #f0eeee;
   background-color: white;
   border: 1px solid #dfdfdf;
   min-height: 80vh;
@@ -65,12 +65,12 @@ export const TotalBox = styled.div`
 `;
 
 export const CartItems = styled.div`
-  border-bottom: 3px solid #f0eeee;
+  border-bottom: 2px solid #e5e0e0;
   width: 25rem;
   align-items: center;
   img {
-    height: 4rem;
-    width: 4rem;
+    height: 6rem;
+    width: 6rem;
     padding-right: 1rem;
   }
   display: flex;
@@ -79,12 +79,39 @@ export const CartItems = styled.div`
 
 export const CartItem = styled.div`
   width: 9rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   padding: 0.5rem;
 `;
 
 export const CartPrice = styled.div`
   width: 2rem;
   font-size: 1rem;
+  padding: 0.5rem;
+`;
+
+export const CartRemoveBtn = styled.div`
+  padding-left: 2.5rem;
+  cursor: pointer;
+  color: red;
+`;
+
+export const TotalBoxBtns = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid black;
+    height: 2rem;
+    width: 10rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+  }
+`;
+
+export const BtnPadding = styled.div`
   padding: 0.5rem;
 `;
