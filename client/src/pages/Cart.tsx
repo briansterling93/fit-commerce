@@ -50,7 +50,9 @@ const Cart: React.FC = () => {
                 <CartItem>{i.item}</CartItem>
 
                 <CartPrice>{i.price}</CartPrice>
+
                 <CartRemoveBtn>
+                  {/* //function to remove selected items */}
                   <i
                     onClick={async (e: any) => {
                       try {
@@ -71,6 +73,8 @@ const Cart: React.FC = () => {
                           body,
                           config
                         );
+
+                        await window.location.reload();
                       } catch (error) {
                         console.log(error);
                       }

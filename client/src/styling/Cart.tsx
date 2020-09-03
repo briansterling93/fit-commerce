@@ -26,7 +26,7 @@ export const SecondarySection = styled.div`
     list-style-type: none;
   }
   h1 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: black;
     text-transform: uppercase;
     text-align: center;
