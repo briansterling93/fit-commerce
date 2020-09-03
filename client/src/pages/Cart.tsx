@@ -52,6 +52,29 @@ const Cart: React.FC = () => {
                 <CartPrice>{i.price}</CartPrice>
                 <CartRemoveBtn>
                   <i
+                    onClick={async (e: any) => {
+                      try {
+                        let item_name = await i.item;
+
+                        let newItem = { item_name };
+
+                        const config = {
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                        };
+
+                        const body = JSON.stringify(newItem);
+
+                        const res = await axios.post(
+                          "/cart/remove",
+                          body,
+                          config
+                        );
+                      } catch (error) {
+                        console.log(error);
+                      }
+                    }}
                     title="Remove Item"
                     className="fa fa-trash-o"
                     aria-hidden="true"
@@ -88,8 +111,6 @@ const Cart: React.FC = () => {
       } else {
         updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)
       }
-
-      console.log(total + 15);
     } catch (error) {
       console.log(error);
     }
@@ -102,28 +123,24 @@ const Cart: React.FC = () => {
         <SecondarySection>
           <BoxDiv>
             <BoxSpacer>
-              {" "}
               <CartBox>
                 <h1>Current Item(s)</h1>
                 {cartItems}
               </CartBox>
             </BoxSpacer>
             <BoxSpacer>
-              {" "}
               <TotalBox>
                 <h1>Total</h1>
                 <p>{shippingTotal}</p>
-                {/* <br /> */}
+
                 <p>{cartTotal}</p>
                 <TotalBoxBtns>
                   <BtnPadding>
-                    {" "}
-                    <NavLink to="/">
+                    <NavLink to="/shop">
                       <button>Continue Shopping</button>
                     </NavLink>
                   </BtnPadding>
                   <BtnPadding>
-                    {" "}
                     <button>Checkout</button>
                   </BtnPadding>
                 </TotalBoxBtns>

@@ -3,7 +3,7 @@ const router = new express.Router();
 const { check, validationResult } = require("express-validator");
 const Cart = require("../models/Cart.js");
 
-//GET
+//POST
 //Post Item To Cart
 router.post(
   "/",
@@ -36,8 +36,36 @@ router.post(
   }
 );
 
+//POST
+//delete a specific item from cart
+router.post(
+  "/remove",
+  [check("item_name", "item name is required").not().isEmpty()],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.json({ errors: errors.array() });
+      } else {
+        let { item_name } = await req.body;
+
+        Cart.destroy({
+          where: {
+            item: item_name,
+          },
+        });
+      }
+
+      res.send("item removed");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 //GET
-//Get all cart items
+//Get all cart items in cart
 router.get("/", async (req, res) => {
   try {
     const findAll = await Cart.findAll();
@@ -50,7 +78,7 @@ router.get("/", async (req, res) => {
 });
 
 //GET
-//GET all cart items total cost
+//GET the total cost of all items in cart
 router.get("/total", async (req, res) => {
   try {
     const findAll = await Cart.findAll({

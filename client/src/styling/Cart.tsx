@@ -12,7 +12,7 @@ export const MainSection = styled.div`
     // url("https://images.unsplash.com/photo-1540496905036-5937c10647cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   overflow: scroll;
-  font-family: Montserrat, sans-serif;
+
 `;
 
 export const SecondarySection = styled.div`
@@ -30,7 +30,7 @@ export const SecondarySection = styled.div`
     color: black;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 750;
+    font-weight: 300;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
@@ -68,6 +68,7 @@ export const CartItems = styled.div`
   border-bottom: 2px solid #e5e0e0;
   width: 25rem;
   align-items: center;
+  font-family: Montserrat, sans-serif;
   img {
     height: 6rem;
     width: 6rem;
@@ -88,6 +89,7 @@ export const CartPrice = styled.div`
   width: 2rem;
   font-size: 1rem;
   padding: 0.5rem;
+  font-family: Montserrat, sans-serif;
 `;
 
 export const CartRemoveBtn = styled.div`
