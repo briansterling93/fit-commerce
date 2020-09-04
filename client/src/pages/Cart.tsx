@@ -17,6 +17,7 @@ import {
   TotalBoxBtns,
   BtnPadding,
   CartRemoveBtn,
+  CartQuantity,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -48,7 +49,7 @@ const Cart: React.FC = () => {
                   <img src={i.path} />
                 </div>
                 <CartItem>{i.item}</CartItem>
-
+                <CartQuantity>({i.quantity})</CartQuantity>
                 <CartPrice>{i.price}</CartPrice>
 
                 <CartRemoveBtn>

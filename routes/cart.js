@@ -11,6 +11,7 @@ router.post(
     check("item", "item name is required").not().isEmpty(),
     check("price", "item's price is required").not().isEmpty(),
     check("path", "item's link/path is required").not().isEmpty(),
+    check("quantity", "quantity is required").not().isEmpty(),
   ],
   async (req, res) => {
     try {
@@ -19,13 +20,14 @@ router.post(
       if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() });
       } else {
-        let { item, price, path } = req.body;
+        let { item, price, path, quantity } = req.body;
 
         await Cart.create({
           //create new item
           item: item,
           price: price,
           path: path,
+          quantity: quantity,
         });
 
         res.send(req.body);

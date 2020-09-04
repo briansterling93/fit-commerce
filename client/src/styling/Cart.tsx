@@ -92,6 +92,12 @@ export const CartPrice = styled.div`
   font-family: Montserrat, sans-serif;
 `;
 
+export const CartQuantity = styled.div`
+  width: 2rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+`;
+
 export const CartRemoveBtn = styled.div`
   padding-left: 2.5rem;
   cursor: pointer;

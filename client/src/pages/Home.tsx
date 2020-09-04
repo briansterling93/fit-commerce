@@ -47,13 +47,30 @@ const Home: React.FC = () => {
                 <div>${i.price}</div>
                 <div>
                   <div>
+                    {/* //post new item to cart function */}
                     <button
                       onClick={async (e) => {
+                        //function in progress to determine if item exists in cart already
+                        let cartQuery = await axios.get("/cart");
+
+                        let testFunc = cartQuery.data.findAll.map(
+                          (g: any) => g.item
+                        );
+
+                        let testFunc2 = testFunc.filter(
+                          (s: any) => s === "Treadmill"
+                        );
+
+                        console.log(testFunc2);
+
                         let item = i.item;
                         let price = i.price;
                         let path = i.path;
+                        let quantity = i.quantity;
 
-                        let newItem = { item, price, path };
+                        quantity = 1;
+
+                        let newItem = { item, price, path, quantity };
 
                         const config = {
                           headers: {
@@ -64,8 +81,6 @@ const Home: React.FC = () => {
                         const body = JSON.stringify(newItem);
 
                         const res = await axios.post("/cart", body, config);
-
-                        console.log(res);
                       }}
                     >
                       Add to Cart

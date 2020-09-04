@@ -11,6 +11,9 @@ const Cart = db.define("carts", {
   path: {
     type: Sequelize.STRING,
   },
+  quantity: {
+    type: Sequelize.NUMBER,
+  },
 });
 
 module.exports = Cart;
