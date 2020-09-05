@@ -50,7 +50,12 @@ const Home: React.FC = () => {
                     {/* //post new item to cart function */}
                     <button
                       onClick={async (e) => {
-                        //function in progress to determine if item exists in cart already
+                        let item = i.item;
+                        let price = i.price;
+                        let path = i.path;
+                        let quantity = i.quantity;
+
+                        //GET request to check if item is already in cart
                         let cartQuery = await axios.get("/cart");
 
                         let testFunc = cartQuery.data.findAll.map(
@@ -58,17 +63,12 @@ const Home: React.FC = () => {
                         );
 
                         let testFunc2 = testFunc.filter(
-                          (s: any) => s === "Treadmill"
+                          (s: any) => s === i.item
                         );
 
-                        console.log(testFunc2);
-
-                        let item = i.item;
-                        let price = i.price;
-                        let path = i.path;
-                        let quantity = i.quantity;
-
-                        quantity = 1;
+                        console.log(
+                          testFunc2.length > 0 ? quantity + 1 : (quantity = 1)
+                        );
 
                         let newItem = { item, price, path, quantity };
 
