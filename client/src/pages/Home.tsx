@@ -68,6 +68,14 @@ const Home: React.FC = () => {
 
                         quantity = cartQuery3.length + 1;
 
+                        // quantity > 1
+                        //   ? (newItem = { quantity })
+                        //   : (newItem = { item, price, path, quantity });
+
+                        // if (quantity > 1) {
+                        //   let newItem = { quantity };
+                        // } else let newItem = { item, price, path, quantity };
+
                         let newItem = { item, price, path, quantity };
 
                         const config = {
