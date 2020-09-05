@@ -58,17 +58,15 @@ const Home: React.FC = () => {
                         //GET request to check if item is already in cart
                         let cartQuery = await axios.get("/cart");
 
-                        let testFunc = cartQuery.data.findAll.map(
+                        let cartQuery2 = cartQuery.data.findAll.map(
                           (g: any) => g.item
                         );
 
-                        let testFunc2 = testFunc.filter(
+                        let cartQuery3 = cartQuery2.filter(
                           (s: any) => s === i.item
                         );
 
-                        console.log(
-                          testFunc2.length > 0 ? quantity + 1 : (quantity = 1)
-                        );
+                        quantity = cartQuery3.length + 1;
 
                         let newItem = { item, price, path, quantity };
 
