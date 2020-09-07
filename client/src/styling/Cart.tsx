@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const MainSection = styled.div`
-  background-color: #e5e0e0;
+  // background-color: #e5e0e0;
+  background-color: #f0eeee;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -30,7 +31,7 @@ export const SecondarySection = styled.div`
     color: black;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
@@ -117,9 +118,41 @@ export const TotalBoxBtns = styled.div`
     width: 10rem;
     font-family: Montserrat, sans-serif;
     font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    font-size: 0.8rem;
   }
 `;
 
 export const BtnPadding = styled.div`
   padding: 0.5rem;
+`;
+
+export const Btn1 = styled.div`
+  button {
+    font-family: arial;
+    letter-spacing: 0.1rem;
+    width: 12rem;
+
+    :hover {
+      opacity: 0.6;
+    }
+  }
+`;
+export const Btn2 = styled.div`
+  button {
+    background-color: black;
+    color: white;
+    font-family: arial;
+    letter-spacing: 0.1rem;
+    width: 12rem;
+    :hover {
+      opacity: 0.6;
+    }
+  }
+`;
+
+export const EmptyCart = styled.div`
+  text-align: center;
+  color: #950000;
 `;

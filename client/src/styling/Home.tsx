@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MainSection = styled.div`
-  background-color: #e5e0e0;
-  // background-color: #f0eeee;
+
+  background-color: #f0eeee;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -27,7 +27,7 @@ export const SecondarySection = styled.div`
     font-size: 1.5rem;
     color: black;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 0.2rem;
   }
 
@@ -55,9 +55,15 @@ export const ItemBox = styled.div`
   font-family: Montserrat, sans-serif;
   font-weight: 500;
 
+  :hover {
+    border: 1px solid black;
+    border-bottom: 6px solid black;
+  }
+
   img {
     height: 10rem;
     width: 12rem;
+    border-bottom: 1px solid #f0eeee;
   }
 
   button {
@@ -66,14 +72,14 @@ export const ItemBox = styled.div`
     color: white;
     border: 1px solid #999;
     height: 1.7rem;
-    width: 10rem;
-    border-radius: 0.5rem;
+    width: 8rem;
+    // border-radius: 0.5rem;
     outline: none;
-    font-weight: 500;
-    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    font-family: arial;
 
     :hover {
-      background-color: #00521e;
+      opacity: 0.6;
     }
   }
 `;
@@ -83,4 +89,15 @@ export const ItemText = styled.div`
   color: black;
   font-weight: bold;
   padding-top: 1.5rem;
+`;
+
+export const ItemTitle = styled.div`
+  padding-top: 0.3rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+`;
+export const ItemPrice = styled.div`
+  padding-bottom: 0.3rem;
+  font-weight: 400;
+  font-weight: bold;
 `;

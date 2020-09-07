@@ -18,6 +18,9 @@ import {
   BtnPadding,
   CartRemoveBtn,
   CartQuantity,
+  Btn1,
+  Btn2,
+  EmptyCart,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -113,6 +116,7 @@ const Cart: React.FC = () => {
 
       if (total === undefined) {
         updateTotal("Subtotal: $0.00");
+        updateCart(<EmptyCart>No items in cart yet</EmptyCart>);
       } else {
         updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)
       }
@@ -142,11 +146,15 @@ const Cart: React.FC = () => {
                 <TotalBoxBtns>
                   <BtnPadding>
                     <NavLink to="/shop">
-                      <button>Continue Shopping</button>
+                      <Btn1>
+                        <button>Sign in</button>
+                      </Btn1>
                     </NavLink>
                   </BtnPadding>
                   <BtnPadding>
-                    <button>Checkout</button>
+                    <Btn2>
+                      <button>Guest checkout</button>
+                    </Btn2>
                   </BtnPadding>
                 </TotalBoxBtns>
               </TotalBox>

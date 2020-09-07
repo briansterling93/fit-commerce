@@ -13,6 +13,8 @@ import {
   ItemArray,
   ItemBox,
   ItemText,
+  ItemTitle,
+  ItemPrice,
 } from "../styling/Home";
 import Cart from "./Cart";
 
@@ -42,9 +44,9 @@ const Home: React.FC = () => {
                 <img src={i.path} />
               </div>
 
-              <div>{i.item}</div>
+              <ItemTitle>{i.item}</ItemTitle>
               <ItemText>
-                <div>${i.price}</div>
+                <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
                     {/* //post new item to cart function */}
