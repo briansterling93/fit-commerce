@@ -8,9 +8,9 @@ const Cart = require("../models/Cart.js");
 router.post(
   "/",
   [
-    // check("item", "item name is required").not().isEmpty(),
-    // check("price", "item's price is required").not().isEmpty(),
-    // check("path", "item's link/path is required").not().isEmpty(),
+    check("item", "item name is required").not().isEmpty(),
+    check("price", "item's price is required").not().isEmpty(),
+    check("path", "item's link/path is required").not().isEmpty(),
     check("quantity", "quantity is required").not().isEmpty(),
   ],
   async (req, res) => {
@@ -31,6 +31,34 @@ router.post(
         });
 
         res.send(req.body);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+//POST
+//increment the quantity of an item within the cart
+router.post(
+  "/increment",
+  [check("item_name", "item name is required").not().isEmpty()],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.json({ errors: errors.array() });
+      } else {
+        let { item_name } = req.body;
+
+        const test = await Cart.findOne({
+          where: { item: item_name },
+        });
+
+        await test.increment("quantity", { by: 1 });
+
+        res.send("success");
       }
     } catch (error) {
       console.log(error);

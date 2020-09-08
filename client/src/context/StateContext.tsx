@@ -6,7 +6,6 @@ export interface IState {
   password: string;
   item: string;
   price: string;
-  stock: string;
   cart: string[];
   purchase_history: string[];
 }

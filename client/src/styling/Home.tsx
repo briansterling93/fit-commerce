@@ -71,12 +71,13 @@ export const ItemBox = styled.div`
     background-color: black;
     color: white;
     border: 1px solid #999;
-    height: 1.7rem;
+    height: 1.9rem;
     width: 8rem;
     // border-radius: 0.5rem;
     outline: none;
     font-weight: 600;
     font-family: arial;
+    text-transform: uppercase;
 
     :hover {
       opacity: 0.6;
