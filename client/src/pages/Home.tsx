@@ -64,17 +64,31 @@ const Home: React.FC = () => {
                           (g: any) => g.item
                         );
 
-                        // let cartQuery3 = cartQuery2.filter(
-                        //   (s: any) => s === i.item
-                        // );
-
                         let cartQuery3 = cartQuery2.filter(
                           (s: any) => s === i.item
                         );
 
-                        quantity = (await cartQuery3.length) + 1;
+                        if (cartQuery3.length >= 1) {
+                          let item_increment = await i.item;
 
-                        console.log(quantity);
+                          let item_name = { item_increment };
+
+                          const config = {
+                            headers: {
+                              "Content-Type": "application/json",
+                            },
+                          };
+
+                          const body = JSON.stringify(item_name);
+
+                          const res = await axios.post(
+                            "/cart/increment",
+                            body,
+                            config
+                          );
+
+                          console.log(res);
+                        } else quantity = (await cartQuery3.length) + 1;
 
                         let newItem = { item, price, path, quantity };
 
