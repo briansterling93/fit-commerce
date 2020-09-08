@@ -60,18 +60,18 @@ const Home: React.FC = () => {
                         //GET request to check if item is already in cart
                         let cartQuery = await axios.get("/cart");
 
-                        let cartQuery2 = cartQuery.data.findAll.map(
+                        let cartQuery2 = await cartQuery.data.findAll.map(
                           (g: any) => g.item
                         );
 
-                        let cartQuery3 = cartQuery2.filter(
+                        let cartQuery3 = await cartQuery2.filter(
                           (s: any) => s === i.item
                         );
 
                         if (cartQuery3.length >= 1) {
-                          let item_increment = await i.item;
+                          let item_name = await i.item;
 
-                          let item_name = { item_increment };
+                          let item_increment = { item_name };
 
                           const config = {
                             headers: {
@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                             },
                           };
 
-                          const body = JSON.stringify(item_name);
+                          const body = JSON.stringify(item_increment);
 
                           const res = await axios.post(
                             "/cart/increment",
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                             config
                           );
 
-                          console.log(res);
+                          return console.log(res);
                         } else quantity = (await cartQuery3.length) + 1;
 
                         let newItem = { item, price, path, quantity };
