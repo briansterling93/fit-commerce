@@ -96,11 +96,13 @@ const Cart: React.FC = () => {
 
       updateCart(res2);
 
-      //get cart total
+      //get cart total function below
 
       const res3 = await axios.get("/cart/total");
 
-      const res4 = res3.data.findAll.map((p: any) => p.price);
+      // const res4 = res3.data.findAll.map((p: any) => p.price);
+
+      const res4 = res3.data.findAll.map((p: any) => p.price && p.quantity);
 
       const res5 = res4.map((p: any) => Number(p)).join(" + ");
 

@@ -112,7 +112,7 @@ router.get("/", async (req, res) => {
 router.get("/total", async (req, res) => {
   try {
     const findAll = await Cart.findAll({
-      attributes: ["price"],
+      attributes: ["price", "quantity"],
     });
 
     res.json({ findAll });
