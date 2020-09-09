@@ -21,6 +21,7 @@ import {
   Btn1,
   Btn2,
   EmptyCart,
+  ContinueBtn,
 } from "../styling/Cart";
 
 const Cart: React.FC = () => {
@@ -52,9 +53,8 @@ const Cart: React.FC = () => {
                   <img src={i.path} />
                 </div>
                 <CartItem>{i.item}</CartItem>
-                <CartQuantity>({i.quantity})</CartQuantity>
+                <CartQuantity>({i.quantity})</CartQuantity>x
                 <CartPrice>{i.price}</CartPrice>
-
                 <CartRemoveBtn>
                   {/* //function to remove selected items */}
                   <i
@@ -100,15 +100,14 @@ const Cart: React.FC = () => {
 
       const res3 = await axios.get("/cart/total");
 
-      // const res4 = res3.data.findAll.map((p: any) => p.price);
-
-      const res4 = res3.data.findAll.map((p: any) => p.price && p.quantity);
+      const res4 = res3.data.findAll.map((p: any) => p.price * p.quantity);
 
       const res5 = res4.map((p: any) => Number(p)).join(" + ");
 
       let total: number = eval(res5);
 
       if (total < 30) {
+        total = total + 12;
         updateShippingCost(12);
         updateShippingTotal("Shipping Cost: $12.00");
       } else {
@@ -132,6 +131,11 @@ const Cart: React.FC = () => {
       <MainSection>
         <Navbar />
         <SecondarySection>
+          <ContinueBtn>
+            <NavLink to="/shop">
+              <button>Continue Shopping </button>
+            </NavLink>
+          </ContinueBtn>
           <BoxDiv>
             <BoxSpacer>
               <CartBox>
@@ -147,7 +151,7 @@ const Cart: React.FC = () => {
                 <p>{cartTotal}</p>
                 <TotalBoxBtns>
                   <BtnPadding>
-                    <NavLink to="/shop">
+                    <NavLink to="/signin">
                       <Btn1>
                         <button>Sign in</button>
                       </Btn1>

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
+import { NavLink } from "react-router-dom";
 import {
   StateContext,
   initialState,
@@ -86,8 +87,6 @@ const Home: React.FC = () => {
                             body,
                             config
                           );
-
-                          return console.log(res);
                         } else quantity = (await cartQuery3.length) + 1;
 
                         let newItem = { item, price, path, quantity };

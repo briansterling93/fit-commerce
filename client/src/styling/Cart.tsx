@@ -89,6 +89,7 @@ export const CartItem = styled.div`
 export const CartPrice = styled.div`
   width: 2rem;
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.5rem;
   font-family: Montserrat, sans-serif;
 `;
@@ -96,7 +97,6 @@ export const CartPrice = styled.div`
 export const CartQuantity = styled.div`
   width: 2rem;
   font-size: 1.1rem;
-  padding: 0.5rem;
 `;
 
 export const CartRemoveBtn = styled.div`
@@ -155,4 +155,17 @@ export const Btn2 = styled.div`
 export const EmptyCart = styled.div`
   text-align: center;
   color: #950000;
+`;
+
+export const ContinueBtn = styled.div`
+button {
+  background-color: black;
+  color: white;
+  font-family: arial;
+  letter-spacing: 0.1rem;
+  width: 13rem;
+  cursor: pointer;
+  :hover {
+    opacity: 0.6;
+  }
 `;
