@@ -139,7 +139,7 @@ const Cart: React.FC = () => {
           <BoxDiv>
             <BoxSpacer>
               <CartBox>
-                <h1>Current Item(s)</h1>
+                <h1>My Item(s)</h1>
                 {cartItems}
               </CartBox>
             </BoxSpacer>
