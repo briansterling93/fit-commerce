@@ -43,14 +43,21 @@ export const BoxDiv = styled.div`
 `;
 
 export const FilterBox = styled.div`
-  height: 30rem;
-  width: 14rem;
-  border: 1px solid black;
+  height: 22rem;
+  width: 16rem;
+  border: 1px solid #999;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
 
   h1 {
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-align: center;
+    color: black;
+    height: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    width: 17rem;
+    // padding-left: 1rem;
   }
 `;
 
@@ -59,5 +66,19 @@ export const CurrentProducts = styled.div`
   width: 80rem;
 `;
 
-export const FilterCategories = styled.div``;
-export const FilterPrice = styled.div``;
+export const FilterCategories = styled.div`
+  li {
+    list-style-type: bullet-point;
+
+    text-align: left;
+    padding: 0.2rem;
+  }
+`;
+export const FilterPrice = styled.div`
+  li {
+    list-style-type: bullet-point;
+    text-align: left;
+    padding: 0.1rem;
+  }
+  padding-top: 1rem;
+`;

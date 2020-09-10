@@ -22,10 +22,39 @@ const Shop: React.FC = () => {
           <BoxDiv>
             <FilterBox>
               <FilterCategories>
-                <h1>Filter by Categories</h1>
+                <h1>Filter Categories</h1>
+                <ul>
+                  <li>
+                    <input type="checkbox" /> Weights
+                  </li>
+                  <li>
+                    <input type="checkbox" /> Cardio & Running
+                  </li>
+                  <li>
+                    <input type="checkbox" /> Accessories
+                  </li>
+                  <li>
+                    <input type="checkbox" /> Crossfit
+                  </li>
+                </ul>
               </FilterCategories>
+
               <FilterPrice>
                 <h1>Filter by Price</h1>
+                <ul>
+                  <li>
+                    <input type="checkbox" /> Any
+                  </li>
+                  <li>
+                    <input type="checkbox" /> Below $50
+                  </li>
+                  <li>
+                    <input type="checkbox" /> $51 - 300
+                  </li>
+                  <li>
+                    <input type="checkbox" /> $301 - 500
+                  </li>
+                </ul>
               </FilterPrice>
             </FilterBox>
             <CurrentProducts></CurrentProducts>
