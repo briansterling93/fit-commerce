@@ -25,7 +25,6 @@ const Home: React.FC = () => {
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();
-  const [addedItem, updateAddedItem] = useState<any>();
 
   const populateItems: any = async () => {
     try {
@@ -118,14 +117,11 @@ const Home: React.FC = () => {
     }
   };
 
-  //test function to input items into
-
   return (
     <div>
       <Flair />
       <MainSection>
         <Navbar />
-        {addedItem}
         <SecondarySection>
           <h1>New Arrivals</h1>
           <ItemArray>{itemList}</ItemArray>

@@ -11,12 +11,13 @@ background-color: #f0eeee;
     ),
    
   background-size: cover;
+  overflow: scroll;
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;
@@ -44,26 +45,20 @@ export const BoxDiv = styled.div`
 
 export const FilterBox = styled.div`
   height: 22rem;
-  width: 16rem;
-  border: 1px solid #999;
+  width: 12rem;
+  // border-right: 1px solid #999;
+  // border-bottom: 1px solid #999;
   text-align: center;
   background-color: white;
   color: black;
-  border-radius: 1rem;
 
   h1 {
-    color: black;
     height: 1rem;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 800;
     width: 17rem;
-    // padding-left: 1rem;
+    text-align: left;
   }
-`;
-
-export const CurrentProducts = styled.div`
-  height: 30rem;
-  width: 80rem;
 `;
 
 export const FilterCategories = styled.div`
@@ -81,4 +76,94 @@ export const FilterPrice = styled.div`
     padding: 0.1rem;
   }
   padding-top: 1rem;
+`;
+
+export const ProductSectionDiv = styled.div`
+  padding-left: 1rem;
+`;
+
+export const ItemArray = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  // height: 12rem;
+  width: 75rem;
+`;
+
+export const ItemBox = styled.div`
+  align-items: center;
+  padding: 1.4rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+
+  :hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem);
+  }
+
+  img {
+    height: 13rem;
+    width: 12rem;
+    border-bottom: 1px solid #f0eeee;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 1px solid #999;
+    height: 1.9rem;
+    width: 8rem;
+    // border-radius: 0.5rem;
+    outline: none;
+    font-weight: 600;
+    font-family: arial;
+    text-transform: uppercase;
+
+    :hover {
+      opacity: 0.6;
+    }
+
+    //   button:link,
+    // button:visited {
+    //   text-transform: uppercase;
+    //   text-decoration: none;
+    //   padding: 1.5rem 4rem;
+    //   display: inline-block;
+    //   border-radius: 10rem;
+    //   transition: all .2s;
+    //   font-size: 1.6rem;
+    // }
+
+    // button:hover {
+    //   transform: translateY(-.3rem);
+    //   box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    // }
+
+    // button:active {
+    //   transform: translateY(-.2rem);
+    //   box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    // }
+  }
+`;
+
+export const ItemText = styled.div`
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  padding-top: 1.5rem;
+`;
+
+export const ItemTitle = styled.div`
+  padding-top: 0.3rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+`;
+export const ItemPrice = styled.div`
+  padding-bottom: 0.3rem;
+  font-weight: 400;
+  font-weight: bold;
 `;

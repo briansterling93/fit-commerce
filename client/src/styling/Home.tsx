@@ -56,8 +56,8 @@ export const ItemBox = styled.div`
   font-weight: 500;
 
   :hover {
-    border: 1px solid black;
-    border-bottom: 6px solid black;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem);
   }
 
   img {
