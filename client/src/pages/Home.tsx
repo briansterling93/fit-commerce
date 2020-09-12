@@ -111,7 +111,9 @@ const Home: React.FC = () => {
         </ul>
       ));
 
-      updateItems(res2);
+      const res3 = await res2.splice(0, 8);
+
+      updateItems(res3);
     } catch (error) {
       console.log(error);
     }
