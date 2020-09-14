@@ -129,9 +129,9 @@ const Home: React.FC = () => {
         <Navbar />
         <SecondarySection>
           <h1>New Arrivals</h1>
+          {route}
           <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
-        {route}
       </MainSection>
     </div>
   );

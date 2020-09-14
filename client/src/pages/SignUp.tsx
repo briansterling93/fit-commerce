@@ -11,11 +11,7 @@ import {
 import Flair from "../components/Flair";
 import Navbar from "../components/Navbar";
 import { NavLink } from "react-router-dom";
-import {
-  StateContext,
-  initialState,
-  APP_ACTIONS,
-} from "../context/StateContext";
+import { StateContext, APP_ACTIONS } from "../context/StateContext";
 import axios from "axios";
 
 const SignUp: React.FC = () => {
@@ -38,7 +34,7 @@ const SignUp: React.FC = () => {
       } else nameError("");
 
       if (!state.email_address.includes("@" && ".")) {
-        emailError("Please enter a valid email addres");
+        emailError("Please enter a valid email address");
       } else emailError("");
 
       if (!state.password || state.password.length < 5) {
@@ -65,6 +61,20 @@ const SignUp: React.FC = () => {
         const body = JSON.stringify(newUser);
 
         const res = await axios.post("/user/newuser", body, config);
+
+        if (res) {
+          if (res.data === "email address is already exists") {
+            emailError("Email address already in use");
+          } else {
+            emailError("");
+          }
+        }
+
+        // if (res.data === "email address is already exists") {
+        //   emailError("Email address already in use");
+        // } else {
+        //   emailError("");
+        // }
       }
     } catch (error) {
       console.log(error);

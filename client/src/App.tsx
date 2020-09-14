@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Admin from "./pages/Admin";
+import Dashboard from "./pages/Dashboard";
 import { StateContext, initialState, reducer } from "./context/StateContext";
 
 const Universal = createGlobalStyle`
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/user/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </StateContext.Provider>

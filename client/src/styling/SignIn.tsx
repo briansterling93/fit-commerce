@@ -27,7 +27,7 @@ export const AuthUI = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: white;
-  height: 15rem;
+  height: 16rem;
   width: 28rem;
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -76,6 +76,7 @@ export const UiBtn = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 0.5rem;
   button {
     background-color: black;
     color: white;
@@ -98,4 +99,11 @@ export const UiBtn = styled.div`
     color: #68a5ff;
     text-decoration: none;
   }
+`;
+
+export const ErrorMsg = styled.div`
+  height: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ff6969;
 `;

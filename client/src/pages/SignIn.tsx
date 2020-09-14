@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   MainSection,
   AuthBoxBorder,
@@ -6,6 +6,7 @@ import {
   UIinput,
   UIinputPadding,
   UiBtn,
+  ErrorMsg,
 } from "../styling/SignIn";
 import { NavLink } from "react-router-dom";
 import {
@@ -17,6 +18,43 @@ import Flair from "../components/Flair";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 const SignIn: React.FC = () => {
+  const [UIemail, emailError] = useState<string>("");
+  const [UIpassword, passwordError] = useState<string>("");
+  const { state, dispatch } = useContext<any>(StateContext);
+
+  const { email_address, password } = state;
+
+  const handleLogin = async () => {
+    try {
+      if (!state.email_address) {
+        emailError("Email address is invalid");
+      } else emailError("");
+
+      if (!state.password) {
+        passwordError("Password is required");
+      } else {
+        passwordError("");
+      }
+
+      if (email_address && password) {
+        let user = { email_address, password };
+
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const body = JSON.stringify(user);
+
+        const res = await axios.post("/user/login", body, config);
+
+        await console.log(res.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <Flair />
@@ -28,17 +66,37 @@ const SignIn: React.FC = () => {
             <UIinputPadding>
               <UIinput>
                 <i className="fa fa-user" aria-hidden="true"></i>
-                <input type="text" placeholder="Email address"></input>{" "}
+                <input
+                  onChange={(e) => {
+                    dispatch({
+                      type: APP_ACTIONS.UPDATE_EMAIL,
+                      payload: e.target.value,
+                    });
+                  }}
+                  type="text"
+                  placeholder="Email address"
+                ></input>{" "}
               </UIinput>
+              <ErrorMsg>{UIemail}</ErrorMsg>
             </UIinputPadding>
             <UIinputPadding>
               <UIinput>
                 <i className="fa fa-key" aria-hidden="true"></i>
-                <input type="password" placeholder="Password"></input>
+                <input
+                  onChange={(e) => {
+                    dispatch({
+                      type: APP_ACTIONS.UPDATE_PASSWORD,
+                      payload: e.target.value,
+                    });
+                  }}
+                  type="password"
+                  placeholder="Password"
+                ></input>
               </UIinput>
+              <ErrorMsg>{UIpassword}</ErrorMsg>
             </UIinputPadding>
             <UiBtn>
-              <button>Login</button>
+              <button onClick={handleLogin}>Login</button>
               <p>
                 Don't have an account?{" "}
                 <NavLink to="/signup">Create one here</NavLink>

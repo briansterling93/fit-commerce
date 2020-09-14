@@ -16,7 +16,7 @@ import {
   ItemTitle,
   ItemPrice,
 } from "../styling/Shop";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import {
   StateContext,
   initialState,
@@ -28,6 +28,7 @@ const Shop: React.FC = () => {
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();
+  const [route, setRoute] = useState<any>();
   const populateItems: any = async () => {
     try {
       const config = {
@@ -101,6 +102,8 @@ const Shop: React.FC = () => {
                         const body = JSON.stringify(newItem);
 
                         const res = await axios.post("/cart", body, config);
+
+                        res ? setRoute(<Redirect to="cart" />) : console.log(1);
                       }}
                     >
                       Add to Cart
@@ -167,6 +170,7 @@ const Shop: React.FC = () => {
               </FilterPrice>
             </FilterBox>
             <ProductSectionDiv>
+              {route}
               <ItemArray>{itemList}</ItemArray>
             </ProductSectionDiv>
           </BoxDiv>
