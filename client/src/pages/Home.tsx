@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
-import { NavLink } from "react-router-dom";
+import { Route, Redirect, NavLink } from "react-router-dom";
 import {
   StateContext,
   initialState,
@@ -25,6 +25,7 @@ const Home: React.FC = () => {
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();
+  const [route, setRoute] = useState<any>();
 
   const populateItems: any = async () => {
     try {
@@ -99,6 +100,8 @@ const Home: React.FC = () => {
                         const body = JSON.stringify(newItem);
 
                         const res = await axios.post("/cart", body, config);
+
+                        res ? setRoute(<Redirect to="cart" />) : console.log(1);
                       }}
                     >
                       Add to Cart
@@ -128,6 +131,7 @@ const Home: React.FC = () => {
           <h1>New Arrivals</h1>
           <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
+        {route}
       </MainSection>
     </div>
   );

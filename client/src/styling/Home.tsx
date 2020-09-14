@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MainSection = styled.div`
-  background-color: #D7E5DD;
-  // background-color: #f0eeee;
+  // background-color: #D7E5DD;
+  background-color: #efefef;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -93,11 +93,11 @@ export const ItemText = styled.div`
 
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1.1rem;
 `;
 export const ItemPrice = styled.div`
   padding-bottom: 0.3rem;
-  font-weight: 400;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.9rem;
 `;

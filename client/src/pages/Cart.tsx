@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Flair from "../components/Flair";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { StateContext, initialState } from "../context/StateContext";
+import { StateContext } from "../context/StateContext";
 import {
   MainSection,
   SecondarySection,
@@ -77,7 +77,6 @@ const Cart: React.FC = () => {
                           body,
                           config
                         );
-
                         await window.location.reload();
                       } catch (error) {
                         console.log(error);

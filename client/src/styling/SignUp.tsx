@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainSection = styled.div`
-  background-color: #D7E5DD;
+background-color: #f0eeee;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,

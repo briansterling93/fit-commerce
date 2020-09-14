@@ -8,6 +8,11 @@ import {
   UiBtn,
 } from "../styling/SignIn";
 import { NavLink } from "react-router-dom";
+import {
+  StateContext,
+  initialState,
+  APP_ACTIONS,
+} from "../context/StateContext";
 import Flair from "../components/Flair";
 import Navbar from "../components/Navbar";
 import axios from "axios";
