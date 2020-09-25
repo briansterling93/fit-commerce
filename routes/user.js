@@ -8,6 +8,22 @@ const User = require("../models/User.js");
 const Sequelize = require("sequelize");
 const auth = require("../middleware/auth");
 
+//GET
+//Test route
+// pulling current user to the front end
+router.get("/authorized", auth, async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: req.user.id,
+      },
+    });
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // POST
 // Add new user / Sign Up
 router.post(
@@ -145,14 +161,9 @@ router.get("/findall", async (req, res) => {
 // GET route
 // Get current authorized user info
 // Protected Route
+//only a backend route
 router.get("/me/:user_id", async (req, res) => {
   try {
-    // const user = await User.findOne({
-    //   where: {
-    //     users: req.params.user_id,
-    //   },
-    // });
-
     const user = await User.findOne({
       where: {
         id: req.params.user_id,

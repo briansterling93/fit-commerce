@@ -55,7 +55,16 @@ const SignIn: React.FC = () => {
           payload: res.data.token,
         });
 
-        res.data.token
+        // const setAuthToken = () => {
+        //   if (state.token) {
+        //     axios.defaults.headers.common["x-auth-token"] = token;
+        //   } else {
+        //     delete axios.defaults.headers.common["x-auth-token"];
+        //   }
+        // };
+
+        //
+        (await res.data.token)
           ? setRoute(<Redirect to="user/dashboard" />)
           : passwordError("Invalid credentials");
       }
