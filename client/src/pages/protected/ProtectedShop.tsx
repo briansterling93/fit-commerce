@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import Navbar from "../components/Navbar";
-import Flair from "../components/Flair";
+import { Redirect } from "react-router-dom";
+import AuthNavbar from "../../components/AuthNavbar";
+import Flair from "../../components/Flair";
 import axios from "axios";
 import {
   MainSection,
@@ -15,14 +16,13 @@ import {
   ItemText,
   ItemTitle,
   ItemPrice,
-} from "../styling/Shop";
-import { NavLink, Redirect } from "react-router-dom";
+} from "../../styling/Shop";
 import {
   StateContext,
   initialState,
   APP_ACTIONS,
-} from "../context/StateContext";
-const Shop: React.FC = () => {
+} from "../../context/StateContext";
+const ProtectedShop: React.FC = () => {
   useEffect(() => {
     populateItems();
   }, []);
@@ -128,7 +128,7 @@ const Shop: React.FC = () => {
       <Flair />
 
       <MainSection>
-        <Navbar />
+        <AuthNavbar />
         <SecondarySection>
           {/* <h1>Current Products</h1> */}
           <BoxDiv>
@@ -180,4 +180,4 @@ const Shop: React.FC = () => {
   );
 };
 
-export default Shop;
+export default ProtectedShop;

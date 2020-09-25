@@ -8,20 +8,6 @@ const User = require("../models/User.js");
 const Sequelize = require("sequelize");
 const auth = require("../middleware/auth");
 
-//GET
-//Get all users
-router.get(
-  "/",
-
-  async (req, res) => {
-    try {
-      const findAll = await User.findAll();
-
-      res.json({ findAll });
-    } catch (error) {}
-  }
-);
-
 // POST
 // Add new user / Sign Up
 router.post(
@@ -142,17 +128,42 @@ router.post(
 );
 
 // GET route
-// Get authorized user info
+// Get all profiles
 // Protected Route
-router.get("/testing", auth, async (req, res) => {
+router.get("/findall", async (req, res) => {
   try {
+    const findAll = await User.findAll({
+      attributes: ["email_address", "name", "id"],
+    });
+
+    res.json({ findAll });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// GET route
+// Get current authorized user info
+// Protected Route
+router.get("/me/:user_id", async (req, res) => {
+  try {
+    // const user = await User.findOne({
+    //   where: {
+    //     users: req.params.user_id,
+    //   },
+    // });
+
     const user = await User.findOne({
       where: {
-        id: req.user.id,
+        id: req.params.user_id,
       },
     });
 
-    res.json(user);
+    if (!user) {
+      res.json({ error: "no profile for this user" });
+    }
+
+    res.json({ user });
   } catch (error) {
     console.log(error);
     res.json({ error: "Credential error" });

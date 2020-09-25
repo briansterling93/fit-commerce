@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Flair from "../components/Flair";
+import Navbar from "../../components/Navbar";
+import Flair from "../../components/Flair";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { StateContext } from "../context/StateContext";
+import { StateContext } from "../../context/StateContext";
 import {
   MainSection,
   SecondarySection,
@@ -22,7 +22,7 @@ import {
   Btn2,
   EmptyCart,
   ContinueBtn,
-} from "../styling/Cart";
+} from "../../styling/Cart";
 
 const Cart: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);

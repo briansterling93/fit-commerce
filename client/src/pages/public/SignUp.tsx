@@ -7,11 +7,11 @@ import {
   UIinputPadding,
   UiBtn,
   ErrorMsg,
-} from "../styling/SignUp";
-import Flair from "../components/Flair";
-import Navbar from "../components/Navbar";
+} from "../../styling/SignUp";
+import Flair from "../../components/Flair";
+import Navbar from "../../components/Navbar";
 import { NavLink } from "react-router-dom";
-import { StateContext, APP_ACTIONS } from "../context/StateContext";
+import { StateContext, APP_ACTIONS } from "../../context/StateContext";
 import axios from "axios";
 
 const SignUp: React.FC = () => {

@@ -24,6 +24,7 @@ export const TextDiv = styled.div`
     color: black;
     font-weight: 400;
     font-size: 0.9rem;
+    // display: flex;
     :hover {
       color: green;
     }

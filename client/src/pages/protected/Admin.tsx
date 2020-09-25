@@ -6,13 +6,13 @@ import {
   InputSpacer,
   PreviewItem,
   ErrorMsg,
-} from "../styling/Admin";
+} from "../../styling/Admin";
 import {
   StateContext,
   initialState,
   APP_ACTIONS,
-} from "../context/StateContext";
-import AdminFlair from "../components/AdminFlair";
+} from "../../context/StateContext";
+import AdminFlair from "../../components/AdminFlair";
 import axios from "axios";
 
 const Admin: React.FC = () => {

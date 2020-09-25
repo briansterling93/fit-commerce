@@ -7,11 +7,11 @@ const AuthNavbar: React.FC = () => {
     <MainSection>
       <TextDiv>
         <NavLink to="/user/dashboard">Dashboard</NavLink>
-        <NavLink to="/shop">
+        <NavLink to="/user/shop">
           Shop
           <i className="fa fa-caret-down" aria-hidden="true"></i>
         </NavLink>
-        <NavLink to="/cart">
+        <NavLink to="/user/cart">
           Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
         </NavLink>
       </TextDiv>

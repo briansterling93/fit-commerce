@@ -7,22 +7,23 @@ import {
   UIinputPadding,
   UiBtn,
   ErrorMsg,
-} from "../styling/SignIn";
-import { NavLink } from "react-router-dom";
+} from "../../styling/SignIn";
+import { Route, Redirect, NavLink } from "react-router-dom";
 import {
   StateContext,
   initialState,
   APP_ACTIONS,
-} from "../context/StateContext";
-import Flair from "../components/Flair";
-import Navbar from "../components/Navbar";
+} from "../../context/StateContext";
+import Flair from "../../components/Flair";
+import Navbar from "../../components/Navbar";
 import axios from "axios";
 const SignIn: React.FC = () => {
   const [UIemail, emailError] = useState<string>("");
   const [UIpassword, passwordError] = useState<string>("");
+  const [route, setRoute] = useState<any>("");
   const { state, dispatch } = useContext<any>(StateContext);
 
-  const { email_address, password } = state;
+  const { email_address, password, token } = state;
 
   const handleLogin = async () => {
     try {
@@ -49,7 +50,14 @@ const SignIn: React.FC = () => {
 
         const res = await axios.post("/user/login", body, config);
 
-        await console.log(res.data);
+        await dispatch({
+          type: APP_ACTIONS.UPDATE_TOKEN,
+          payload: res.data.token,
+        });
+
+        res.data.token
+          ? setRoute(<Redirect to="user/dashboard" />)
+          : passwordError("Invalid credentials");
       }
     } catch (error) {
       console.log(error);
@@ -61,6 +69,7 @@ const SignIn: React.FC = () => {
       <MainSection>
         <Navbar />
         <AuthBoxBorder>
+          {route}
           <AuthUI>
             <h1>Sign In</h1>
             <UIinputPadding>

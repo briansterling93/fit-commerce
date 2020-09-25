@@ -1,13 +1,15 @@
 import React, { useReducer } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Cart from "./pages/Cart";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Admin from "./pages/Admin";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/public/Home";
+import Shop from "./pages/public/Shop";
+import ProtectedShop from "./pages/protected/ProtectedShop";
+import ProtectedCart from "./pages/protected/ProtectedCart";
+import Cart from "./pages/public/Cart";
+import SignIn from "./pages/public/SignIn";
+import SignUp from "./pages/public/SignUp";
+import Admin from "./pages/protected/Admin";
+import Dashboard from "./pages/protected/Dashboard";
 import { StateContext, initialState, reducer } from "./context/StateContext";
 
 const Universal = createGlobalStyle`
@@ -37,6 +39,8 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/user/dashboard" component={Dashboard} />
+          <Route exact path="/user/shop" component={ProtectedShop} />
+          <Route exact path="/user/cart" component={ProtectedCart} />
         </Switch>
       </Router>
     </StateContext.Provider>

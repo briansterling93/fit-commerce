@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Flair from "../components/Flair";
-import { Route, Redirect, NavLink } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Flair from "../../components/Flair";
+import { Redirect } from "react-router-dom";
 import {
   StateContext,
   initialState,
   APP_ACTIONS,
-} from "../context/StateContext";
+} from "../../context/StateContext";
 import axios from "axios";
 import {
   MainSection,
@@ -16,7 +16,7 @@ import {
   ItemText,
   ItemTitle,
   ItemPrice,
-} from "../styling/Home";
+} from "../../styling/Home";
 import Cart from "./Cart";
 
 const Home: React.FC = () => {
@@ -101,7 +101,9 @@ const Home: React.FC = () => {
 
                         const res = await axios.post("/cart", body, config);
 
-                        res ? setRoute(<Redirect to="cart" />) : console.log(1);
+                        res
+                          ? setRoute(<Redirect to="cart" />)
+                          : console.log("");
                       }}
                     >
                       Add to Cart

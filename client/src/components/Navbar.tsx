@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainSection, TextDiv } from "../styling/Navbar";
 import { NavLink } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+  const [cartNotice, setNotice] = useState<any>("*");
   return (
     <MainSection>
       <TextDiv>
@@ -11,10 +12,10 @@ const Navbar: React.FC = () => {
           Shop
           <i className="fa fa-caret-down" aria-hidden="true"></i>
         </NavLink>
-        <NavLink to="/cart">
-          Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
-        </NavLink>
         <NavLink to="/signin">Sign In</NavLink>
+        <NavLink to="/cart">
+          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </NavLink>
       </TextDiv>
     </MainSection>
   );
