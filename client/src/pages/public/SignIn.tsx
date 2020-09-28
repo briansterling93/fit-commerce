@@ -17,6 +17,9 @@ import {
 import Flair from "../../components/Flair";
 import Navbar from "../../components/Navbar";
 import axios from "axios";
+
+type FormElem = React.FormEvent<HTMLFormElement>;
+
 const SignIn: React.FC = () => {
   const [UIemail, emailError] = useState<string>("");
   const [UIpassword, passwordError] = useState<string>("");
@@ -24,6 +27,19 @@ const SignIn: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { email_address, password, token } = state;
+
+  const setAuthToken = async (token: FormElem) => {
+    if (state.token) {
+      axios.defaults.headers.common["x-auth-token"] = state.token;
+    } else {
+      delete axios.defaults.headers.common["x-auth-token"];
+    }
+    try {
+      axios.get("/user/authorized");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLogin = async () => {
     try {
@@ -55,15 +71,11 @@ const SignIn: React.FC = () => {
           payload: res.data.token,
         });
 
-        // const setAuthToken = () => {
-        //   if (state.token) {
-        //     axios.defaults.headers.common["x-auth-token"] = token;
-        //   } else {
-        //     delete axios.defaults.headers.common["x-auth-token"];
-        //   }
-        // };
+        await dispatch({
+          type: APP_ACTIONS.UPDATE_NAME,
+          payload: "freddy",
+        });
 
-        //
         (await res.data.token)
           ? setRoute(<Redirect to="user/dashboard" />)
           : passwordError("Invalid credentials");
