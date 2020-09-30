@@ -18,7 +18,6 @@ export const MainSection = styled.div`
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  // margin-top: 1rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;

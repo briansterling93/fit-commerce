@@ -2,7 +2,13 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthNavbar from "../../components/AuthNavbar";
 import Flair from "../../components/Flair";
 import axios from "axios";
-import { MainSection, SecondarySection, BoxDiv } from "../../styling/Dashboard";
+import {
+  MainSection,
+  SecondarySection,
+  BoxDiv,
+  RecentsDiv,
+  InfoDiv,
+} from "../../styling/Dashboard";
 import { Redirect } from "react-router-dom";
 import { StateContext, APP_ACTIONS } from "../../context/StateContext";
 
@@ -42,7 +48,11 @@ const Dashboard: React.FC = () => {
       <MainSection>
         <AuthNavbar />
         <SecondarySection>
-          <BoxDiv> Welcome, {userName}</BoxDiv>
+          <BoxDiv>
+            {/* Welcome, {userName} */}
+            <RecentsDiv></RecentsDiv>
+            <InfoDiv></InfoDiv>
+          </BoxDiv>
         </SecondarySection>
       </MainSection>
     </div>

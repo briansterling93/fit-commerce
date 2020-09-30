@@ -130,7 +130,6 @@ const ProtectedShop: React.FC = () => {
       <MainSection>
         <AuthNavbar />
         <SecondarySection>
-          {/* <h1>Current Products</h1> */}
           <BoxDiv>
             <FilterBox>
               <FilterCategories>

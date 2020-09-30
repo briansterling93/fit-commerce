@@ -43,3 +43,14 @@ export const BoxDiv = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
+
+export const RecentsDiv = styled.div`
+  height: 20rem;
+  width: 20rem;
+  background-color: blue;
+`;
+export const InfoDiv = styled.div`
+  height: 10rem;
+  width: 10rem;
+  background-color: grey;
+`;
