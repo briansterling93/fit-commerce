@@ -14,6 +14,9 @@ const AuthNavbar: React.FC = () => {
         <NavLink to="/user/cart">
           Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
         </NavLink>
+        <NavLink to="/signin">
+          Sign Out<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </NavLink>
       </TextDiv>
     </MainSection>
   );

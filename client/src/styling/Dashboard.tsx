@@ -40,17 +40,31 @@ export const BoxDiv = styled.div`
   min-height: 80vh;
   width: 90rem;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const RecentsDiv = styled.div`
-  height: 20rem;
+  height: 30rem;
   width: 20rem;
   background-color: blue;
 `;
 export const InfoDiv = styled.div`
-  height: 10rem;
-  width: 10rem;
+  height: 30rem;
+  width: 20rem;
   background-color: grey;
+`;
+
+export const BoxDivMain = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const WelcomeDiv = styled.div`
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
+`;
+
+export const DivSpacer = styled.div`
+  padding: 1rem;
 `;

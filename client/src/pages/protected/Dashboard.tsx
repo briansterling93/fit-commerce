@@ -6,8 +6,11 @@ import {
   MainSection,
   SecondarySection,
   BoxDiv,
+  BoxDivMain,
   RecentsDiv,
   InfoDiv,
+  WelcomeDiv,
+  DivSpacer,
 } from "../../styling/Dashboard";
 import { Redirect } from "react-router-dom";
 import { StateContext, APP_ACTIONS } from "../../context/StateContext";
@@ -49,9 +52,17 @@ const Dashboard: React.FC = () => {
         <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
-            {/* Welcome, {userName} */}
-            <RecentsDiv></RecentsDiv>
-            <InfoDiv></InfoDiv>
+            <WelcomeDiv>Welcome, {`${userName}!`}</WelcomeDiv>
+            <BoxDivMain>
+              <DivSpacer>
+                {" "}
+                <RecentsDiv></RecentsDiv>
+              </DivSpacer>
+              <DivSpacer>
+                {" "}
+                <InfoDiv></InfoDiv>
+              </DivSpacer>
+            </BoxDivMain>
           </BoxDiv>
         </SecondarySection>
       </MainSection>
