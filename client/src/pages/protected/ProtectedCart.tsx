@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import AuthNavbar from "../../components/AuthNavbar";
-import Flair from "../../components/Flair";
-import { NavLink } from "react-router-dom";
-import axios from "axios";
-import { StateContext } from "../../context/StateContext";
+import React, { useState, useContext, useEffect } from 'react';
+import AuthNavbar from '../../components/AuthNavbar';
+import Flair from '../../components/Flair';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { StateContext } from '../../context/StateContext';
 import {
   MainSection,
   SecondarySection,
@@ -22,7 +22,7 @@ import {
   Btn2,
   EmptyCart,
   ContinueBtn,
-} from "../../styling/Cart";
+} from '../../styling/Cart';
 
 const ProtectedCart: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
@@ -38,11 +38,11 @@ const ProtectedCart: React.FC = () => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       };
 
-      const res = await axios.get("/cart");
+      const res = await axios.get('/cart');
 
       const res2 = res.data.findAll.map((i: any) => (
         <ul key={i.id}>
@@ -53,8 +53,7 @@ const ProtectedCart: React.FC = () => {
                   <img src={i.path} />
                 </div>
                 <CartItem>{i.item}</CartItem>
-                <CartQuantity>({i.quantity})</CartQuantity>x
-                <CartPrice>{i.price}</CartPrice>
+                <CartQuantity>({i.quantity})</CartQuantity>x<CartPrice>{i.price}</CartPrice>
                 <CartRemoveBtn>
                   {/* //function to remove selected items */}
                   <i
@@ -66,17 +65,13 @@ const ProtectedCart: React.FC = () => {
 
                         const config = {
                           headers: {
-                            "Content-Type": "application/json",
+                            'Content-Type': 'application/json',
                           },
                         };
 
                         const body = JSON.stringify(newItem);
 
-                        const res = await axios.post(
-                          "/cart/remove",
-                          body,
-                          config
-                        );
+                        const res = await axios.post('/cart/remove', body, config);
                         await window.location.reload();
                       } catch (error) {
                         console.log(error);
@@ -97,25 +92,25 @@ const ProtectedCart: React.FC = () => {
 
       //get cart total function below
 
-      const res3 = await axios.get("/cart/total");
+      const res3 = await axios.get('/cart/total');
 
       const res4 = res3.data.findAll.map((p: any) => p.price * p.quantity);
 
-      const res5 = res4.map((p: any) => Number(p)).join(" + ");
+      const res5 = res4.map((p: any) => Number(p)).join(' + ');
 
       let total: number = eval(res5);
 
       if (total < 30) {
         total = total + 12;
         updateShippingCost(12);
-        updateShippingTotal("Shipping Cost: $12.00");
+        updateShippingTotal('Shipping Cost: $12.00');
       } else {
         updateShippingCost(0);
-        updateShippingTotal("Shipping Cost: $0.00");
+        updateShippingTotal('Shipping Cost: $0.00');
       }
 
       if (total === undefined) {
-        updateTotal("Subtotal: $0.00");
+        updateTotal('Subtotal: $0.00');
         updateCart(<EmptyCart>No items in cart yet</EmptyCart>);
       } else {
         updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)

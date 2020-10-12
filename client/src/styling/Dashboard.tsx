@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MainSection = styled.div`
   background-color: #efefef;
@@ -47,12 +47,28 @@ export const BoxDiv = styled.div`
 export const RecentsDiv = styled.div`
   height: 30rem;
   width: 20rem;
-  background-color: blue;
+  border: 1px solid black;
+
+  h1 {
+    text-align: center;
+    font-size: 1.1rem;
+  }
 `;
 export const InfoDiv = styled.div`
   height: 30rem;
   width: 20rem;
-  background-color: grey;
+  border: 1px solid black;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+`;
+
+export const InfoText = styled.div`
+  padding-top: 1rem;
+  height: 10rem;
 `;
 
 export const BoxDivMain = styled.div`
@@ -67,4 +83,28 @@ export const WelcomeDiv = styled.div`
 
 export const DivSpacer = styled.div`
   padding: 1rem;
+`;
+
+export const BtnDiv = styled.div`
+  height: 1rem;
+  padding-top: 10rem;
+  text-align: center;
+`;
+export const LogoutBtn = styled.div`
+  height: 1rem;
+
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    font-weight: 600;
+    outline: none;
+
+    :hover {
+      opacity: 0.6;
+    }
+  }
 `;

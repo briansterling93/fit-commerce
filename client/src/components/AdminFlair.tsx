@@ -1,5 +1,5 @@
-import React from "react";
-import { MainSection, TextDiv } from "../styling/AdminFlair";
+import React from 'react';
+import { MainSection, TextDiv } from '../styling/AdminFlair';
 
 const AdminFlair: React.FC = () => {
   return (

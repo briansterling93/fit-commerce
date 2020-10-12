@@ -1,41 +1,29 @@
-import React, { useContext, useState } from "react";
-import {
-  MainSection,
-  AuthBoxBorder,
-  AuthUI,
-  UIinput,
-  UIinputPadding,
-  UiBtn,
-  ErrorMsg,
-} from "../../styling/SignIn";
-import { Route, Redirect, NavLink } from "react-router-dom";
-import {
-  StateContext,
-  initialState,
-  APP_ACTIONS,
-} from "../../context/StateContext";
-import Flair from "../../components/Flair";
-import Navbar from "../../components/Navbar";
-import axios from "axios";
+import React, { useContext, useState } from 'react';
+import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignIn';
+import { Route, Redirect, NavLink } from 'react-router-dom';
+import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import Flair from '../../components/Flair';
+import Navbar from '../../components/Navbar';
+import axios from 'axios';
 
 type FormElem = React.FormEvent<HTMLFormElement>;
 
 const SignIn: React.FC = () => {
-  const [UIemail, emailError] = useState<string>("");
-  const [UIpassword, passwordError] = useState<string>("");
-  const [route, setRoute] = useState<any>("");
+  const [UIemail, emailError] = useState<string>('');
+  const [UIpassword, passwordError] = useState<string>('');
+  const [route, setRoute] = useState<any>('');
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { email_address, password, token } = state;
 
   const setAuthToken = async (token: FormElem) => {
     if (state.token) {
-      axios.defaults.headers.common["x-auth-token"] = state.token;
+      axios.defaults.headers.common['x-auth-token'] = state.token;
     } else {
-      delete axios.defaults.headers.common["x-auth-token"];
+      delete axios.defaults.headers.common['x-auth-token'];
     }
     try {
-      axios.get("/user/authorized");
+      axios.get('/user/authorized');
     } catch (error) {
       console.log(error);
     }
@@ -44,13 +32,13 @@ const SignIn: React.FC = () => {
   const handleLogin = async () => {
     try {
       if (!state.email_address) {
-        emailError("Email address is invalid");
-      } else emailError("");
+        emailError('Email address is invalid');
+      } else emailError('');
 
       if (!state.password) {
-        passwordError("Password is required");
+        passwordError('Password is required');
       } else {
-        passwordError("");
+        passwordError('');
       }
 
       if (email_address && password) {
@@ -58,13 +46,13 @@ const SignIn: React.FC = () => {
 
         const config = {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         };
 
         const body = JSON.stringify(user);
 
-        const res = await axios.post("/user/login", body, config);
+        const res = await axios.post('/user/login', body, config);
 
         await dispatch({
           type: APP_ACTIONS.UPDATE_TOKEN,
@@ -73,12 +61,10 @@ const SignIn: React.FC = () => {
 
         await dispatch({
           type: APP_ACTIONS.UPDATE_NAME,
-          payload: "freddy",
+          payload: 'freddy',
         });
 
-        (await res.data.token)
-          ? setRoute(<Redirect to="user/dashboard" />)
-          : passwordError("Invalid credentials");
+        (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
       }
     } catch (error) {
       console.log(error);
@@ -105,7 +91,7 @@ const SignIn: React.FC = () => {
                   }}
                   type="text"
                   placeholder="Email address"
-                ></input>{" "}
+                ></input>{' '}
               </UIinput>
               <ErrorMsg>{UIemail}</ErrorMsg>
             </UIinputPadding>
@@ -128,8 +114,7 @@ const SignIn: React.FC = () => {
             <UiBtn>
               <button onClick={handleLogin}>Login</button>
               <p>
-                Don't have an account?{" "}
-                <NavLink to="/signup">Create one here</NavLink>
+                Don't have an account? <NavLink to="/signup">Create one here</NavLink>
               </p>
             </UiBtn>
           </AuthUI>

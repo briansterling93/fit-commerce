@@ -1,16 +1,16 @@
-import React, { useReducer } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
-import Home from "./pages/public/Home";
-import Shop from "./pages/public/Shop";
-import ProtectedShop from "./pages/protected/ProtectedShop";
-import ProtectedCart from "./pages/protected/ProtectedCart";
-import Cart from "./pages/public/Cart";
-import SignIn from "./pages/public/SignIn";
-import SignUp from "./pages/public/SignUp";
-import Admin from "./pages/protected/Admin";
-import Dashboard from "./pages/protected/Dashboard";
-import { StateContext, initialState, reducer } from "./context/StateContext";
+import React, { useReducer } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import Home from './pages/public/Home';
+import Shop from './pages/public/Shop';
+import ProtectedShop from './pages/protected/ProtectedShop';
+import ProtectedCart from './pages/protected/ProtectedCart';
+import Cart from './pages/public/Cart';
+import SignIn from './pages/public/SignIn';
+import SignUp from './pages/public/SignUp';
+import Admin from './pages/protected/Admin';
+import Dashboard from './pages/protected/Dashboard';
+import { StateContext, initialState, reducer } from './context/StateContext';
 
 const Universal = createGlobalStyle`
   body {

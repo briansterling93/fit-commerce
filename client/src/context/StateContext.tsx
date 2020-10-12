@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import Cart from "../pages/public/Cart";
+import { createContext } from 'react';
+import Cart from '../pages/public/Cart';
 
 export interface IState {
   email_address: string;
@@ -13,27 +13,27 @@ export interface IState {
 }
 
 export const initialState = {
-  name: "",
-  email_address: "",
-  password: "",
-  item: "",
-  price: "",
-  path: "",
+  name: '',
+  email_address: '',
+  password: '',
+  item: '',
+  price: '',
+  path: '',
   recent_orders: [],
   cart: [],
-  token: "",
+  token: '',
 };
 
 export enum APP_ACTIONS {
-  UPDATE_NAME = "UPDATE_NAME",
-  UPDATE_EMAIL = "UPDATE_EMAIL",
-  UPDATE_PASSWORD = "UPDATE_PASSWORD",
-  UPDATE_ITEM = "UPDATE_ITEM",
-  UPDATE_PRICE = "UPDATE_PRICE",
-  UPDATE_PATH = "UPDATE_PATH",
-  UPDATE_CART = "UPDATE_CART",
-  UPDATE_RECENT_ORDERS = "UPDATE_RECENT_ORDERS",
-  UPDATE_TOKEN = "UPDATE_TOKEN",
+  UPDATE_NAME = 'UPDATE_NAME',
+  UPDATE_EMAIL = 'UPDATE_EMAIL',
+  UPDATE_PASSWORD = 'UPDATE_PASSWORD',
+  UPDATE_ITEM = 'UPDATE_ITEM',
+  UPDATE_PRICE = 'UPDATE_PRICE',
+  UPDATE_PATH = 'UPDATE_PATH',
+  UPDATE_CART = 'UPDATE_CART',
+  UPDATE_RECENT_ORDERS = 'UPDATE_RECENT_ORDERS',
+  UPDATE_TOKEN = 'UPDATE_TOKEN',
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
