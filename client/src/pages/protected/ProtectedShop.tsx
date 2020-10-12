@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Redirect } from "react-router-dom";
-import AuthNavbar from "../../components/AuthNavbar";
-import Flair from "../../components/Flair";
-import axios from "axios";
+import React, { useState, useEffect, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import AuthNavbar from '../../components/AuthNavbar';
+import Flair from '../../components/Flair';
+import axios from 'axios';
 import {
   MainSection,
   SecondarySection,
@@ -16,12 +16,8 @@ import {
   ItemText,
   ItemTitle,
   ItemPrice,
-} from "../../styling/Shop";
-import {
-  StateContext,
-  initialState,
-  APP_ACTIONS,
-} from "../../context/StateContext";
+} from '../../styling/Shop';
+import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 const ProtectedShop: React.FC = () => {
   useEffect(() => {
     populateItems();
@@ -33,11 +29,11 @@ const ProtectedShop: React.FC = () => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       };
 
-      const res = await axios.get("/admin");
+      const res = await axios.get('/admin');
 
       const res2 = res.data.findAll.map((i: any) => (
         <ul>
@@ -61,15 +57,11 @@ const ProtectedShop: React.FC = () => {
                         let quantity = i.quantity;
 
                         //GET request to check if item is already in cart
-                        let cartQuery = await axios.get("/cart");
+                        let cartQuery = await axios.get('/cart');
 
-                        let cartQuery2 = await cartQuery.data.findAll.map(
-                          (g: any) => g.item
-                        );
+                        let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
 
-                        let cartQuery3 = await cartQuery2.filter(
-                          (s: any) => s === i.item
-                        );
+                        let cartQuery3 = await cartQuery2.filter((s: any) => s === i.item);
 
                         if (cartQuery3.length >= 1) {
                           let item_name = await i.item;
@@ -78,30 +70,26 @@ const ProtectedShop: React.FC = () => {
 
                           const config = {
                             headers: {
-                              "Content-Type": "application/json",
+                              'Content-Type': 'application/json',
                             },
                           };
 
                           const body = JSON.stringify(item_increment);
 
-                          const res = await axios.post(
-                            "/cart/increment",
-                            body,
-                            config
-                          );
+                          const res = await axios.post('/cart/increment', body, config);
                         } else quantity = (await cartQuery3.length) + 1;
 
                         let newItem = { item, price, path, quantity };
 
                         const config = {
                           headers: {
-                            "Content-Type": "application/json",
+                            'Content-Type': 'application/json',
                           },
                         };
 
                         const body = JSON.stringify(newItem);
 
-                        const res = await axios.post("/cart", body, config);
+                        const res = await axios.post('/cart', body, config);
 
                         res ? setRoute(<Redirect to="cart" />) : console.log(1);
                       }}

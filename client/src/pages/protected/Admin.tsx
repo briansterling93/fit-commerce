@@ -1,24 +1,13 @@
-import React, { useState, useContext } from "react";
-import {
-  MainSection,
-  AdminBox,
-  AddItem,
-  InputSpacer,
-  PreviewItem,
-  ErrorMsg,
-} from "../../styling/Admin";
-import {
-  StateContext,
-  initialState,
-  APP_ACTIONS,
-} from "../../context/StateContext";
-import AdminFlair from "../../components/AdminFlair";
-import axios from "axios";
+import React, { useState, useContext } from 'react';
+import { MainSection, AdminBox, AddItem, InputSpacer, PreviewItem, ErrorMsg } from '../../styling/Admin';
+import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import AdminFlair from '../../components/AdminFlair';
+import axios from 'axios';
 
 const Admin: React.FC = () => {
-  const [itemError, setItemError] = useState<string>("");
-  const [priceError, setPriceError] = useState<string>("");
-  const [pathError, setPathError] = useState<string>("");
+  const [itemError, setItemError] = useState<string>('');
+  const [priceError, setPriceError] = useState<string>('');
+  const [pathError, setPathError] = useState<string>('');
   const { state, dispatch } = useContext<any>(StateContext);
   const { item, price, path } = state;
 
@@ -27,32 +16,32 @@ const Admin: React.FC = () => {
 
     try {
       if (!state.item) {
-        setItemError("Item name is required");
+        setItemError('Item name is required');
       } else {
-        setItemError("");
+        setItemError('');
       }
       if (!state.price) {
-        setPriceError("Please enter a price for the item");
+        setPriceError('Please enter a price for the item');
       } else {
-        setPriceError("");
+        setPriceError('');
       }
       if (!state.path) {
-        setPathError("Valid src/path url is required for the image");
+        setPathError('Valid src/path url is required for the image');
       } else {
-        setPathError("");
+        setPathError('');
       }
       if (item && price && path) {
         let newItem = { item, price, path };
 
         const config = {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         };
 
         const body = JSON.stringify(newItem);
 
-        const res = await axios.post("/admin", body, config);
+        const res = await axios.post('/admin', body, config);
 
         console.log(res);
       }

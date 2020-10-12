@@ -1,25 +1,17 @@
-import React, { useContext, useState } from "react";
-import {
-  MainSection,
-  AuthBoxBorder,
-  AuthUI,
-  UIinput,
-  UIinputPadding,
-  UiBtn,
-  ErrorMsg,
-} from "../../styling/SignUp";
-import Flair from "../../components/Flair";
-import Navbar from "../../components/Navbar";
-import { NavLink } from "react-router-dom";
-import { StateContext, APP_ACTIONS } from "../../context/StateContext";
-import axios from "axios";
+import React, { useContext, useState } from 'react';
+import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignUp';
+import Flair from '../../components/Flair';
+import Navbar from '../../components/Navbar';
+import { NavLink } from 'react-router-dom';
+import { StateContext, APP_ACTIONS } from '../../context/StateContext';
+import axios from 'axios';
 
 const SignUp: React.FC = () => {
-  const [UIname, nameError] = useState<string>("");
-  const [UIemail, emailError] = useState<string>("");
-  const [UIpassword, passwordError] = useState<string>("");
-  const [confirmPassword, passwordConfirmError] = useState<string>("");
-  const [password2, setPassword2] = useState<string>("");
+  const [UIname, nameError] = useState<string>('');
+  const [UIemail, emailError] = useState<string>('');
+  const [UIpassword, passwordError] = useState<string>('');
+  const [confirmPassword, passwordConfirmError] = useState<string>('');
+  const [password2, setPassword2] = useState<string>('');
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { name, email_address, password } = state;
@@ -30,23 +22,23 @@ const SignUp: React.FC = () => {
 
     try {
       if (!state.name) {
-        nameError("Name is required");
-      } else nameError("");
+        nameError('Name is required');
+      } else nameError('');
 
-      if (!state.email_address.includes("@" && ".")) {
-        emailError("Please enter a valid email address");
-      } else emailError("");
+      if (!state.email_address.includes('@' && '.')) {
+        emailError('Please enter a valid email address');
+      } else emailError('');
 
       if (!state.password || state.password.length < 5) {
-        passwordError("Password must be at least 5 characters");
+        passwordError('Password must be at least 5 characters');
       } else {
-        passwordError("");
+        passwordError('');
       }
 
       if (state.password !== password2) {
-        passwordConfirmError("The passwords do not match");
+        passwordConfirmError('The passwords do not match');
       } else {
-        passwordConfirmError("");
+        passwordConfirmError('');
       }
 
       if (name && email_address && password === password2) {
@@ -54,19 +46,19 @@ const SignUp: React.FC = () => {
 
         const config = {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         };
 
         const body = JSON.stringify(newUser);
 
-        const res = await axios.post("/user/newuser", body, config);
+        const res = await axios.post('/user/newuser', body, config);
 
         if (res) {
-          if (res.data === "email address is already exists") {
-            emailError("Email address already in use");
+          if (res.data === 'email address is already exists') {
+            emailError('Email address already in use');
           } else {
-            emailError("");
+            emailError('');
           }
         }
 
@@ -100,7 +92,7 @@ const SignUp: React.FC = () => {
                       payload: e.target.value,
                     });
                   }}
-                ></input>{" "}
+                ></input>{' '}
               </UIinput>
               <ErrorMsg>{UIname}</ErrorMsg>
             </UIinputPadding>
@@ -116,7 +108,7 @@ const SignUp: React.FC = () => {
                       payload: e.target.value,
                     });
                   }}
-                ></input>{" "}
+                ></input>{' '}
               </UIinput>
               <ErrorMsg>{UIemail}</ErrorMsg>
             </UIinputPadding>
@@ -143,15 +135,14 @@ const SignUp: React.FC = () => {
                   onChange={(e) => setPassword2(e.target.value)}
                   type="password"
                   placeholder="Confirm password"
-                ></input>{" "}
+                ></input>{' '}
               </UIinput>
               <ErrorMsg>{confirmPassword}</ErrorMsg>
             </UIinputPadding>
             <UiBtn>
               <button onClick={handleCreate}>Create account</button>
               <p>
-                Already have an account?{" "}
-                <NavLink to="/signin">Sign in here</NavLink>
+                Already have an account? <NavLink to="/signin">Sign in here</NavLink>
               </p>
             </UiBtn>
           </AuthUI>

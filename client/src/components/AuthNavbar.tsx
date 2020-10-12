@@ -1,6 +1,6 @@
-import React from "react";
-import { MainSection, TextDiv } from "../styling/Navbar";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { MainSection, TextDiv } from '../styling/Navbar';
+import { NavLink } from 'react-router-dom';
 
 const AuthNavbar: React.FC = () => {
   return (
@@ -13,9 +13,6 @@ const AuthNavbar: React.FC = () => {
         </NavLink>
         <NavLink to="/user/cart">
           Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
-        </NavLink>
-        <NavLink to="/signin">
-          Sign Out<i className="fa fa-shopping-cart" aria-hidden="true"></i>
         </NavLink>
       </TextDiv>
     </MainSection>

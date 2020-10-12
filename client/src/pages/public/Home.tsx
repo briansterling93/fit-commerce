@@ -1,23 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
-import Navbar from "../../components/Navbar";
-import Flair from "../../components/Flair";
-import { Redirect } from "react-router-dom";
-import {
-  StateContext,
-  initialState,
-  APP_ACTIONS,
-} from "../../context/StateContext";
-import axios from "axios";
-import {
-  MainSection,
-  SecondarySection,
-  ItemArray,
-  ItemBox,
-  ItemText,
-  ItemTitle,
-  ItemPrice,
-} from "../../styling/Home";
-import Cart from "./Cart";
+import React, { useState, useContext, useEffect } from 'react';
+import Navbar from '../../components/Navbar';
+import Flair from '../../components/Flair';
+import { Redirect } from 'react-router-dom';
+import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import axios from 'axios';
+import { MainSection, SecondarySection, ItemArray, ItemBox, ItemText, ItemTitle, ItemPrice } from '../../styling/Home';
+import Cart from './Cart';
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -31,11 +19,11 @@ const Home: React.FC = () => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       };
 
-      const res = await axios.get("/admin");
+      const res = await axios.get('/admin');
 
       const res2 = res.data.findAll.map((i: any) => (
         <ul>
@@ -59,15 +47,11 @@ const Home: React.FC = () => {
                         let quantity = i.quantity;
 
                         //GET request to check if item is already in cart
-                        let cartQuery = await axios.get("/cart");
+                        let cartQuery = await axios.get('/cart');
 
-                        let cartQuery2 = await cartQuery.data.findAll.map(
-                          (g: any) => g.item
-                        );
+                        let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
 
-                        let cartQuery3 = await cartQuery2.filter(
-                          (s: any) => s === i.item
-                        );
+                        let cartQuery3 = await cartQuery2.filter((s: any) => s === i.item);
 
                         if (cartQuery3.length >= 1) {
                           let item_name = await i.item;
@@ -76,34 +60,28 @@ const Home: React.FC = () => {
 
                           const config = {
                             headers: {
-                              "Content-Type": "application/json",
+                              'Content-Type': 'application/json',
                             },
                           };
 
                           const body = JSON.stringify(item_increment);
 
-                          const res = await axios.post(
-                            "/cart/increment",
-                            body,
-                            config
-                          );
+                          const res = await axios.post('/cart/increment', body, config);
                         } else quantity = (await cartQuery3.length) + 1;
 
                         let newItem = { item, price, path, quantity };
 
                         const config = {
                           headers: {
-                            "Content-Type": "application/json",
+                            'Content-Type': 'application/json',
                           },
                         };
 
                         const body = JSON.stringify(newItem);
 
-                        const res = await axios.post("/cart", body, config);
+                        const res = await axios.post('/cart', body, config);
 
-                        res
-                          ? setRoute(<Redirect to="cart" />)
-                          : console.log("");
+                        res ? setRoute(<Redirect to="cart" />) : console.log('');
                       }}
                     >
                       Add to Cart

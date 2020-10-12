@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MainSection = styled.div`
 background-color: #f0eeee;
@@ -83,8 +83,7 @@ export const UiBtn = styled.div`
     height: 2rem;
     width: 7rem;
   }
-
-  p {
+  s p {
     font-size: 0.9rem;
   }
 
