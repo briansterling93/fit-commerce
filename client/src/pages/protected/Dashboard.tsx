@@ -24,6 +24,8 @@ type FormElem = React.FormEvent<HTMLFormElement>;
 
 const Dashboard: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
+  const [storedValue, setStoredValue] = useState<any>();
+  const [storedVal, setVal] = useState<any>('');
   const [route, setRoute] = useState<any>('');
   const [userToken, setToken] = useState<string>('');
   const [userName, setName] = useState<string>('');
@@ -52,6 +54,33 @@ const Dashboard: React.FC = () => {
     } catch (error) {}
   };
 
+  const useLocalStorage = (key: any, initValue: any) => {
+    try {
+      const item = window.localStorage.getItem(key);
+
+      return item ? JSON.parse(item) : initValue;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const setValue = (value: any) => {
+    try {
+      let key = '';
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+
+      setStoredValue(valueToStore);
+
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const testFunc = () => {
+    setValue(state.token);
+  };
+
   const authorizeRoute = async () => {};
   return (
     <div>
@@ -77,9 +106,10 @@ const Dashboard: React.FC = () => {
                     <div>Member Since: {userAge}</div>
                     <BtnDiv>
                       <LogoutBtn>
-                        <NavLink to="/user/cart">
+                        <NavLink to="/">
                           <button>Logout</button>
                         </NavLink>
+                        <button onClick={testFunc}>Get current user</button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>
