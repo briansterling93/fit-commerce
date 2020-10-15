@@ -33,7 +33,11 @@ const Dashboard: React.FC = () => {
 
   const { name, token } = state;
   useEffect(() => {
-    loadUser();
+    if (!state.token) {
+      return setRoute(<Redirect to="/signin" />);
+    } else {
+      loadUser();
+    }
   }, []);
 
   const loadUser = async () => {
@@ -50,7 +54,7 @@ const Dashboard: React.FC = () => {
       setName(res.data.name);
       setAge(res.data.createdAt);
       setEmail(res.data.email_address);
-      return setValue(state.token);
+      setValue(state.token);
     } catch (error) {}
   };
 
@@ -59,8 +63,6 @@ const Dashboard: React.FC = () => {
     try {
       const item = window.localStorage.getItem(key);
 
-      // return item ? JSON.parse(item) : console.log('none found');
-
       return item ? localStorage.removeItem(key) : console.log(false);
     } catch (error) {
       console.log(error);
@@ -68,14 +70,13 @@ const Dashboard: React.FC = () => {
   };
 
   //set token function
-  const setValue = async (value: any) => {
+  const setValue = (value: any) => {
     try {
-      let key = await `${userEmail} token`;
+      let key = `${userEmail} token`;
 
       const valueToStore = value instanceof Function ? value(storedValue) : value;
 
       setStoredValue(valueToStore);
-
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
@@ -87,8 +88,8 @@ const Dashboard: React.FC = () => {
     setValue(state.token);
   };
 
-  //test function to
-  const testFunc2 = () => {
+  //remove token from storage on logout
+  const removeToken = () => {
     const h = useLocalStorage;
 
     console.log(h(`${userEmail} token`));
@@ -119,11 +120,10 @@ const Dashboard: React.FC = () => {
                     <div>Member Since: {userAge}</div>
                     <BtnDiv>
                       <LogoutBtn>
-                        <NavLink to="/">
+                        <NavLink to="/" onClick={removeToken}>
                           <button>Logout</button>
                         </NavLink>
                         <button onClick={testFunc}>Get current user</button>
-                        <button onClick={testFunc2}>Remove Token</button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>
