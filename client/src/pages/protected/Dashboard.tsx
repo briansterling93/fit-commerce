@@ -25,7 +25,6 @@ type FormElem = React.FormEvent<HTMLFormElement>;
 const Dashboard: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [storedValue, setStoredValue] = useState<any>();
-  const [storedVal, setVal] = useState<any>('');
   const [route, setRoute] = useState<any>('');
   const [userToken, setToken] = useState<string>('');
   const [userName, setName] = useState<string>('');
@@ -48,25 +47,31 @@ const Dashboard: React.FC = () => {
 
       const res = await axios.get('/user/authorized', config);
 
-      await setName(res.data.name);
-      await setAge(res.data.createdAt);
-      await setEmail(res.data.email_address);
+      setName(res.data.name);
+      setAge(res.data.createdAt);
+      setEmail(res.data.email_address);
+      return setValue(state.token);
     } catch (error) {}
   };
 
-  const useLocalStorage = (key: any, initValue: any) => {
+  //filter through local storage item list function
+  const useLocalStorage = (key: any) => {
     try {
       const item = window.localStorage.getItem(key);
 
-      return item ? JSON.parse(item) : initValue;
+      // return item ? JSON.parse(item) : console.log('none found');
+
+      return item ? localStorage.removeItem(key) : console.log(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const setValue = (value: any) => {
+  //set token function
+  const setValue = async (value: any) => {
     try {
-      let key = '';
+      let key = await `${userEmail} token`;
+
       const valueToStore = value instanceof Function ? value(storedValue) : value;
 
       setStoredValue(valueToStore);
@@ -77,8 +82,16 @@ const Dashboard: React.FC = () => {
     }
   };
 
+  //test function to set value
   const testFunc = () => {
     setValue(state.token);
+  };
+
+  //test function to
+  const testFunc2 = () => {
+    const h = useLocalStorage;
+
+    console.log(h(`${userEmail} token`));
   };
 
   const authorizeRoute = async () => {};
@@ -110,6 +123,7 @@ const Dashboard: React.FC = () => {
                           <button>Logout</button>
                         </NavLink>
                         <button onClick={testFunc}>Get current user</button>
+                        <button onClick={testFunc2}>Remove Token</button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>
