@@ -1,10 +1,16 @@
-import React from "react";
-import { MainSection, TextDiv } from "../styling/Flair";
+import React from 'react';
+import { MainSection, TextDiv, LogoDiv } from '../styling/Flair';
+import Logo from './Logo';
 
 const Flair: React.FC = () => {
   return (
     <MainSection>
-      <TextDiv>Free shipping on orders over $30</TextDiv>
+      <TextDiv>
+        <LogoDiv>
+          <Logo />
+        </LogoDiv>
+        Free shipping on orders over $30
+      </TextDiv>
     </MainSection>
   );
 };
