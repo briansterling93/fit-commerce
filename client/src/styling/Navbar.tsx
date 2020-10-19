@@ -7,7 +7,6 @@ export const MainSection = styled.div`
   justify-content: center;
   padding: 0.1rem;
   text-transform: uppercase;
-
   i {
     padding-left: 0.5rem;
   }
@@ -17,7 +16,6 @@ export const TextDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   a {
     padding: 2rem;
     text-decoration: none;
