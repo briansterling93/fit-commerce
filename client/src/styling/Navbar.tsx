@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  height: 4rem;
+  height: 3rem;
   background-color: transparent;
   diplay: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ export const TextDiv = styled.div`
   justify-content: center;
   align-items: center;
   a {
-    padding: 2rem;
+    padding: 1rem;
     text-decoration: none;
     color: black;
     font-weight: 400;

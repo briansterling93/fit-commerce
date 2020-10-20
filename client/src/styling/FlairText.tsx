@@ -1,20 +1,15 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  height: 2rem;
+  height: 1.3rem;
   color: white;
-  font-weight: 600;
+  font-weight: 100;
   font-size: 0.9rem;
-
   text-transform: uppercase;
-  background-color: #999;
+  background-color: black;
   display: flex;
   justify-content: center;
-  padding: 0.3rem;
-`;
-
-export const LogoDiv = styled.div`
-  // padding-right: 1rem;
+  padding: 0.1rem;
 `;
 
 export const TextDiv = styled.div`

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { StateContext } from '../../context/StateContext';
@@ -121,7 +121,7 @@ const ProtectedCart: React.FC = () => {
   };
   return (
     <div>
-      <Flair />
+      <FlairText />
       <MainSection>
         <AuthNavbar />
         <SecondarySection>

@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import { Redirect } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import SiteHeader from '../../components/SiteHeader';
 import axios from 'axios';
 import { MainSection, SecondarySection, ItemArray, ItemBox, ItemText, ItemTitle, ItemPrice } from '../../styling/Home';
-import Cart from './Cart';
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -103,9 +103,10 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <Flair />
+      <FlairText />
       <MainSection>
         <Navbar />
+        <SiteHeader />
         <SecondarySection>
           <h1>New Arrivals</h1>
           {route}

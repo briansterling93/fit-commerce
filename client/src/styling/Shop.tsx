@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
   // background-color: #D7E5DD;
-  background-color: #f0eeee;
+  background-color: #FAFAFA;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -12,7 +12,7 @@ export const MainSection = styled.div`
     ),
    
   background-size: cover;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`
@@ -34,8 +34,8 @@ export const SecondarySection = styled.div`
 `;
 
 export const BoxDiv = styled.div`
-  background-color: white;
-  border: 1px solid #dfdfdf;
+  // background-color: white;
+  // border: 1px solid #dfdfdf;
   min-height: 80vh;
   width: 90rem;
   display: flex;
@@ -46,10 +46,8 @@ export const BoxDiv = styled.div`
 export const FilterBox = styled.div`
   height: 22rem;
   width: 12rem;
-  // border-right: 1px solid #999;
-  // border-bottom: 1px solid #999;
   text-align: center;
-  background-color: white;
+  background-color: #fff2f2;
   color: black;
 
   h1 {
@@ -97,6 +95,7 @@ export const ItemBox = styled.div`
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
+  background-color: #f6f6f6;
 
   :hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -111,6 +110,7 @@ export const ItemBox = styled.div`
 
   button {
     cursor: pointer;
+    border-radius: 0.3rem;
     background-color: black;
     color: white;
     border: 1px solid #999;
@@ -122,7 +122,8 @@ export const ItemBox = styled.div`
     text-transform: uppercase;
 
     :hover {
-      opacity: 0.6;
+      opacity: 0.9;
+      background-color: green;
     }
   }
 `;
@@ -142,5 +143,7 @@ export const ItemTitle = styled.div`
 export const ItemPrice = styled.div`
   padding-bottom: 0.3rem;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-family: arial;
+  font-size: 1rem;
+  color: #a90000;
 `;

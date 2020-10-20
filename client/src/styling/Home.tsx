@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  // background-color: #D7E5DD;
-  background-color: #efefef;
+  // background-color: #efefef;
+  background-color: #FAFAFA;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -11,7 +11,8 @@ export const MainSection = styled.div`
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow: scroll;
+
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`
@@ -26,8 +27,9 @@ export const SecondarySection = styled.div`
     font-size: 1.5rem;
     color: black;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.2rem;
+    font-family: Montserrat, sans-serif;
   }
 
   li {
@@ -47,7 +49,7 @@ export const ItemArray = styled.div`
 
 export const ItemBox = styled.div`
   align-items: center;
-  background-color: white;
+  background-color: #f6f6f6;
   padding: 1.4rem;
   border-radius: 0.3rem;
   text-align: center;
@@ -68,6 +70,7 @@ export const ItemBox = styled.div`
   button {
     cursor: pointer;
     background-color: black;
+    border-radius: 0.3rem;
     color: white;
     border: 1px solid #999;
     height: 1.9rem;
@@ -79,7 +82,8 @@ export const ItemBox = styled.div`
     text-transform: uppercase;
 
     :hover {
-      opacity: 0.6;
+      opacity: 0.9;
+      background-color: green;
     }
   }
 `;
@@ -99,5 +103,7 @@ export const ItemTitle = styled.div`
 export const ItemPrice = styled.div`
   padding-bottom: 0.3rem;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-family: arial;
+  color: #a90000;
 `;

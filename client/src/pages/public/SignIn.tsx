@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignIn';
 import { Route, Redirect, NavLink } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import Navbar from '../../components/Navbar';
 import axios from 'axios';
 
@@ -59,11 +59,6 @@ const SignIn: React.FC = () => {
           payload: res.data.token,
         });
 
-        await dispatch({
-          type: APP_ACTIONS.UPDATE_NAME,
-          payload: 'freddy',
-        });
-
         (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
       }
     } catch (error) {
@@ -72,7 +67,7 @@ const SignIn: React.FC = () => {
   };
   return (
     <div>
-      <Flair />
+      <FlairText />
       <MainSection>
         <Navbar />
         <AuthBoxBorder>
