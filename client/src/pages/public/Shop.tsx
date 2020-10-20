@@ -48,7 +48,6 @@ const Shop: React.FC = () => {
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
-                    {/* //post new item to cart function */}
                     <button
                       onClick={async (e) => {
                         let item = i.item;
