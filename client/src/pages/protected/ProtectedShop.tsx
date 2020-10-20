@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthNavbar from '../../components/AuthNavbar';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import axios from 'axios';
 import {
   MainSection,
@@ -113,7 +113,7 @@ const ProtectedShop: React.FC = () => {
   };
   return (
     <div>
-      <Flair />
+      <FlairText />
 
       <MainSection>
         <AuthNavbar />

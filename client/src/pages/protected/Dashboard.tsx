@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
 
 import axios from 'axios';
@@ -58,19 +58,19 @@ const Dashboard: React.FC = () => {
     } catch (error) {}
   };
 
-  //filter through local storage item list function
+  //filter through local storage item list function to remove a token
   const useLocalStorage = (key: any) => {
     try {
       const item = window.localStorage.getItem(key);
 
-      return item ? localStorage.removeItem(key) : console.log(false);
+      return item ? localStorage.removeItem(key) : console.log('');
     } catch (error) {
       console.log(error);
     }
   };
 
   //set token function
-  const setValue = (value: any) => {
+  const setValue = async (value: any) => {
     try {
       let key = `${userEmail} token`;
 
@@ -89,17 +89,21 @@ const Dashboard: React.FC = () => {
   };
 
   //remove token from storage on logout
-  const removeToken = () => {
-    const h = useLocalStorage;
+  const removeToken = async () => {
+    try {
+      const remove = useLocalStorage;
 
-    console.log(h(`${userEmail} token`));
+      await remove(`${userEmail} token`);
+
+      await window.location.reload();
+    } catch (error) {}
   };
 
   const authorizeRoute = async () => {};
   return (
     <div>
       {route}
-      <Flair />
+      <FlairText />
       <MainSection>
         <AuthNavbar />
         <SecondarySection>

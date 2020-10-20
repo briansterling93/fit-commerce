@@ -12,7 +12,7 @@ export const MainSection = styled.div`
     ),
    
   background-size: cover;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`

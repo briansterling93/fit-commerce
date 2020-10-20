@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignUp';
-import Flair from '../../components/Flair';
+import FlairText from '../../components/FlairText';
 import Navbar from '../../components/Navbar';
 import { NavLink } from 'react-router-dom';
 import { StateContext, APP_ACTIONS } from '../../context/StateContext';
@@ -74,7 +74,7 @@ const SignUp: React.FC = () => {
   };
   return (
     <div>
-      <Flair />
+      <FlairText />
       <MainSection>
         <Navbar />
         <AuthBoxBorder>

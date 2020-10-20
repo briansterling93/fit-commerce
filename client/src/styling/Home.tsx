@@ -11,7 +11,8 @@ export const MainSection = styled.div`
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow: scroll;
+
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`
@@ -26,8 +27,9 @@ export const SecondarySection = styled.div`
     font-size: 1.5rem;
     color: black;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.2rem;
+    font-family: Montserrat, sans-serif;
   }
 
   li {
