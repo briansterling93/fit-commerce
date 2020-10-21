@@ -6,6 +6,8 @@ export interface IState {
   password: string;
   item: string;
   price: string;
+  path: string;
+  Description: string;
   cart: string[];
   recent_orders: string[];
   purchase_history: string[];
@@ -19,6 +21,7 @@ export const initialState = {
   item: '',
   price: '',
   path: '',
+  Description: 'sdsd',
   recent_orders: [],
   cart: [],
   token: '',
@@ -30,6 +33,7 @@ export enum APP_ACTIONS {
   UPDATE_PASSWORD = 'UPDATE_PASSWORD',
   UPDATE_ITEM = 'UPDATE_ITEM',
   UPDATE_PRICE = 'UPDATE_PRICE',
+  UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION',
   UPDATE_PATH = 'UPDATE_PATH',
   UPDATE_CART = 'UPDATE_CART',
   UPDATE_RECENT_ORDERS = 'UPDATE_RECENT_ORDERS',
@@ -56,6 +60,9 @@ export const appActions: AppAction = {
   },
   [APP_ACTIONS.UPDATE_PATH]: (state: IState, actions: any) => {
     return { ...state, path: actions.payload };
+  },
+  [APP_ACTIONS.UPDATE_DESCRIPTION]: (state: IState, actions: any) => {
+    return { ...state, Description: actions.payload };
   },
   [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
     return { ...state, cart: [...state.cart, actions.payload] };

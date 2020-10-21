@@ -5,7 +5,16 @@ import { Redirect } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 import SiteHeader from '../../components/SiteHeader';
 import axios from 'axios';
-import { MainSection, SecondarySection, ItemArray, ItemBox, ItemText, ItemTitle, ItemPrice } from '../../styling/Home';
+import {
+  MainSection,
+  SecondarySection,
+  ItemArray,
+  ItemBox,
+  ItemText,
+  ItemTitle,
+  ItemPrice,
+  ItemDescription,
+} from '../../styling/Home';
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -35,6 +44,7 @@ const Home: React.FC = () => {
 
               <ItemTitle>{i.item}</ItemTitle>
               <ItemText>
+                <ItemDescription>{i.Description}</ItemDescription>
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
@@ -44,6 +54,7 @@ const Home: React.FC = () => {
                         let price = i.price;
                         let path = i.path;
                         let quantity = i.quantity;
+                        let description = i.Description;
 
                         //GET request to check if item is already in cart
                         let cartQuery = await axios.get('/cart');

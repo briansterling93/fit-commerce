@@ -15,6 +15,7 @@ import {
   ItemText,
   ItemTitle,
   ItemPrice,
+  ItemDescription,
 } from '../../styling/Shop';
 import { NavLink, Redirect } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
@@ -44,6 +45,7 @@ const Shop: React.FC = () => {
               </div>
 
               <ItemTitle>{i.item}</ItemTitle>
+              <ItemDescription>{i.Description}</ItemDescription>
               <ItemText>
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
@@ -54,6 +56,7 @@ const Shop: React.FC = () => {
                         let price = i.price;
                         let path = i.path;
                         let quantity = i.quantity;
+                        let description = i.Description;
 
                         //GET request to check if item is already in cart
                         let cartQuery = await axios.get('/cart');

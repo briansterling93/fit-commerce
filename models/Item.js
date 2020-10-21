@@ -11,6 +11,9 @@ const Item = db.define("items", {
   path: {
     type: Sequelize.STRING,
   },
+  Description: {
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = Item;

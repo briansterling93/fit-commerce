@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  // background-color: #D7E5DD;
   background-color: #FAFAFA;
   height: 100vh;
   background-image: linear-gradient(
@@ -34,8 +33,6 @@ export const SecondarySection = styled.div`
 `;
 
 export const BoxDiv = styled.div`
-  // background-color: white;
-  // border: 1px solid #dfdfdf;
   min-height: 80vh;
   width: 90rem;
   display: flex;
@@ -90,6 +87,8 @@ export const ItemArray = styled.div`
 
 export const ItemBox = styled.div`
   align-items: center;
+  height: 24rem;
+  width: 12rem;
   padding: 1.4rem;
   border-radius: 0.3rem;
   text-align: center;
@@ -137,8 +136,10 @@ export const ItemText = styled.div`
 
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
+  height: 1rem;
   font-weight: bold;
   font-size: 1.1rem;
+  // padding-bottom: 1rem;
 `;
 export const ItemPrice = styled.div`
   padding-bottom: 0.3rem;
@@ -146,4 +147,10 @@ export const ItemPrice = styled.div`
   font-family: arial;
   font-size: 1rem;
   color: #a90000;
+`;
+
+export const ItemDescription = styled.div`
+  width: 3rem;
+  height: 2rem;
+  font-size: 0.5rem;
 `;
