@@ -8,8 +8,9 @@ const Admin: React.FC = () => {
   const [itemError, setItemError] = useState<string>('');
   const [priceError, setPriceError] = useState<string>('');
   const [pathError, setPathError] = useState<string>('');
+  const [descripError, setDescripError] = useState<string>('');
   const { state, dispatch } = useContext<any>(StateContext);
-  const { item, price, path } = state;
+  const { item, price, path, Description } = state;
 
   const handlePreview: any = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,8 +31,13 @@ const Admin: React.FC = () => {
       } else {
         setPathError('');
       }
-      if (item && price && path) {
-        let newItem = { item, price, path };
+      if (!state.Description) {
+        setDescripError('Description is required');
+      } else {
+        setPathError('');
+      }
+      if (item && price && path && Description) {
+        let newItem = { item, price, path, Description };
 
         const config = {
           headers: {
@@ -42,8 +48,6 @@ const Admin: React.FC = () => {
         const body = JSON.stringify(newItem);
 
         const res = await axios.post('/admin', body, config);
-
-        console.log(res);
       }
     } catch (error) {
       console.log(error);
@@ -95,6 +99,19 @@ const Admin: React.FC = () => {
                 }
               />
               <ErrorMsg>{pathError}</ErrorMsg>
+            </InputSpacer>
+            <InputSpacer>
+              <input
+                type="text"
+                placeholder="Description"
+                onChange={(e) =>
+                  dispatch({
+                    type: APP_ACTIONS.UPDATE_DESCRIPTION,
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <ErrorMsg>{descripError}</ErrorMsg>
             </InputSpacer>
             <InputSpacer>
               <button onClick={handlePreview}>Add Item</button>

@@ -107,3 +107,9 @@ export const ItemPrice = styled.div`
   font-family: arial;
   color: #a90000;
 `;
+
+export const ItemDescription = styled.div`
+  width: 3rem;
+  height: 2rem;
+  font-size: 0.5rem;
+`;
