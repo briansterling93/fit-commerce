@@ -58,23 +58,15 @@ const Dashboard: React.FC = () => {
     } catch (error) {}
   };
 
-  //filter through local storage item list function to remove a token
+  //get token to set in header
   const getToken = (key: any) => {
-    try {
-      const item = localStorage.getItem(key);
-
-      // return item ? localStorage.removeItem(key) : console.log('nulled');
-
-      return item ? console.log(item) : console.log('null');
-    } catch (error) {
-      console.log(error);
-    }
+    'token' in localStorage ? console.log('yee') : console.log('naww');
   };
 
   //set token function
   const setValue = async (value: any) => {
     try {
-      let key = `${userEmail} token`;
+      let key = 'token';
 
       const valueToStore = value instanceof Function ? value(storedValue) : value;
 
