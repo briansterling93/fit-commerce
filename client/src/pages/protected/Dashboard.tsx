@@ -59,11 +59,13 @@ const Dashboard: React.FC = () => {
   };
 
   //filter through local storage item list function to remove a token
-  const useLocalStorage = (key: any) => {
+  const getToken = (key: any) => {
     try {
-      const item = window.localStorage.getItem(key);
+      const item = localStorage.getItem(key);
 
-      return item ? localStorage.removeItem(key) : console.log('');
+      // return item ? localStorage.removeItem(key) : console.log('nulled');
+
+      return item ? console.log(item) : console.log('null');
     } catch (error) {
       console.log(error);
     }
@@ -83,17 +85,10 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  //test function to set value
-  const testFunc = () => {
-    setValue(state.token);
-  };
-
   //remove token from storage on logout
   const removeToken = async () => {
     try {
-      const remove = useLocalStorage;
-
-      await remove(`${userEmail} token`);
+      await localStorage.clear();
 
       await window.location.reload();
     } catch (error) {}
@@ -127,7 +122,7 @@ const Dashboard: React.FC = () => {
                         <NavLink to="/" onClick={removeToken}>
                           <button>Logout</button>
                         </NavLink>
-                        <button onClick={testFunc}>Get current user</button>
+                        <button onClick={getToken}>Get current user</button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>
