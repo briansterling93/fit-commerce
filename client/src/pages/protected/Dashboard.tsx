@@ -33,10 +33,16 @@ const Dashboard: React.FC = () => {
 
   const { name, token } = state;
   useEffect(() => {
-    if (!state.token) {
-      return setRoute(<Redirect to="/signin" />);
+    // if (!state.token) {
+    //   return setRoute(<Redirect to="/signin" />);
+    // } else {
+    //   // loadUser();
+    //   getToken();
+    // }
+    if (state.token) {
+      getToken();
     } else {
-      loadUser();
+      return setRoute(<Redirect to="/signin" />);
     }
   }, []);
 
@@ -59,8 +65,43 @@ const Dashboard: React.FC = () => {
   };
 
   //get token to set in header
-  const getToken = (key: any) => {
-    'token' in localStorage ? console.log('yee') : console.log('naww');
+  const getToken = async () => {
+    // token in localStorage ? console.log(token) : console.log('naww');
+
+    // const g = localStorage.getItem(token);
+
+    // console.log(localStorage.getItem('token')); this one worked
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': `${state.token}`,
+        },
+      };
+
+      if ('token' in localStorage) {
+        await dispatch({
+          type: APP_ACTIONS.UPDATE_TOKEN,
+          payload: localStorage.getItem('token'),
+        });
+
+        const res = await axios.get('/user/authorized', config);
+
+        setName(res.data.name);
+        setAge(res.data.createdAt);
+        setEmail(res.data.email_address);
+      } else {
+        const res = await axios.get('/user/authorized', config);
+
+        setName(res.data.name);
+        setAge(res.data.createdAt);
+        setEmail(res.data.email_address);
+        setValue(state.token);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //set token function
