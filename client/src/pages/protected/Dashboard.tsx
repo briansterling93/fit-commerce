@@ -32,59 +32,28 @@ const Dashboard: React.FC = () => {
   const [userAge, setAge] = useState<string>('');
 
   const { name, token } = state;
+
   useEffect(() => {
-    // if (!state.token) {
-    //   return setRoute(<Redirect to="/signin" />);
-    // } else {
-    //   // loadUser();
-    //   getToken();
-    // }
-    if (state.token) {
-      getToken();
-    } else {
-      return setRoute(<Redirect to="/signin" />);
-    }
+    state.token || 'token' in localStorage ? genUser() : setRoute(<Redirect to="/signin" />);
   }, []);
 
-  const loadUser = async () => {
+  //generate user profile on load
+  const genUser = async () => {
     try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': `${state.token}`,
-        },
-      };
-
-      const res = await axios.get('/user/authorized', config);
-
-      setName(res.data.name);
-      setAge(res.data.createdAt);
-      setEmail(res.data.email_address);
-      setValue(state.token);
-    } catch (error) {}
-  };
-
-  //get token to set in header
-  const getToken = async () => {
-    // token in localStorage ? console.log(token) : console.log('naww');
-
-    // const g = localStorage.getItem(token);
-
-    // console.log(localStorage.getItem('token')); this one worked
-
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': `${state.token}`,
-        },
-      };
-
       if ('token' in localStorage) {
-        await dispatch({
+        const tokenValue: any = localStorage.getItem('token');
+
+        dispatch({
           type: APP_ACTIONS.UPDATE_TOKEN,
-          payload: localStorage.getItem('token'),
+          payload: JSON.parse(tokenValue),
         });
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': JSON.parse(tokenValue),
+          },
+        };
 
         const res = await axios.get('/user/authorized', config);
 
@@ -92,19 +61,29 @@ const Dashboard: React.FC = () => {
         setAge(res.data.createdAt);
         setEmail(res.data.email_address);
       } else {
+        await setValue(state.token);
+
+        const tokenValue: any = localStorage.getItem('token');
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': JSON.parse(tokenValue),
+          },
+        };
+
         const res = await axios.get('/user/authorized', config);
 
         setName(res.data.name);
         setAge(res.data.createdAt);
         setEmail(res.data.email_address);
-        setValue(state.token);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  //set token function
+  //set token value in localStorage
   const setValue = async (value: any) => {
     try {
       let key = 'token';
@@ -118,7 +97,7 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  //remove token from storage on logout
+  //remove token from localStorage
   const removeToken = async () => {
     try {
       await localStorage.clear();
@@ -136,7 +115,7 @@ const Dashboard: React.FC = () => {
         <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
-            <WelcomeDiv>Welcome, {`${userName}!`}</WelcomeDiv>
+            <WelcomeDiv>{`Welcome, ${userName}!`}</WelcomeDiv>
             <BoxDivMain>
               <DivSpacer>
                 {' '}
@@ -148,14 +127,24 @@ const Dashboard: React.FC = () => {
                 <InfoDiv>
                   <h1>Your Info</h1>{' '}
                   <InfoText>
-                    <div>Email Address: {userEmail}</div>
-                    <div>Member Since: {userAge}</div>
+                    <div>{`Email Address: ${userEmail}`}</div>
+                    <div>{`Member Since: ${userAge}`}</div>
                     <BtnDiv>
                       <LogoutBtn>
                         <NavLink to="/" onClick={removeToken}>
                           <button>Logout</button>
                         </NavLink>
-                        <button onClick={getToken}>Get current user</button>
+                        <button
+                          onClick={() => {
+                            if ('token' in localStorage) {
+                              console.log(localStorage.getItem('token'));
+                            } else {
+                              console.log('none found');
+                            }
+                          }}
+                        >
+                          Get current user
+                        </button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>
