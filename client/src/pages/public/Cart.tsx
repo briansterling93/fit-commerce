@@ -22,6 +22,7 @@ import {
   Btn2,
   EmptyCart,
   ContinueBtn,
+  TotalPrice,
 } from '../../styling/Cart';
 
 const Cart: React.FC = () => {
@@ -142,7 +143,9 @@ const Cart: React.FC = () => {
                 <h1>Total</h1>
                 <p>{shippingTotal}</p>
 
-                <p>{cartTotal}</p>
+                <p>
+                  <TotalPrice>{cartTotal}</TotalPrice>
+                </p>
                 <TotalBoxBtns>
                   <BtnPadding>
                     <NavLink to="/signin">

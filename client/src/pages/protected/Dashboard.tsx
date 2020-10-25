@@ -20,8 +20,6 @@ import {
 import { Redirect } from 'react-router-dom';
 import { StateContext, APP_ACTIONS } from '../../context/StateContext';
 
-type FormElem = React.FormEvent<HTMLFormElement>;
-
 const Dashboard: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [storedValue, setStoredValue] = useState<any>();

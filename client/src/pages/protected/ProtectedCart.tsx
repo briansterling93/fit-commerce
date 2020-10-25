@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
 import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { StateContext } from '../../context/StateContext';
 import {
@@ -18,20 +19,21 @@ import {
   BtnPadding,
   CartRemoveBtn,
   CartQuantity,
-  Btn1,
   Btn2,
   EmptyCart,
   ContinueBtn,
+  TotalPrice,
 } from '../../styling/Cart';
 
 const ProtectedCart: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [cartItems, updateCart] = useState<any>();
   const [cartTotal, updateTotal] = useState<any>();
+  const [route, setRoute] = useState<any>('');
   const [shippingCost, updateShippingCost] = useState<any>();
   const [shippingTotal, updateShippingTotal] = useState<any>();
   useEffect(() => {
-    populateCart();
+    state.token || 'token' in localStorage ? populateCart() : setRoute(<Redirect to="/signin" />);
   }, []);
 
   const populateCart = async () => {
@@ -121,6 +123,7 @@ const ProtectedCart: React.FC = () => {
   };
   return (
     <div>
+      {route}
       <FlairText />
       <MainSection>
         <AuthNavbar />
@@ -142,13 +145,15 @@ const ProtectedCart: React.FC = () => {
                 <h1>Total</h1>
                 <p>{shippingTotal}</p>
 
-                <p>{cartTotal}</p>
+                <p>
+                  <TotalPrice>{cartTotal}</TotalPrice>
+                </p>
                 <TotalBoxBtns>
                   <BtnPadding>
                     <NavLink to="/">
-                      <Btn1>
+                      <Btn2>
                         <button>Checkout</button>
-                      </Btn1>
+                      </Btn2>
                     </NavLink>
                   </BtnPadding>
                 </TotalBoxBtns>

@@ -20,7 +20,7 @@ import {
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 const ProtectedShop: React.FC = () => {
   useEffect(() => {
-    populateItems();
+    state.token || 'token' in localStorage ? populateItems() : setRoute(<Redirect to="/signin" />);
   }, []);
   const { state, dispatch } = useContext<any>(StateContext);
   const [itemList, updateItems] = useState<[]>();

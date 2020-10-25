@@ -56,7 +56,7 @@ export const CartBox = styled.div`
 `;
 
 export const TotalBox = styled.div`
-  height: 10rem;
+  border: 1px solid #dfdfdf;
   width: 17rem;
   border-radius: 0.2rem;
   text-align: center;
@@ -87,6 +87,7 @@ export const CartItem = styled.div`
 
 export const CartPrice = styled.div`
   width: 2rem;
+  color: green;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem;
@@ -140,13 +141,13 @@ export const Btn1 = styled.div`
 `;
 export const Btn2 = styled.div`
   button {
-    background-color: black;
+    background-color: green;
     color: white;
     font-family: arial;
     letter-spacing: 0.1rem;
     width: 12rem;
     :hover {
-      opacity: 0.9;
+      opacity: 0.6;
       background-color: green;
     }
   }
@@ -168,4 +169,9 @@ button {
   :hover {
     opacity: 0.6;
   }
+`;
+
+export const TotalPrice = styled.div`
+  color: green;
+  font-weight: 400;
 `;
