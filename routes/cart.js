@@ -2,6 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const { check, validationResult } = require("express-validator");
 const Cart = require("../models/Cart.js");
+const Item = require("../models/Item.js");
 
 //POST
 //Post Item To Cart
@@ -104,6 +105,20 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(404);
+  }
+});
+
+//GET
+//Get a specific item from cart to show in UI
+router.get("/item/:item_id", async (req, res) => {
+  try {
+    let clickedItem = await Item.findOne({
+      where: { item_id: req.params.id },
+    });
+
+    res.send(clickedItem);
+  } catch (error) {
+    console.log(error);
   }
 });
 

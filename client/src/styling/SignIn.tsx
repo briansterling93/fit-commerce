@@ -9,7 +9,7 @@ export const MainSection = styled.div`
       rgba(25, 26, 25, 0.8),
       rgba(51, 51, 51, 0.8),
       rgba(64, 64, 64, 0.8)
-    ),
+    ), 
    
   background-size: cover;
 `;

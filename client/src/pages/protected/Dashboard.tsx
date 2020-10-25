@@ -24,7 +24,6 @@ const Dashboard: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [storedValue, setStoredValue] = useState<any>();
   const [route, setRoute] = useState<any>('');
-  const [userToken, setToken] = useState<string>('');
   const [userName, setName] = useState<string>('');
   const [userEmail, setEmail] = useState<string>('');
   const [userAge, setAge] = useState<string>('');
