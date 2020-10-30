@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  height: 30vh;
+  height: 75vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -10,6 +10,8 @@ export const MainSection = styled.div`
     ),
   background-size: cover;
   margin-top: 5rem;
+  display: flex;
+  justify-content: center;
 `;
 
 export const SecondarySection = styled.div`
@@ -19,4 +21,22 @@ export const SecondarySection = styled.div`
   background-color: transparent;
   flex-direction: column;
   align-items: center;
+`;
+
+export const ScrollDiv = styled.div`
+  font-size: 2rem;
+  color: #404040;
+  padding-top: 7rem;
+  align-self: flex-end;
+
+  i {
+    padding-top: 0.3rem;
+    align-items: center;
+    color: #9c9c9c;
+    font-size: 5rem;
+
+    :hover {
+      color: #6e6e6e;
+    }
+  }
 `;

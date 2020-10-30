@@ -109,11 +109,11 @@ router.get("/", async (req, res) => {
 });
 
 //GET
-//Get a specific item from cart to show in UI
-router.get("/item/:item_id", async (req, res) => {
+//Get a specific item by ID after "click" within UI, to show in UI
+router.get("/item/:id", async (req, res) => {
   try {
     let clickedItem = await Item.findOne({
-      where: { item_id: req.params.id },
+      where: { id: req.params.id },
     });
 
     res.send(clickedItem);
