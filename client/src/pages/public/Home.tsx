@@ -98,6 +98,23 @@ const Home: React.FC = () => {
                     >
                       Add to Cart
                     </button>
+                    <button
+                      onClick={async () => {
+                        try {
+                          await dispatch({
+                            type: APP_ACTIONS.UPDATE_DISPLAY,
+                            payload: i.id,
+                          });
+
+                          setRoute(<Redirect to="item" />);
+                        } catch (error) {
+                          console.log(error);
+                          setRoute(<Redirect to="/" />);
+                        }
+                      }}
+                    >
+                      View Item
+                    </button>
                   </div>
                 </div>
               </ItemsBottom>

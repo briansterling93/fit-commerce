@@ -25,15 +25,16 @@ export const SecondarySection = styled.div`
 
 export const ScrollDiv = styled.div`
   font-size: 2rem;
-  color: #404040;
+  font-weight: 100;
+  color: #c4c4c4;
   padding-top: 7rem;
   align-self: flex-end;
 
   i {
     padding-top: 0.3rem;
     align-items: center;
-    color: #9c9c9c;
-    font-size: 5rem;
+    color: #d0d0d0;
+    font-size: 3rem;
 
     :hover {
       color: #6e6e6e;

@@ -9,9 +9,8 @@ export interface IState {
   path: string;
   Description: string;
   cart: string[];
-  recent_orders: string[];
-  purchase_history: string[];
   token: string;
+  itemDisplay: number;
 }
 
 export const initialState = {
@@ -21,10 +20,9 @@ export const initialState = {
   item: '',
   price: '',
   path: '',
-  Description: 'sdsd',
-  recent_orders: [],
   cart: [],
   token: '',
+  itemDisplay: '',
 };
 
 export enum APP_ACTIONS {
@@ -36,8 +34,8 @@ export enum APP_ACTIONS {
   UPDATE_DESCRIPTION = 'UPDATE_DESCRIPTION',
   UPDATE_PATH = 'UPDATE_PATH',
   UPDATE_CART = 'UPDATE_CART',
-  UPDATE_RECENT_ORDERS = 'UPDATE_RECENT_ORDERS',
   UPDATE_TOKEN = 'UPDATE_TOKEN',
+  UPDATE_DISPLAY = 'UPDATE_DISPLAY',
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
@@ -70,11 +68,9 @@ export const appActions: AppAction = {
   [APP_ACTIONS.UPDATE_TOKEN]: (state: IState, actions: any) => {
     return { ...state, token: actions.payload };
   },
-  [APP_ACTIONS.UPDATE_RECENT_ORDERS]: (state: IState, actions: any) => {
-    return {
-      ...state,
-      recent_orders: [...state.recent_orders, actions.payload],
-    };
+
+  [APP_ACTIONS.UPDATE_DISPLAY]: (state: IState, actions: any) => {
+    return { ...state, itemDisplay: actions.payload };
   },
 };
 

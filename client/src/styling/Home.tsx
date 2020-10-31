@@ -90,9 +90,10 @@ export const ItemBox = styled.div`
 
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  font-weight: 545;
-  font-size: 1.2rem;
-  font-family: 'Guardian-EgypTT', serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: arial;
+  color: #1c1c1c;
 `;
 export const ItemPrice = styled.div`
   font-weight: 500;

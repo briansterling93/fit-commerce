@@ -116,6 +116,10 @@ router.get("/item/:id", async (req, res) => {
       where: { id: req.params.id },
     });
 
+    if (!clickedItem) {
+      return res.send({ error: "no item found" });
+    }
+
     res.send(clickedItem);
   } catch (error) {
     console.log(error);

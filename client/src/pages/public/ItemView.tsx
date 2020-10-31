@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { MainSection, SecondarySection, BoxDiv, ItemBox1, ItemBox2, BoxSpacer } from '../../styling/ItemView';
 import FlairText from '../../components/FlairText';
+import { Redirect } from 'react-router-dom';
+import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 import Navbar from '../../components/Navbar';
 import axios from 'axios';
 
 const ItemView: React.FC = () => {
+  const { state, dispatch } = useContext<any>(StateContext);
   const [img, setImg] = useState<string>('');
   const [item, setItem] = useState<string>('');
+  const [route, setRoute] = useState<any>('');
+
+  const { itemDisplay } = state;
   useEffect(() => {
-    generateItem();
+    if (!itemDisplay) {
+      setRoute(<Redirect to="/" />);
+    } else generateItem();
   }, []);
 
+  //generate incoming "clicked item"
   const generateItem = async () => {
     const config = {
       headers: {
@@ -18,7 +27,7 @@ const ItemView: React.FC = () => {
       },
     };
 
-    const res = await axios.get('cart/item/10', config);
+    const res = await axios.get(`cart/item/${itemDisplay}`, config);
 
     console.log(res.data.path);
 
@@ -26,9 +35,11 @@ const ItemView: React.FC = () => {
   };
   return (
     <div>
+      {route}
       <FlairText />
       <MainSection>
         <Navbar />
+        {itemDisplay}
         <SecondarySection>
           <BoxDiv>
             <BoxSpacer>
