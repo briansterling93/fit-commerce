@@ -10,10 +10,10 @@ import {
   SecondarySection,
   ItemArray,
   ItemBox,
-  ItemText,
   ItemTitle,
   ItemPrice,
   ItemDescription,
+  ItemsBottom,
 } from '../../styling/Home';
 
 const Home: React.FC = () => {
@@ -43,8 +43,10 @@ const Home: React.FC = () => {
               </div>
 
               <ItemTitle>{i.item}</ItemTitle>
-              <ItemText>
-                <ItemDescription>{i.Description}</ItemDescription>
+
+              <ItemDescription>{i.Description}</ItemDescription>
+
+              <ItemsBottom>
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
@@ -98,7 +100,7 @@ const Home: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </ItemText>
+              </ItemsBottom>
             </ItemBox>
           </li>
         </ul>

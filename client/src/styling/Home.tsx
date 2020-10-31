@@ -27,7 +27,7 @@ export const SecondarySection = styled.div`
     font-size: 1.5rem;
     color: black;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.2rem;
     font-family: Montserrat, sans-serif;
   }
@@ -44,17 +44,18 @@ export const ItemArray = styled.div`
   justify-content: center;
   height: 12rem;
   width: 75rem;
-  // background-color: #999;
 `;
 
 export const ItemBox = styled.div`
   align-items: center;
-  background-color: #f6f6f6;
+  height: 24rem;
+  width: 12rem;
   padding: 1.4rem;
   border-radius: 0.3rem;
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
+  background-color: #f6f6f6;
 
   :hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -62,22 +63,21 @@ export const ItemBox = styled.div`
   }
 
   img {
-    height: 10rem;
+    height: 13rem;
     width: 12rem;
     border-bottom: 1px solid #f0eeee;
   }
 
   button {
     cursor: pointer;
-    background-color: black;
+    background-color: #1c1c1c;
     border-radius: 0.3rem;
     color: white;
     border: 1px solid #999;
     height: 1.9rem;
-    width: 8rem;
-    // border-radius: 0.5rem;
+    width: 7rem;
     outline: none;
-    font-weight: 600;
+    font-weight: 200;
     font-family: arial;
     text-transform: uppercase;
 
@@ -88,28 +88,30 @@ export const ItemBox = styled.div`
   }
 `;
 
-export const ItemText = styled.div`
-  font-size: 1rem;
-  color: black;
-  font-weight: bold;
-  padding-top: 1.5rem;
-`;
-
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: 545;
+  font-size: 1.2rem;
+  font-family: 'Guardian-EgypTT', serif;
 `;
 export const ItemPrice = styled.div`
-  padding-bottom: 0.3rem;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   font-family: arial;
   color: #a90000;
 `;
 
 export const ItemDescription = styled.div`
-  width: 3rem;
-  height: 2rem;
-  font-size: 0.5rem;
+  width: 10rem;
+  height: 4rem;
+  text-align: left;
+  font-weight: 585;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+`;
+
+export const ItemsBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
 `;
