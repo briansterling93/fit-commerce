@@ -109,14 +109,14 @@ export const ItemBox = styled.div`
 
   button {
     cursor: pointer;
+    background-color: #1c1c1c;
     border-radius: 0.3rem;
-    background-color: black;
     color: white;
     border: 1px solid #999;
     height: 1.9rem;
-    width: 8rem;
+    width: 7rem;
     outline: none;
-    font-weight: 600;
+    font-weight: 200;
     font-family: arial;
     text-transform: uppercase;
 
@@ -127,30 +127,31 @@ export const ItemBox = styled.div`
   }
 `;
 
-export const ItemText = styled.div`
-  font-size: 1rem;
-  color: black;
-  font-weight: bold;
-  padding-top: 1.5rem;
-`;
-
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  height: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.1rem;
-  // padding-bottom: 1rem;
+  font-family: arial;
+  color: #1c1c1c;
 `;
 export const ItemPrice = styled.div`
-  padding-bottom: 0.3rem;
-  font-weight: 600;
-  font-family: arial;
+  font-weight: 500;
   font-size: 1rem;
+  font-family: arial;
   color: #a90000;
 `;
 
 export const ItemDescription = styled.div`
-  width: 3rem;
-  height: 2rem;
-  font-size: 0.5rem;
+  width: 10rem;
+  height: 4rem;
+  text-align: left;
+  font-weight: 585;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+`;
+
+export const ItemsBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
 `;

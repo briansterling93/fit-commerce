@@ -13,8 +13,9 @@ import {
   ProductSectionDiv,
   ItemArray,
   ItemBox,
-  ItemText,
+  ItemsBottom,
   ItemTitle,
+  ItemDescription,
   ItemPrice,
 } from '../../styling/Shop';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
@@ -44,7 +45,8 @@ const ProtectedShop: React.FC = () => {
               </div>
 
               <ItemTitle>{i.item}</ItemTitle>
-              <ItemText>
+              <ItemDescription>{i.Description}</ItemDescription>
+              <ItemsBottom>
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
@@ -55,6 +57,7 @@ const ProtectedShop: React.FC = () => {
                         let price = i.price;
                         let path = i.path;
                         let quantity = i.quantity;
+                        let description = i.Description;
 
                         //GET request to check if item is already in cart
                         let cartQuery = await axios.get('/cart');
@@ -98,7 +101,7 @@ const ProtectedShop: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </ItemText>
+              </ItemsBottom>
             </ItemBox>
           </li>
         </ul>

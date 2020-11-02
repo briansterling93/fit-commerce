@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                     >
                       Add to Cart
                     </button>
-                    {/* <button
+                    <button
                       onClick={async () => {
                         try {
                           await dispatch({
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
                       }}
                     >
                       View Item
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </ItemsBottom>

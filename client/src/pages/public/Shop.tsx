@@ -12,7 +12,7 @@ import {
   ProductSectionDiv,
   ItemArray,
   ItemBox,
-  ItemText,
+  ItemsBottom,
   ItemTitle,
   ItemPrice,
   ItemDescription,
@@ -46,7 +46,7 @@ const Shop: React.FC = () => {
 
               <ItemTitle>{i.item}</ItemTitle>
               <ItemDescription>{i.Description}</ItemDescription>
-              <ItemText>
+              <ItemsBottom>
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
@@ -100,7 +100,7 @@ const Shop: React.FC = () => {
                     </button>
                   </div>
                 </div>
-              </ItemText>
+              </ItemsBottom>
             </ItemBox>
           </li>
         </ul>
@@ -119,7 +119,6 @@ const Shop: React.FC = () => {
       <Navbar />
       <MainSection>
         <SecondarySection>
-          {/* <h1>Current Products</h1> */}
           <BoxDiv>
             <FilterBox>
               <FilterCategories>
