@@ -125,8 +125,8 @@ const ProtectedCart: React.FC = () => {
     <div>
       {route}
       <FlairText />
+      <AuthNavbar />
       <MainSection>
-        <AuthNavbar />
         <SecondarySection>
           <ContinueBtn>
             <NavLink to="/user/shop">

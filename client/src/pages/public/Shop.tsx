@@ -116,9 +116,8 @@ const Shop: React.FC = () => {
   return (
     <div>
       <FlairText />
-
+      <Navbar />
       <MainSection>
-        <Navbar />
         <SecondarySection>
           {/* <h1>Current Products</h1> */}
           <BoxDiv>

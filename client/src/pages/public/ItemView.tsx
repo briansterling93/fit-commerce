@@ -37,8 +37,8 @@ const ItemView: React.FC = () => {
     <div>
       {route}
       <FlairText />
+      <Navbar />
       <MainSection>
-        <Navbar />
         {itemDisplay}
         <SecondarySection>
           <BoxDiv>

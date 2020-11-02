@@ -75,8 +75,8 @@ const SignUp: React.FC = () => {
   return (
     <div>
       <FlairText />
+      <Navbar />
       <MainSection>
-        <Navbar />
         <AuthBoxBorder>
           <AuthUI>
             <h1>Welcome, Sign up below!</h1>

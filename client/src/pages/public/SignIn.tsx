@@ -68,8 +68,8 @@ const SignIn: React.FC = () => {
   return (
     <div>
       <FlairText />
+      <Navbar />
       <MainSection>
-        <Navbar />
         <AuthBoxBorder>
           {route}
           <AuthUI>

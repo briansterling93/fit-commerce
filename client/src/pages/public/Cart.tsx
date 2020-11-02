@@ -123,8 +123,8 @@ const Cart: React.FC = () => {
   return (
     <div>
       <FlairText />
+      <Navbar />
       <MainSection>
-        <Navbar />
         <SecondarySection>
           <ContinueBtn>
             <NavLink to="/shop">

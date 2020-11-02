@@ -108,8 +108,8 @@ const Dashboard: React.FC = () => {
     <div>
       {route}
       <FlairText />
+      <AuthNavbar />
       <MainSection>
-        <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
             <WelcomeDiv>{`Welcome, ${userName}!`}</WelcomeDiv>

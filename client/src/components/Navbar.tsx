@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
           </NavLink>
           <NavLink to="/signin">Sign In</NavLink>
           <NavLink to="/cart">
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </NavLink>
         </TextDiv>
       </MainSection>
