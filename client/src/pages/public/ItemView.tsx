@@ -26,15 +26,15 @@ const ItemView: React.FC = () => {
   const [item, setItem] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [price, setPrice] = useState<string>('');
-
+  const [Quant, setQuantity] = useState<any>('');
   const [route, setRoute] = useState<any>('');
 
   const { itemDisplay } = state;
   useEffect(() => {
-    // if (!itemDisplay) {
-    //   setRoute(<Redirect to="/" />);
-    // } else generateItem();
-    generateItem();
+    if (!itemDisplay) {
+      setRoute(<Redirect to="/" />);
+    } else generateItem();
+    // generateItem();
   }, []);
 
   //generate incoming "clicked item"
@@ -45,9 +45,9 @@ const ItemView: React.FC = () => {
       },
     };
 
-    // const res = await axios.get(`cart/item/${itemDisplay}`, config);
+    const res = await axios.get(`cart/item/${itemDisplay}`, config);
 
-    const res = await axios.get('cart/item/5', config);
+    // const res = await axios.get('cart/item/5', config);
 
     console.log(res.data);
 
@@ -87,7 +87,48 @@ const ItemView: React.FC = () => {
                   <Price>{price}</Price>
 
                   <AddBtn>
-                    <button>Add To Cart</button>
+                    <button
+                      onClick={async (e) => {
+                        //GET request to check if item is already in cart
+                        let cartQuery = await axios.get('/cart');
+
+                        let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
+
+                        let cartQuery3 = await cartQuery2.filter((s: any) => s === item);
+
+                        if (cartQuery3.length >= 1) {
+                          let item_name = item;
+
+                          let item_increment = { item_name };
+
+                          const config = {
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                          };
+
+                          const body = JSON.stringify(item_increment);
+
+                          const res = await axios.post('/cart/increment', body, config);
+                        } else setQuantity(cartQuery3.length + 1);
+
+                        let newItem = { item, price, img, Quant };
+
+                        const config = {
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                        };
+
+                        const body = JSON.stringify(newItem);
+
+                        const res = await axios.post('/cart', body, config);
+
+                        res ? setRoute(<Redirect to="cart" />) : console.log('');
+                      }}
+                    >
+                      Add To Cart
+                    </button>
                   </AddBtn>
                 </FlexDiv>
               </ItemBox2>

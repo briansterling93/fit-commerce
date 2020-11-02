@@ -101,6 +101,7 @@ export const Title = styled.div`
 export const Description = styled.div`
   width: 30rem;
   margin-top: 1.3rem;
+  padding-bottom: 2rem;
 `;
 
 export const Price = styled.div`
@@ -137,7 +138,7 @@ export const FlexDiv = styled.div`
   flex-direction: row;
   width: 10rem;
 
-  margin-top: 5rem;
+  margin-top: 3rem;
 `;
 
 export const Quantity = styled.div`
