@@ -50,7 +50,7 @@ const Home: React.FC = () => {
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
-                    <button
+                    {/* <button
                       onClick={async (e) => {
                         let item = i.item;
                         let price = i.price;
@@ -97,7 +97,7 @@ const Home: React.FC = () => {
                       }}
                     >
                       Add to Cart
-                    </button>
+                    </button> */}
                     <button
                       onClick={async () => {
                         try {

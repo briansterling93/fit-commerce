@@ -17,11 +17,12 @@ export const TextDiv = styled.div`
   justify-content: center;
   align-items: center;
   a {
-    padding: 1rem;
+    padding: 1.2rem;
+    font-family: 'Open Sans', arial, sans-serif;
     text-decoration: none;
-    color: black;
-    font-weight: 400;
-    font-size: 1rem;
+    color: #5b5959;
+    font-weight: 500;
+    font-size: 0.9rem;
     // display: flex;
     :hover {
       color: green;
