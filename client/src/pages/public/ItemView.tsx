@@ -12,6 +12,7 @@ import {
   AddBtn,
   Description,
   Quantity,
+  ErrorMsg,
   FlexDiv,
 } from '../../styling/ItemView';
 import FlairText from '../../components/FlairText';
@@ -26,8 +27,10 @@ const ItemView: React.FC = () => {
   const [item, setItem] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [price, setPrice] = useState<string>('');
-  const [quantity, setQuantity] = useState<any>();
+  const [UIquantity, setQuantity] = useState<number>(1);
   const [route, setRoute] = useState<any>('');
+  const [spinner, setSpinner] = useState<any>('');
+  const [error, setError] = useState<string>('');
 
   const { itemDisplay } = state;
   useEffect(() => {
@@ -62,6 +65,7 @@ const ItemView: React.FC = () => {
             <BoxSpacer>
               <ItemBox1>
                 <img src={path} />
+                {spinner}
               </ItemBox1>
             </BoxSpacer>
             <BoxSpacer2>
@@ -69,15 +73,16 @@ const ItemView: React.FC = () => {
                 <Title>{item}</Title>
                 <Description>{description}</Description>
                 <Quantity>
-                  Quantity:{' '}
-                  <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                  {/* <input type="number" min="1" max="5" step="1"></input> */}
+                  Quantity
+                  <input
+                    onChange={(e: any) => setQuantity(e.target.value)}
+                    type="number"
+                    min="1"
+                    max="5"
+                    step="1"
+                    value={UIquantity}
+                  ></input>
+                  <ErrorMsg> {error}</ErrorMsg>
                 </Quantity>
                 <FlexDiv>
                   <Price>{price}</Price>
@@ -91,6 +96,10 @@ const ItemView: React.FC = () => {
                               'Content-Type': 'application/json',
                             },
                           };
+
+                          if (UIquantity > 5) {
+                            return setError('5 is the maximum');
+                          } else setError('');
 
                           const res = await axios.get(`cart/item/${itemDisplay}`);
 
@@ -121,7 +130,7 @@ const ItemView: React.FC = () => {
                             const body = JSON.stringify(item_increment);
 
                             const res = await axios.post('/cart/increment', body, config);
-                          } else quantity = (await cartQuery3.length) + 1;
+                          } else quantity = (await cartQuery3.length) + parseInt(`${UIquantity}`);
 
                           let newItem = { item, price, path, quantity };
 

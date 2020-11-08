@@ -25,7 +25,8 @@ export const TextDiv = styled.div`
     font-size: 0.9rem;
     // display: flex;
     :hover {
-      color: green;
+      color: black;
+      font-weight: 400;
     }
   }
 `;

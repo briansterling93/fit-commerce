@@ -93,7 +93,7 @@ export const Title = styled.div`
   border-bottom: 1px solid #999;
   font-size: 2rem;
   // font-family: digital;
-  font-weight: 400;
+  font-weight: 600;
   padding-bottom: 0.5rem;
   color: #3d3d3d;
 `;
@@ -143,5 +143,23 @@ export const FlexDiv = styled.div`
 
 export const Quantity = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  text-transform: uppercase;
+
+  input {
+    padding: 0.5rem;
+    height: 1rem;
+    font-weight: 550;
+    width: 5rem;
+    background-color: #eeeeee;
+    border: 1px solid #dbdada;
+  }
+`;
+
+export const ErrorMsg = styled.div`
+  height: 1rem;
+  width: 10rem;
+  font-weight: 600;
+  color: red;
+  font-size: 0.9rem;
 `;
