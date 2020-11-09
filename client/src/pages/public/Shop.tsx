@@ -7,7 +7,6 @@ import {
   SecondarySection,
   BoxDiv,
   FilterBox,
-  FilterCategories,
   FilterPrice,
   ProductSectionDiv,
   ItemArray,
@@ -50,54 +49,6 @@ const Shop: React.FC = () => {
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
-                    {/* <button
-                      onClick={async (e) => {
-                        let item = i.item;
-                        let price = i.price;
-                        let path = i.path;
-                        let quantity = i.quantity;
-                        let description = i.Description;
-
-                        //GET request to check if item is already in cart
-                        let cartQuery = await axios.get('/cart');
-
-                        let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
-
-                        let cartQuery3 = await cartQuery2.filter((s: any) => s === i.item);
-
-                        if (cartQuery3.length >= 1) {
-                          let item_name = await i.item;
-
-                          let item_increment = { item_name };
-
-                          const config = {
-                            headers: {
-                              'Content-Type': 'application/json',
-                            },
-                          };
-
-                          const body = JSON.stringify(item_increment);
-
-                          const res = await axios.post('/cart/increment', body, config);
-                        } else quantity = (await cartQuery3.length) + 1;
-
-                        let newItem = { item, price, path, quantity };
-
-                        const config = {
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
-                        };
-
-                        const body = JSON.stringify(newItem);
-
-                        const res = await axios.post('/cart', body, config);
-
-                        res ? setRoute(<Redirect to="cart" />) : console.log(1);
-                      }}
-                    >
-                      Add to Cart
-                    </button> */}
                     <button
                       onClick={async () => {
                         try {
@@ -138,32 +89,26 @@ const Shop: React.FC = () => {
         <SecondarySection>
           <BoxDiv>
             <FilterBox>
-              <FilterCategories>
-                <h1>Filter Categories</h1>
-                <ul>
-                  <li>
-                    <input type="checkbox" /> Weights
-                  </li>
-                  <li>
-                    <input type="checkbox" /> Running
-                  </li>
-                  <li>
-                    <input type="checkbox" /> Accessories
-                  </li>
-                  <li>
-                    <input type="checkbox" /> Crossfit
-                  </li>
-                </ul>
-              </FilterCategories>
-
               <FilterPrice>
                 <h1>Filter by Price</h1>
                 <ul>
                   <li>
-                    <input type="checkbox" /> Any
+                    <input
+                      onClick={() => {
+                        populateItems();
+                      }}
+                      type="checkbox"
+                    />{' '}
+                    Any
                   </li>
                   <li>
-                    <input type="checkbox" /> Below $50
+                    <input
+                      onClick={() => {
+                        updateItems([]);
+                      }}
+                      type="checkbox"
+                    />{' '}
+                    Below $50
                   </li>
                   <li>
                     <input type="checkbox" /> $51 - 300

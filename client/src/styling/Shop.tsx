@@ -41,7 +41,7 @@ export const BoxDiv = styled.div`
 `;
 
 export const FilterBox = styled.div`
-  height: 22rem;
+  height: 12rem;
   width: 12rem;
   text-align: center;
   background-color: #fff2f2;
@@ -56,14 +56,6 @@ export const FilterBox = styled.div`
   }
 `;
 
-export const FilterCategories = styled.div`
-  li {
-    list-style-type: bullet-point;
-
-    text-align: left;
-    padding: 0.2rem;
-  }
-`;
 export const FilterPrice = styled.div`
   li {
     list-style-type: bullet-point;
@@ -87,7 +79,7 @@ export const ItemArray = styled.div`
 
 export const ItemBox = styled.div`
   align-items: center;
-  height: 24rem;
+  height: 25rem;
   width: 12rem;
   padding: 1.4rem;
   border-radius: 0.3rem;
@@ -131,9 +123,10 @@ export const ItemBox = styled.div`
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-family: digital;
   color: #4f4f4e;
+  height: 2rem;
 `;
 export const ItemPrice = styled.div`
   font-weight: 500;

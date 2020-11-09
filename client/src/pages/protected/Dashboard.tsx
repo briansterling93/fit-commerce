@@ -117,12 +117,13 @@ const Dashboard: React.FC = () => {
               <DivSpacer>
                 {' '}
                 <RecentsDiv>
-                  <h1>Recent Orders</h1>
+                  <h1>Options</h1>
+                  View Cart
                 </RecentsDiv>
               </DivSpacer>
               <DivSpacer>
                 <InfoDiv>
-                  <h1>Your Info</h1>{' '}
+                  <h1>Your Info</h1>
                   <InfoText>
                     <div>{`Email Address: ${userEmail}`}</div>
                     <div>{`Member Since: ${userAge}`}</div>
