@@ -78,6 +78,7 @@ export const ItemBox = styled.div`
     width: 7rem;
     outline: none;
     font-weight: 200;
+    font-size: 0.7rem;
     font-family: arial;
     text-transform: uppercase;
 
@@ -90,10 +91,10 @@ export const ItemBox = styled.div`
 
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  font-weight: 500;
-  font-size: 1.1rem;
-  font-family: arial;
-  color: #1c1c1c;
+  font-weight: 600;
+  font-size: 1.3rem;
+  font-family: digital;
+  color: #4f4f4e;
 `;
 export const ItemPrice = styled.div`
   font-weight: 500;

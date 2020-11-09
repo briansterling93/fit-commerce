@@ -89,6 +89,7 @@ const ItemView: React.FC = () => {
 
                   <AddBtn>
                     <button
+                      id="btn-test"
                       onClick={async (e) => {
                         try {
                           const config = {

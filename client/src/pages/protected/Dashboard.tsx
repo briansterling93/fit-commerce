@@ -131,17 +131,6 @@ const Dashboard: React.FC = () => {
                         <NavLink to="/" onClick={removeToken}>
                           <button>Logout</button>
                         </NavLink>
-                        <button
-                          onClick={() => {
-                            if ('token' in localStorage) {
-                              console.log(localStorage.getItem('token'));
-                            } else {
-                              console.log('none found');
-                            }
-                          }}
-                        >
-                          Get current user
-                        </button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>

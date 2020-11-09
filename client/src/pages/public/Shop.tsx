@@ -50,7 +50,7 @@ const Shop: React.FC = () => {
                 <ItemPrice>${i.price}</ItemPrice>
                 <div>
                   <div>
-                    <button
+                    {/* <button
                       onClick={async (e) => {
                         let item = i.item;
                         let price = i.price;
@@ -97,6 +97,23 @@ const Shop: React.FC = () => {
                       }}
                     >
                       Add to Cart
+                    </button> */}
+                    <button
+                      onClick={async () => {
+                        try {
+                          await dispatch({
+                            type: APP_ACTIONS.UPDATE_DISPLAY,
+                            payload: i.id,
+                          });
+
+                          setRoute(<Redirect to="item" />);
+                        } catch (error) {
+                          console.log(error);
+                          setRoute(<Redirect to="/" />);
+                        }
+                      }}
+                    >
+                      View Item
                     </button>
                   </div>
                 </div>

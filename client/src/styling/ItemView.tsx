@@ -160,6 +160,6 @@ export const ErrorMsg = styled.div`
   height: 1rem;
   width: 10rem;
   font-weight: 600;
-  color: red;
-  font-size: 0.9rem;
+  color: #750602;
+  font-size: 0.8rem;
 `;
