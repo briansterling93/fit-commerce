@@ -3,6 +3,7 @@ const router = new express.Router();
 const { check, validationResult } = require("express-validator");
 const Cart = require("../models/Cart.js");
 const Item = require("../models/Item.js");
+const { Op } = require("sequelize");
 
 //POST
 //Post Item To Cart
@@ -135,6 +136,60 @@ router.get("/total", async (req, res) => {
     });
 
     res.json({ findAll });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//GET
+//Get items below $50
+router.get("/filter2", async (req, res) => {
+  try {
+    const test = await Item.findAll({
+      where: {
+        price: {
+          [Op.lt]: 51.0,
+        },
+      },
+    });
+
+    res.send(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//GET
+//Get items below between 51 & $300
+router.get("/filter3", async (req, res) => {
+  try {
+    const test = await Item.findAll({
+      where: {
+        price: {
+          [Op.between]: [51, 300],
+        },
+      },
+    });
+
+    res.send(test);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//GET
+//Get items below between 301 & $500
+router.get("/filter4", async (req, res) => {
+  try {
+    const test = await Item.findAll({
+      where: {
+        price: {
+          [Op.between]: [301, 500],
+        },
+      },
+    });
+
+    res.send(test);
   } catch (error) {
     console.log(error);
   }

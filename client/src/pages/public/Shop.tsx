@@ -81,6 +81,186 @@ const Shop: React.FC = () => {
       console.log(error);
     }
   };
+
+  //Populate items below $50
+  const filter2: any = async () => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const res = await axios.get('/cart/filter2');
+
+      console.log(res);
+
+      const res2 = res.data.map((i: any) => (
+        <ul>
+          <li key={i.id}>
+            <ItemBox>
+              <div>
+                <img src={i.path} />
+              </div>
+
+              <ItemTitle>{i.item}</ItemTitle>
+              <ItemDescription>{i.Description}</ItemDescription>
+              <ItemsBottom>
+                <ItemPrice>${i.price}</ItemPrice>
+                <div>
+                  <div>
+                    <button
+                      onClick={async () => {
+                        try {
+                          await dispatch({
+                            type: APP_ACTIONS.UPDATE_DISPLAY,
+                            payload: i.id,
+                          });
+
+                          setRoute(<Redirect to="item" />);
+                        } catch (error) {
+                          console.log(error);
+                          setRoute(<Redirect to="/" />);
+                        }
+                      }}
+                    >
+                      View Item
+                    </button>
+                  </div>
+                </div>
+              </ItemsBottom>
+            </ItemBox>
+          </li>
+        </ul>
+      ));
+
+      const y = res2.reverse();
+
+      updateItems(y);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Populate items between 51 & $300
+  const filter3: any = async () => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const res = await axios.get('/cart/filter3');
+
+      console.log(res);
+
+      const res2 = res.data.map((i: any) => (
+        <ul>
+          <li key={i.id}>
+            <ItemBox>
+              <div>
+                <img src={i.path} />
+              </div>
+
+              <ItemTitle>{i.item}</ItemTitle>
+              <ItemDescription>{i.Description}</ItemDescription>
+              <ItemsBottom>
+                <ItemPrice>${i.price}</ItemPrice>
+                <div>
+                  <div>
+                    <button
+                      onClick={async () => {
+                        try {
+                          await dispatch({
+                            type: APP_ACTIONS.UPDATE_DISPLAY,
+                            payload: i.id,
+                          });
+
+                          setRoute(<Redirect to="item" />);
+                        } catch (error) {
+                          console.log(error);
+                          setRoute(<Redirect to="/" />);
+                        }
+                      }}
+                    >
+                      View Item
+                    </button>
+                  </div>
+                </div>
+              </ItemsBottom>
+            </ItemBox>
+          </li>
+        </ul>
+      ));
+
+      const y = res2.reverse();
+
+      updateItems(y);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Populate items between 301 & $500
+  const filter4: any = async () => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const res = await axios.get('/cart/filter4');
+
+      console.log(res);
+
+      const res2 = res.data.map((i: any) => (
+        <ul>
+          <li key={i.id}>
+            <ItemBox>
+              <div>
+                <img src={i.path} />
+              </div>
+
+              <ItemTitle>{i.item}</ItemTitle>
+              <ItemDescription>{i.Description}</ItemDescription>
+              <ItemsBottom>
+                <ItemPrice>${i.price}</ItemPrice>
+                <div>
+                  <div>
+                    <button
+                      onClick={async () => {
+                        try {
+                          await dispatch({
+                            type: APP_ACTIONS.UPDATE_DISPLAY,
+                            payload: i.id,
+                          });
+
+                          setRoute(<Redirect to="item" />);
+                        } catch (error) {
+                          console.log(error);
+                          setRoute(<Redirect to="/" />);
+                        }
+                      }}
+                    >
+                      View Item
+                    </button>
+                  </div>
+                </div>
+              </ItemsBottom>
+            </ItemBox>
+          </li>
+        </ul>
+      ));
+
+      const y = res2.reverse();
+
+      updateItems(y);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <FlairText />
@@ -104,17 +284,29 @@ const Shop: React.FC = () => {
                   <li>
                     <input
                       onClick={() => {
-                        updateItems([]);
+                        filter2();
                       }}
                       type="checkbox"
                     />{' '}
                     Below $50
                   </li>
                   <li>
-                    <input type="checkbox" /> $51 - 300
+                    <input
+                      onClick={() => {
+                        filter3();
+                      }}
+                      type="checkbox"
+                    />{' '}
+                    $51 - 300
                   </li>
                   <li>
-                    <input type="checkbox" /> $301 - 500
+                    <input
+                      onClick={() => {
+                        filter4();
+                      }}
+                      type="checkbox"
+                    />{' '}
+                    $301 - 500
                   </li>
                 </ul>
               </FilterPrice>
