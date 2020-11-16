@@ -12,6 +12,7 @@ import Admin from './pages/protected/Admin';
 import Dashboard from './pages/protected/Dashboard';
 import { StateContext, initialState, reducer } from './context/StateContext';
 import ItemView from './pages/public/ItemView';
+import ProtectedItemView from './pages/protected/ProtectedItemView';
 
 const Universal = createGlobalStyle`
   body {
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/item" component={ItemView} />
+          <Route exact path="/user/item" component={ProtectedItemView} />
           <Route exact path="/user/dashboard" component={Dashboard} />
           <Route exact path="/user/shop" component={ProtectedShop} />
           <Route exact path="/user/cart" component={ProtectedCart} />

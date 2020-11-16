@@ -86,7 +86,8 @@ export const ItemBox = styled.div`
   text-align: center;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
-  background-color: #f6f6f6;
+  background-color: #fafafa;
+  border: 0.1px solid #e6e6e6;
 
   :hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -122,14 +123,14 @@ export const ItemBox = styled.div`
 
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.2rem;
   font-family: digital;
   color: #4f4f4e;
   height: 2rem;
 `;
 export const ItemPrice = styled.div`
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1rem;
   font-family: arial;
   color: #a90000;
