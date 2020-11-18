@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  // background-color: #D7E5DD;
   background-color: #FAFAFA;
   height: 100vh;
   background-image: linear-gradient(
@@ -18,7 +17,7 @@ export const AuthBoxBorder = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10rem;
-  background-color: transparent;
+  background-color: #fafafa;
 `;
 
 export const AuthUI = styled.div`

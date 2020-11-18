@@ -261,6 +261,27 @@ const Shop: React.FC = () => {
       console.log(error);
     }
   };
+
+  function filterMethod(e: any) {
+    let value = e.target.value;
+
+    if (value == 1) {
+      filter2();
+    }
+
+    if (value == 2) {
+      filter3();
+    }
+
+    if (value == 3) {
+      filter4();
+    }
+
+    if (value == 0) {
+      populateItems();
+    }
+  }
+
   return (
     <div>
       <FlairText />
@@ -271,44 +292,13 @@ const Shop: React.FC = () => {
             <FilterBox>
               <FilterPrice>
                 <h1>Filter by Price</h1>
-                <ul>
-                  <li>
-                    <input
-                      onClick={() => {
-                        populateItems();
-                      }}
-                      type="checkbox"
-                    />{' '}
-                    Any
-                  </li>
-                  <li>
-                    <input
-                      onClick={() => {
-                        filter2();
-                      }}
-                      type="checkbox"
-                    />{' '}
-                    Below $50
-                  </li>
-                  <li>
-                    <input
-                      onClick={() => {
-                        filter3();
-                      }}
-                      type="checkbox"
-                    />{' '}
-                    $51 - 300
-                  </li>
-                  <li>
-                    <input
-                      onClick={() => {
-                        filter4();
-                      }}
-                      type="checkbox"
-                    />{' '}
-                    $301 - 500
-                  </li>
-                </ul>
+
+                <select onChange={filterMethod}>
+                  <option value="0">Any</option>
+                  <option value="1">Below $51</option>
+                  <option value="2">$51 - 300</option>
+                  <option value="3">$301 - 500</option>
+                </select>
               </FilterPrice>
             </FilterBox>
             <ProductSectionDiv>

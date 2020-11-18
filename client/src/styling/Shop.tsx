@@ -41,11 +41,13 @@ export const BoxDiv = styled.div`
 `;
 
 export const FilterBox = styled.div`
-  height: 12rem;
-  width: 12rem;
+  height: 7rem;
+
   text-align: center;
-  background-color: #fff2f2;
+  align-items: center;
+  background-color: #e2efff;
   color: black;
+  border-radius: 0.3rem;
 
   h1 {
     height: 1rem;
@@ -53,6 +55,13 @@ export const FilterBox = styled.div`
     font-weight: 800;
     width: 17rem;
     text-align: left;
+  }
+
+  select {
+    outline: none;
+    border: none;
+    height: 1.4rem;
+    width: 6rem;
   }
 `;
 
@@ -63,6 +72,10 @@ export const FilterPrice = styled.div`
     padding: 0.1rem;
   }
   padding-top: 1rem;
+
+  h1 {
+    text-align: center;
+  }
 `;
 
 export const ProductSectionDiv = styled.div`

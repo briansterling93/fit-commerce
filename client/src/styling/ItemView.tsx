@@ -48,10 +48,14 @@ export const BoxDiv = styled.div`
     width: 25rem;
   }
 
+  input {
+    cursor: pointer;
+  }
+
   button {
     cursor: pointer;
     background-color: #1c1c1c;
-    border-radius: 0.3rem;
+    // border-radius: 0.1rem;
     color: white;
     border: 1px solid #999;
     height: 1.9rem;
@@ -117,7 +121,7 @@ button {
   cursor: pointer;
   // background-color: #1c1c1c;
   background-color: green;
-  border-radius: 2rem;
+  border-radius: .3rem;
   color: white;
   border: 1px solid #999;
   height: 2rem;
