@@ -97,7 +97,7 @@ const ProtectedCart: React.FC = () => {
 
       //get cart total function below
 
-      const res3 = await axios.get('/cart/total');
+      const res3 = await axios.get('/user_cart/total');
 
       const res4 = res3.data.findAll.map((p: any) => p.price * p.quantity);
 
