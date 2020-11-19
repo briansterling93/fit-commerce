@@ -140,6 +140,8 @@ const ItemView: React.FC = () => {
                           const res3 = await axios.post('/cart', body, config);
 
                           res3 ? setRoute(<Redirect to="cart" />) : console.log('');
+
+                          console.log(res);
                         } catch (error) {
                           console.log(error);
                         }

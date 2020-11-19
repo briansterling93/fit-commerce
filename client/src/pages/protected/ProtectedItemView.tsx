@@ -17,7 +17,7 @@ import {
 } from '../../styling/ItemView';
 import FlairText from '../../components/FlairText';
 import { Redirect } from 'react-router-dom';
-import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import { StateContext } from '../../context/StateContext';
 import AuthNavbar from '../../components/AuthNavbar';
 import axios from 'axios';
 
@@ -33,27 +33,33 @@ const ItemView: React.FC = () => {
   const [error, setError] = useState<string>('');
 
   const { itemDisplay } = state;
+
   useEffect(() => {
     if (!itemDisplay) {
-      setRoute(<Redirect to="/" />);
+      setRoute(<Redirect to="/user/dashboard" />);
     } else generateItem();
   }, []);
 
   //generate incoming "clicked item"
   const generateItem = async () => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
 
-    const res = await axios.get(`cart/item/${itemDisplay}`, config);
+      const res = await axios.get(`/cart/item/${itemDisplay}`, config);
 
-    setImg(res.data.path);
-    setItem(res.data.item);
-    setPrice(`$${res.data.price}`);
-    setDescription(res.data.Description);
+      setImg(res.data.path);
+      setItem(res.data.item);
+      setPrice(`$${res.data.price}`);
+      setDescription(res.data.Description);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div>
       {route}
@@ -102,7 +108,7 @@ const ItemView: React.FC = () => {
                             return setError('5 is the maximum');
                           } else setError('');
 
-                          const res = await axios.get(`cart/item/${itemDisplay}`);
+                          const res = await axios.get(`/cart/item/${itemDisplay}`);
 
                           let item = res.data.item;
                           let price = res.data.price;
@@ -130,16 +136,16 @@ const ItemView: React.FC = () => {
 
                             const body = JSON.stringify(item_increment);
 
-                            const res = await axios.post('/cart/increment', body, config);
+                            const res = await axios.post('/user_cart/increment/', body, config);
                           } else quantity = (await cartQuery3.length) + parseInt(`${UIquantity}`);
 
                           let newItem = { item, price, path, quantity };
 
                           const body = JSON.stringify(newItem);
 
-                          const res3 = await axios.post('/cart', body, config);
+                          const res3 = await axios.post('/user_cart', body, config);
 
-                          res3 ? setRoute(<Redirect to="cart" />) : console.log('');
+                          res3 ? setRoute(<Redirect to="/user/cart" />) : console.log(res);
                         } catch (error) {
                           console.log(error);
                         }

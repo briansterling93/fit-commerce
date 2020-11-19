@@ -60,7 +60,7 @@ const ProtectedShop: React.FC = () => {
                           setRoute(<Redirect to="/user/item" />);
                         } catch (error) {
                           console.log(error);
-                          setRoute(<Redirect to="/" />);
+                          setRoute(<Redirect to="/user/dashboard" />);
                         }
                       }}
                     >

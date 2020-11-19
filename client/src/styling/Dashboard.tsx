@@ -16,14 +16,14 @@ background-color: #FAFAFA;
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;
 
   h1 {
     font-size: 1.5rem;
-    color: black;
+    color: #001154;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.2rem;
@@ -42,12 +42,18 @@ export const BoxDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
 `;
 
 export const RecentsDiv = styled.div`
   height: 30rem;
   width: 20rem;
   border: 1px solid black;
+  text-align: center;
 
   h1 {
     text-align: center;
@@ -91,15 +97,16 @@ export const BtnDiv = styled.div`
   text-align: center;
 `;
 export const LogoutBtn = styled.div`
+  margin-top: 10rem;
   height: 1rem;
 
   button {
-    background-color: red;
+    background-color: #b20000;
     color: white;
     border: none;
     cursor: pointer;
     height: 2rem;
-    width: 5rem;
+    width: 7rem;
     font-weight: 600;
     outline: none;
 

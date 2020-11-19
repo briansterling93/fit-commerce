@@ -44,7 +44,10 @@ const ProtectedCart: React.FC = () => {
         },
       };
 
-      const res = await axios.get('/cart');
+      const res = await axios.get('/user_cart/all');
+
+      // IN PROGRESS
+      // console.log(res.data.findAll.map((i: any) => i.item));
 
       const res2 = res.data.findAll.map((i: any) => (
         <ul key={i.id}>

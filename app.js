@@ -17,6 +17,7 @@ app.use(express.json({ extended: false })); //body parser
 app.use("/user", require("./routes/user.js"));
 app.use("/admin", require("./routes/admin.js"));
 app.use("/cart", require("./routes/cart.js"));
+app.use("/user_cart", require("./routes/user_cart.js"));
 
 app.get("/", (req, res) => {
   res.send("hello world from express");
