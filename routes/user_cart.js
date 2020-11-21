@@ -44,7 +44,11 @@ router.post(
 //increment the quantity of an item within the USER cart
 router.post(
   "/increment",
-  [check("item_name", "item name is required").not().isEmpty()],
+  [
+    check("item_name", "item name is required").not().isEmpty(),
+    check("item_quantity", "item increment is required").not().isEmpty(),
+  ],
+
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -52,13 +56,13 @@ router.post(
       if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() });
       } else {
-        let { item_name } = req.body;
+        let { item_name, item_quantity } = req.body;
 
         const test = await UserCart.findOne({
           where: { item: item_name },
         });
 
-        await test.increment("quantity", { by: 1 });
+        await test.increment("quantity", { by: parseInt(item_quantity) });
 
         res.send("success");
       }

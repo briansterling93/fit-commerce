@@ -32,9 +32,12 @@ const ProtectedCart: React.FC = () => {
   const [route, setRoute] = useState<any>('');
   const [shippingCost, updateShippingCost] = useState<any>();
   const [shippingTotal, updateShippingTotal] = useState<any>();
+
   useEffect(() => {
     state.token || 'token' in localStorage ? populateCart() : setRoute(<Redirect to="/signin" />);
   }, []);
+
+  //extract from "cart" localStorage key into "total_items"
 
   const populateCart = async () => {
     try {
@@ -76,7 +79,7 @@ const ProtectedCart: React.FC = () => {
 
                         const body = JSON.stringify(newItem);
 
-                        const res = await axios.post('/cart/remove', body, config);
+                        const res = await axios.post('/user_cart/remove', body, config);
                         await window.location.reload();
                       } catch (error) {
                         console.log(error);
