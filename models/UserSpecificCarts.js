@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database.js");
 
-const UserSpecificCarts = db.define("user_carts", {
+const UserSpecificCarts = db.define("user_specific_carts", {
   item: {
     type: Sequelize.STRING,
   },
