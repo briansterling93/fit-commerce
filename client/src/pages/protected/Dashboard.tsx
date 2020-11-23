@@ -77,6 +77,12 @@ const Dashboard: React.FC = () => {
 
         //push user ID to localStorage
         localStorage.setItem('userID', res.data.id);
+
+        //set user id in localStorage === global context state.customer_id
+        dispatch({
+          type: APP_ACTIONS.UPDATE_CUSTOMER_ID,
+          payload: localStorage.getItem('userID'),
+        });
       }
     } catch (error) {
       console.log(error);
