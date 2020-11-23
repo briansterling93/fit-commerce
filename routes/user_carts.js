@@ -43,8 +43,39 @@ router.post(
   }
 );
 
+//POST
+//increment the quantity of an item within the USER cart
+router.post(
+  "/:id/increment",
+  [check("item_name", "item name is required").not().isEmpty()],
+
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.json({ errors: errors.array() });
+      } else {
+        let { item_name } = req.body;
+
+        const findCart = await UserSpecificCarts.findOne({
+          where: {
+            [Op.and]: [{ customer_id: req.params.id }, { item: item_name }],
+          },
+        });
+
+        await findCart.increment("quantity", { by: 1 });
+
+        res.send("success");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 //GET
-//Get a user cart by ID
+//Get all of a user's cart by ID
 router.get("/:id", async (req, res) => {
   try {
     let queried_user = await UserSpecificCarts.findAll({

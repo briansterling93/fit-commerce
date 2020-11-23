@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
   const { name, token } = state;
 
   useEffect(() => {
-    state.token || 'token' in localStorage ? genUser() : setRoute(<Redirect to="/signin" />);
+    state.token || ('token' && 'userID' in localStorage) ? genUser() : setRoute(<Redirect to="/signin" />);
   }, []);
 
   //generate user profile on load
@@ -74,6 +74,9 @@ const Dashboard: React.FC = () => {
         setName(res.data.name);
         setAge(res.data.createdAt);
         setEmail(res.data.email_address);
+
+        //push user ID to localStorage
+        localStorage.setItem('userID', res.data.id);
       }
     } catch (error) {
       console.log(error);

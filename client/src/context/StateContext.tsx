@@ -11,6 +11,7 @@ export interface IState {
   cart: string[];
   token: string;
   itemDisplay: number;
+  customer_id: number;
 }
 
 export const initialState = {
@@ -23,6 +24,7 @@ export const initialState = {
   cart: [],
   token: '',
   itemDisplay: '',
+  customer_id: '',
 };
 
 export enum APP_ACTIONS {
@@ -36,6 +38,7 @@ export enum APP_ACTIONS {
   UPDATE_CART = 'UPDATE_CART',
   UPDATE_TOKEN = 'UPDATE_TOKEN',
   UPDATE_DISPLAY = 'UPDATE_DISPLAY',
+  UPDATE_CUSTOMER_ID = 'UPDATE_CUSTOMER_ID',
 }
 
 type AppAction = { [key: string]: (state: IState, action: any) => IState };
@@ -71,6 +74,10 @@ export const appActions: AppAction = {
 
   [APP_ACTIONS.UPDATE_DISPLAY]: (state: IState, actions: any) => {
     return { ...state, itemDisplay: actions.payload };
+  },
+
+  [APP_ACTIONS.UPDATE_CUSTOMER_ID]: (state: IState, actions: any) => {
+    return { ...state, customer_id: actions.payload };
   },
 };
 
