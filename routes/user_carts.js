@@ -94,4 +94,54 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//POST
+//delete a specific item from cart
+router.post(
+  "/:id/remove",
+  [check("item_name", "item name is required").not().isEmpty()],
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.json({ errors: errors.array() });
+      } else {
+        let { item_name } = await req.body;
+
+        UserSpecificCarts.destroy({
+          where: {
+            [Op.and]: [
+              {
+                customer_id: req.params.id,
+              },
+              { item: item_name },
+            ],
+          },
+        });
+      }
+
+      res.send("item removed");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+//GET
+//GET the total cost of all items in cart
+router.get("/:id/total", async (req, res) => {
+  try {
+    const findAll = await UserSpecificCarts.findAll({
+      attributes: ["price", "quantity"],
+      where: {
+        customer_id: req.params.id,
+      },
+    });
+
+    res.json({ findAll });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;
