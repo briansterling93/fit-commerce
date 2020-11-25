@@ -4,7 +4,7 @@ import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { StateContext } from '../../context/StateContext';
+import { StateContext, APP_ACTIONS } from '../../context/StateContext';
 import {
   MainSection,
   SecondarySection,
@@ -47,11 +47,9 @@ const ProtectedCart: React.FC = () => {
         },
       };
 
-      const res = await axios.get('/user_cart/all');
-      // const res = await axios.get('/user_carts/3');
-      //for the above: instead of res.data.findAll , it will be res.data.queried_user.map
+      const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`);
 
-      const res2 = res.data.findAll.map((i: any) => (
+      const res2 = await res.data.queried_user.map((i: any) => (
         <ul key={i.id}>
           <li>
             <div>
@@ -78,7 +76,11 @@ const ProtectedCart: React.FC = () => {
 
                         const body = JSON.stringify(newItem);
 
-                        const res = await axios.post('/user_cart/remove', body, config);
+                        const res = await axios.post(
+                          `/user_carts/${localStorage.getItem('userID')}/remove`,
+                          body,
+                          config
+                        );
                         await window.location.reload();
                       } catch (error) {
                         console.log(error);
@@ -99,7 +101,7 @@ const ProtectedCart: React.FC = () => {
 
       //get cart total function below
 
-      const res3 = await axios.get('/user_cart/total');
+      const res3 = await axios.get(`/user_carts/${localStorage.getItem('userID')}/total`);
 
       const res4 = res3.data.findAll.map((p: any) => p.price * p.quantity);
 

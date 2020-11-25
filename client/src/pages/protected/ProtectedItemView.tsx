@@ -115,20 +115,19 @@ const ItemView: React.FC = () => {
                           let path = res.data.path;
                           let quantity = res.data.quantity;
                           let description = res.data.Description;
+                          let customer_id = localStorage.getItem('userID');
 
                           //GET request to check if item is already in cart
-                          let cartQuery = await axios.get('/user_cart/all');
+                          let cartQuery = await axios.get(`/user_carts/${localStorage.getItem('userID')}`);
 
-                          let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
+                          let cartQuery2 = await cartQuery.data.queried_user.map((g: any) => g.item);
 
                           let cartQuery3 = await cartQuery2.filter((s: any) => s === item);
 
                           if (cartQuery3.length >= 1) {
-                            // let item_name = await item;
-                            let item_named = await item;
-                            let item_quantity = await UIquantity;
+                            let item_name = await item;
 
-                            let item_increment = { item_named };
+                            let item_increment = { item_name };
 
                             const config = {
                               headers: {
@@ -136,19 +135,20 @@ const ItemView: React.FC = () => {
                               },
                             };
 
-                            let item_name = JSON.stringify(item_increment);
+                            const body = JSON.stringify(item_increment);
 
-                            const body = { item_name, item_quantity };
-
-                            const res = await axios.post('/user_cart/increment/', body, config);
+                            const res = await axios.post(
+                              `/user_carts/${localStorage.getItem('userID')}/increment`,
+                              body,
+                              config
+                            );
                           } else quantity = (await cartQuery3.length) + parseInt(`${UIquantity}`);
 
-                          let newItem = { item, price, path, quantity };
-                          let nxtItem = { item, price, path, quantity };
+                          let newItem = { item, price, path, quantity, customer_id };
 
                           const body = JSON.stringify(newItem);
 
-                          const res3 = await axios.post('/user_cart', body, config);
+                          const res3 = await axios.post('/user_carts', body, config);
 
                           res3 ? setRoute(<Redirect to="/user/cart" />) : console.log(res);
                         } catch (error) {
