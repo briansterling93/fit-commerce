@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
 import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 import axios from 'axios';
 import {
@@ -27,6 +28,7 @@ const Dashboard: React.FC = () => {
   const [userName, setName] = useState<string>('');
   const [userEmail, setEmail] = useState<string>('');
   const [userAge, setAge] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>();
 
   const { name, token } = state;
 
@@ -112,6 +114,7 @@ const Dashboard: React.FC = () => {
       {route}
       <FlairText />
       <AuthNavbar />
+
       <MainSection>
         <SecondarySection>
           <BoxDiv>
