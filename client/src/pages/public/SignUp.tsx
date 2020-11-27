@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignUp';
 import FlairText from '../../components/FlairText';
 import Navbar from '../../components/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Route, Redirect, NavLink } from 'react-router-dom';
 import { StateContext, APP_ACTIONS } from '../../context/StateContext';
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ const SignUp: React.FC = () => {
   const [UIpassword, passwordError] = useState<string>('');
   const [confirmPassword, passwordConfirmError] = useState<string>('');
   const [password2, setPassword2] = useState<string>('');
+  const [route, setRoute] = useState<any>('');
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { name, email_address, password } = state;
@@ -59,14 +60,15 @@ const SignUp: React.FC = () => {
             emailError('Email address already in use');
           } else {
             emailError('');
+
+            await dispatch({
+              type: APP_ACTIONS.UPDATE_TOKEN,
+              payload: res.data.token,
+            });
+
+            (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
           }
         }
-
-        // if (res.data === "email address is already exists") {
-        //   emailError("Email address already in use");
-        // } else {
-        //   emailError("");
-        // }
       }
     } catch (error) {
       console.log(error);
@@ -78,6 +80,7 @@ const SignUp: React.FC = () => {
       <Navbar />
       <MainSection>
         <AuthBoxBorder>
+          {route}
           <AuthUI>
             <h1>Welcome, Sign up below!</h1>
             <UIinputPadding>
