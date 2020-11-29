@@ -157,11 +157,25 @@ const ProtectedCart: React.FC = () => {
                 </p>
                 <TotalBoxBtns>
                   <BtnPadding>
-                    <NavLink to="/">
-                      <Btn2>
-                        <button>Checkout</button>
-                      </Btn2>
-                    </NavLink>
+                    <Btn2>
+                      <button
+                        onClick={async () => {
+                          const config = {
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                          };
+
+                          const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`, config);
+
+                          const getCart = await res.data.queried_user;
+
+                          console.log(getCart);
+                        }}
+                      >
+                        Checkout
+                      </button>
+                    </Btn2>
                   </BtnPadding>
                 </TotalBoxBtns>
               </TotalBox>
