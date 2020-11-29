@@ -118,7 +118,9 @@ const Dashboard: React.FC = () => {
       <MainSection>
         <SecondarySection>
           <BoxDiv>
-            <WelcomeDiv>{`Welcome, ${userName}!`}</WelcomeDiv>
+            <WelcomeDiv>
+              <p>{`Welcome, ${userName}!`}</p>
+            </WelcomeDiv>
             <BoxDivMain>
               <DivSpacer>
                 {' '}
@@ -131,8 +133,8 @@ const Dashboard: React.FC = () => {
                 <InfoDiv>
                   <h1>Your Info</h1>
                   <InfoText>
-                    <div>{`Email Address: ${userEmail}`}</div>
-                    <div>{`Member Since: ${userAge}`}</div>
+                    <div>{userEmail}</div>
+
                     <BtnDiv>
                       <LogoutBtn>
                         <NavLink to="/" onClick={removeToken}>

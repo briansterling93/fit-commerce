@@ -1,19 +1,16 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database.js");
 
-const UserCart = db.define("user_carts", {
-  item: {
+const OrderHistory = db.define("order_history", {
+  item_path: {
     type: Sequelize.STRING,
   },
-  price: {
+  order_total: {
     type: Sequelize.STRING,
   },
-  path: {
-    type: Sequelize.STRING,
-  },
-  quantity: {
+  customer_id: {
     type: Sequelize.NUMBER,
   },
 });
 
-module.exports = UserCart;
+module.exports = OrderHistory;

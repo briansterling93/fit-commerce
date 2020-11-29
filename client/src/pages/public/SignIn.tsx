@@ -16,19 +16,6 @@ const SignIn: React.FC = () => {
 
   const { email_address, password, token } = state;
 
-  // const setAuthToken = async (token: FormElem) => {
-  //   if (state.token) {
-  //     axios.defaults.headers.common['x-auth-token'] = state.token;
-  //   } else {
-  //     delete axios.defaults.headers.common['x-auth-token'];
-  //   }
-  //   try {
-  //     axios.get('/user/authorized');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const handleLogin = async () => {
     try {
       if (!state.email_address) {

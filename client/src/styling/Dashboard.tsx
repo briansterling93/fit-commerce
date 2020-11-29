@@ -36,7 +36,7 @@ export const SecondarySection = styled.div`
 
 export const BoxDiv = styled.div`
   background-color: white;
-  border: 1px solid #dfdfdf;
+  // border: 1px solid #dfdfdf;
   min-height: 80vh;
   width: 90rem;
   display: flex;
@@ -46,13 +46,17 @@ export const BoxDiv = styled.div`
   a {
     text-decoration: none;
     font-size: 1.1rem;
+
+    :hover {
+      color: black;
+    }
   }
 `;
 
 export const RecentsDiv = styled.div`
   height: 30rem;
   width: 20rem;
-  border: 1px solid black;
+  border-right: 1px solid #dfdfdf;
   text-align: center;
 
   h1 {
@@ -63,7 +67,7 @@ export const RecentsDiv = styled.div`
 export const InfoDiv = styled.div`
   height: 30rem;
   width: 20rem;
-  border: 1px solid black;
+  // border: 1px solid black;
   text-align: center;
 
   h1 {
