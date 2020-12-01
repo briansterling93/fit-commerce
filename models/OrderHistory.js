@@ -3,7 +3,7 @@ const db = require("../config/database.js");
 
 const OrderHistory = db.define("orders", {
   item_path: {
-    type: Sequelize.STRING,
+    type: Sequelize.JSON,
   },
   order_total: {
     type: Sequelize.STRING,

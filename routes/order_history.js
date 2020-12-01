@@ -16,6 +16,24 @@ router.get("/", async (req, res) => {
   }
 });
 
+//GET
+//get a specific users orders
+router.get("/:id", async (req, res) => {
+  try {
+    let queried_orderHistory = await OrderHistory.findAll({
+      where: { customer_id: req.params.id },
+    });
+
+    if (!queried_orderHistory) {
+      return res.send({ error: "id not found" });
+    } else {
+      return res.json({
+        queried_orderHistory,
+      });
+    }
+  } catch (error) {}
+});
+
 //POST
 //post new order to users order history
 router.post(

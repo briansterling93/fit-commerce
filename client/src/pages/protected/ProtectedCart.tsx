@@ -173,8 +173,7 @@ const ProtectedCart: React.FC = () => {
 
                             const getCart = await res.data.queried_user;
 
-                            // let item_path = getCart.map((j: any) => j.path);
-                            let item_path = 'test.test.jpg';
+                            let item_path = getCart.map((j: any) => j.path);
 
                             let customer_id = localStorage.getItem('userID');
 
@@ -186,8 +185,6 @@ const ProtectedCart: React.FC = () => {
 
                             //post items to bakckend order route
                             const res2 = await axios.post('/orders/new', body, config);
-
-                            console.log(body);
                           } catch (error) {
                             console.log(error);
                           }

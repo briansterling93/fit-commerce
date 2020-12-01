@@ -5,6 +5,7 @@ import Home from './pages/public/Home';
 import Shop from './pages/public/Shop';
 import ProtectedShop from './pages/protected/ProtectedShop';
 import ProtectedCart from './pages/protected/ProtectedCart';
+import Orders from './pages/protected/Orders';
 import Cart from './pages/public/Cart';
 import SignIn from './pages/public/SignIn';
 import SignUp from './pages/public/SignUp';
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/user/dashboard" component={Dashboard} />
           <Route exact path="/user/shop" component={ProtectedShop} />
           <Route exact path="/user/cart" component={ProtectedCart} />
+          <Route exact path="/user/orders" component={Orders} />
         </Switch>
       </Router>
     </StateContext.Provider>
