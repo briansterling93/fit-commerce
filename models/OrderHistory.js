@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database.js");
 
-const OrderHistory = db.define("order_history", {
+const OrderHistory = db.define("orders", {
   item_path: {
     type: Sequelize.STRING,
   },

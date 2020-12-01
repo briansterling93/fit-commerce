@@ -119,10 +119,12 @@ const ProtectedCart: React.FC = () => {
       }
 
       if (total === undefined) {
-        updateTotal('Subtotal: $0.00');
+        // updateTotal('Subtotal: $0.00');
+        updateTotal('0.00');
         updateCart(<EmptyCart>No items in cart yet</EmptyCart>);
       } else {
-        updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)
+        // updateTotal(`Subtotal: $${total}.00`); //add both shipping cost & total (when needed)
+        updateTotal(`${total}.00`);
       }
     } catch (error) {
       console.log(error);
@@ -153,24 +155,42 @@ const ProtectedCart: React.FC = () => {
                 <p>{shippingTotal}</p>
 
                 <p>
-                  <TotalPrice>{cartTotal}</TotalPrice>
+                  <TotalPrice>Subtotal: ${cartTotal}</TotalPrice>
                 </p>
                 <TotalBoxBtns>
                   <BtnPadding>
                     <Btn2>
                       <button
                         onClick={async () => {
-                          const config = {
-                            headers: {
-                              'Content-Type': 'application/json',
-                            },
-                          };
+                          try {
+                            const config = {
+                              headers: {
+                                'Content-Type': 'application/json',
+                              },
+                            };
 
-                          const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`, config);
+                            const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`, config);
 
-                          const getCart = await res.data.queried_user;
+                            const getCart = await res.data.queried_user;
 
-                          console.log(getCart);
+                            // let item_path = getCart.map((j: any) => j.path);
+                            let item_path = 'test.test.jpg';
+
+                            let customer_id = localStorage.getItem('userID');
+
+                            let order_total = cartTotal;
+
+                            let newOrder = { item_path, customer_id, order_total };
+
+                            const body = JSON.stringify(newOrder);
+
+                            //post items to bakckend order route
+                            const res2 = await axios.post('/orders/new', body, config);
+
+                            console.log(body);
+                          } catch (error) {
+                            console.log(error);
+                          }
                         }}
                       >
                         Checkout

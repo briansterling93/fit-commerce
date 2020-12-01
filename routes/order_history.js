@@ -2,14 +2,18 @@ const express = require("express");
 const router = new express.Router();
 const { check, validationResult } = require("express-validator");
 const { Op } = require("sequelize");
-const OrderHistory = require("../models/OrderHistory");
+const OrderHistory = require("../models/OrderHistory.js");
 
 //GET
 //get all user orders
-router.get("/", (req, res) => {
-  const findAll = OrderHistory.findAll();
+router.get("/", async (req, res) => {
+  try {
+    const findAll = await OrderHistory.findAll();
 
-  res.json({ findAll });
+    res.json({ findAll });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //POST
