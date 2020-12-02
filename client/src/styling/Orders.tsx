@@ -61,7 +61,7 @@ export const RecentsDiv = styled.div`
 `;
 
 export const ItemBox = styled.div`
-  height: 16rem;
+  height: 22rem;
   width: 60rem;
   border: 1px solid #dbdbdb;
   // background-color: #999;
@@ -112,7 +112,17 @@ export const ItemTotal = styled.div`
     font-size: 1rem;
   }
 `;
-export const ItemBoxSecondary = styled.div``;
+export const ItemBoxSecondary = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+
+  img {
+    height: 4rem;
+    width: 5rem;
+  }
+`;
 
 export const Items = styled.div``;
 

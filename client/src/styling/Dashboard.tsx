@@ -63,6 +63,22 @@ export const RecentsDiv = styled.div`
     text-align: center;
     font-size: 1.1rem;
   }
+
+  button {
+    background-color: white;
+    color: black;
+    border: 0.5px solid #001154;
+    cursor: pointer;
+    height: 2rem;
+    font-size: 1rem;
+    width: 11rem;
+    font-weight: 400;
+    outline: none;
+
+    :hover {
+      opacity: 0.6;
+    }
+  }
 `;
 export const InfoDiv = styled.div`
   height: 30rem;

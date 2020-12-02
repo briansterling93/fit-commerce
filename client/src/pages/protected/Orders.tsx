@@ -39,7 +39,7 @@ const Order: React.FC = () => {
         setOrderHistory('No orders yet!');
       } else
         setOrderHistory(
-          res.data.queried_orderHistory.map((i: any) => (
+          res.data.queried_orderHistory.reverse().map((i: any) => (
             <div key={i.id}>
               <DivSpacer>
                 <ItemSection>
@@ -49,11 +49,10 @@ const Order: React.FC = () => {
                         <h1>Order Date:</h1> <p>{i.createdAt}</p>
                       </ItemDate>
                       <ItemTotal>
-                        <h1>Total</h1> <p>{i.order_total}</p>
+                        <h1>Total</h1> <p>${i.order_total}</p>
                       </ItemTotal>
                     </ItemHeader>
                     <ItemBoxSecondary>
-                      <Items>{JSON.parse(i.items_ordered).join(' , ')}</Items>
                       <ItemImages>
                         {JSON.parse(i.item_path).map((j: any) => (
                           <div key={j.id}>
@@ -61,6 +60,7 @@ const Order: React.FC = () => {
                           </div>
                         ))}
                       </ItemImages>
+                      <Items>{JSON.parse(i.items_ordered).join(' , ')}</Items>
                     </ItemBoxSecondary>
                     {/* {i.order_total} {JSON.parse(i.items_ordered)} {JSON.parse(i.item_path)} */}
                   </ItemBox>
