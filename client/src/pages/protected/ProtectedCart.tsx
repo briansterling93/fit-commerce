@@ -185,6 +185,13 @@ const ProtectedCart: React.FC = () => {
 
                             //post items to bakckend order route
                             const res2 = await axios.post('/orders/new', body, config);
+
+                            const clearCart = await axios.post(
+                              `/user_carts/${localStorage.getItem('userID')}/removeall`,
+                              config
+                            );
+
+                            window.location.reload();
                           } catch (error) {
                             console.log(error);
                           }

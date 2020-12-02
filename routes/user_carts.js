@@ -127,6 +127,18 @@ router.post(
   }
 );
 
+//POST
+//Delete all items from user cart after "checkout" on the front end
+router.post("/:id/removeall", (req, res) => {
+  UserSpecificCarts.destroy({
+    where: {
+      customer_id: req.params.id,
+    },
+  });
+
+  res.send("cart cleared");
+});
+
 //GET
 //GET the total cost of all items in cart
 router.get("/:id/total", async (req, res) => {
