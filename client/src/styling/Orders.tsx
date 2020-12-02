@@ -62,11 +62,58 @@ export const RecentsDiv = styled.div`
 
 export const ItemBox = styled.div`
   height: 16rem;
-  width: 10rem;
+  width: 60rem;
   border: 1px solid #dbdbdb;
   // background-color: #999;
+
+  img {
+    height: 3rem;
+    width: 3rem;
+  }
 `;
 
 export const DivSpacer = styled.div`
   padding: 0.5rem;
 `;
+
+export const ItemSection = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ItemHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  border-bottom: 1px solid #d0d0d0;
+`;
+
+export const ItemDate = styled.div`
+  padding-left: 1rem;
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+`;
+export const ItemTotal = styled.div`
+  padding-right: 1rem;
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+`;
+export const ItemBoxSecondary = styled.div``;
+
+export const Items = styled.div``;
+
+export const ItemImages = styled.div``;

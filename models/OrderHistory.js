@@ -5,6 +5,9 @@ const OrderHistory = db.define("orders", {
   item_path: {
     type: Sequelize.JSON,
   },
+  items_ordered: {
+    type: Sequelize.JSON,
+  },
   order_total: {
     type: Sequelize.STRING,
   },

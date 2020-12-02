@@ -40,6 +40,7 @@ router.post(
   "/new",
   [
     check("item_path", "item path is required").not().isEmpty(),
+    check("items_ordered", "items ordered is required").not().isEmpty(),
     check("order_total", "order total is required").not().isEmpty(),
     check("customer_id", "customer_id is required").not().isEmpty(),
   ],
@@ -51,12 +52,13 @@ router.post(
       if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() });
       } else {
-        let { item_path, order_total, customer_id } = req.body;
+        let { item_path, items_ordered, order_total, customer_id } = req.body;
 
         await OrderHistory.create({
           //create new item
           item_path: item_path,
           order_total: order_total,
+          items_ordered: items_ordered,
           customer_id: customer_id,
         });
 

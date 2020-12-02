@@ -127,6 +127,9 @@ const Dashboard: React.FC = () => {
                 <RecentsDiv>
                   <h1>Options</h1>
                   <NavLink to="/user/cart">View Cart</NavLink>
+                  <div>
+                    <NavLink to="/user/orders">View Order History</NavLink>
+                  </div>
                 </RecentsDiv>
               </DivSpacer>
               <DivSpacer>

@@ -173,13 +173,15 @@ const ProtectedCart: React.FC = () => {
 
                             const getCart = await res.data.queried_user;
 
-                            let item_path = getCart.map((j: any) => j.path);
+                            let item_path = await getCart.map((j: any) => j.path);
+
+                            let items_ordered = await getCart.map((j: any) => j.item);
 
                             let customer_id = localStorage.getItem('userID');
 
-                            let order_total = cartTotal;
+                            let order_total = await cartTotal;
 
-                            let newOrder = { item_path, customer_id, order_total };
+                            let newOrder = { item_path, items_ordered, customer_id, order_total };
 
                             const body = JSON.stringify(newOrder);
 
