@@ -19,6 +19,9 @@ import {
   ItemImages,
   ItemDate,
   ItemTotal,
+  ItemName,
+  ItemQuantity,
+  ItemPrice,
 } from '../../styling/Orders';
 
 const Order: React.FC = () => {
@@ -46,7 +49,7 @@ const Order: React.FC = () => {
                   <ItemBox>
                     <ItemHeader>
                       <ItemDate>
-                        <h1>Order Date:</h1> <p>{i.createdAt}</p>
+                        <h1>Order Placed:</h1> <p>{i.createdAt}</p>
                       </ItemDate>
                       <ItemTotal>
                         <h1>Total</h1> <p>${i.order_total}</p>
@@ -60,9 +63,22 @@ const Order: React.FC = () => {
                           </div>
                         ))}
                       </ItemImages>
-                      <Items>{JSON.parse(i.items_ordered).join(' , ')}</Items>
+                      <Items>
+                        {JSON.parse(i.items_ordered).map((j: any) => (
+                          <ItemName>{j}</ItemName>
+                        ))}
+                      </Items>
+                      <ItemQuantity>
+                        {JSON.parse(i.quantity).map((j: any) => (
+                          <ItemName>({j})</ItemName>
+                        ))}
+                      </ItemQuantity>
+                      <ItemPrice>
+                        {JSON.parse(i.price).map((j: any) => (
+                          <ItemName>{j}</ItemName>
+                        ))}
+                      </ItemPrice>
                     </ItemBoxSecondary>
-                    {/* {i.order_total} {JSON.parse(i.items_ordered)} {JSON.parse(i.item_path)} */}
                   </ItemBox>
                 </ItemSection>
               </DivSpacer>

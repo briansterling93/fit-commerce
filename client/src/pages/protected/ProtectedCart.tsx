@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
 import FlairText from '../../components/FlairText';
+import Swal from 'sweetalert2';
 import { NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -181,7 +182,11 @@ const ProtectedCart: React.FC = () => {
 
                             let order_total = await cartTotal;
 
-                            let newOrder = { item_path, items_ordered, customer_id, order_total };
+                            let quantity = await getCart.map((j: any) => j.quantity);
+
+                            let price = await getCart.map((j: any) => j.price);
+
+                            let newOrder = { item_path, items_ordered, customer_id, order_total, quantity, price };
 
                             const body = JSON.stringify(newOrder);
 
@@ -193,7 +198,18 @@ const ProtectedCart: React.FC = () => {
                               config
                             );
 
-                            window.location.reload();
+                            await Swal.fire({
+                              icon: 'success',
+                              timer: 1500,
+                              title: 'Thank you for your purchase!',
+                              width: 400,
+                            });
+
+                            // await window.location.reload();
+
+                            const reRender = <Redirect to="/user/orders" />;
+
+                            await setRoute(reRender);
                           } catch (error) {
                             console.log(error);
                           }

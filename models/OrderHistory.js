@@ -14,6 +14,12 @@ const OrderHistory = db.define("orders", {
   customer_id: {
     type: Sequelize.NUMBER,
   },
+  quantity: {
+    type: Sequelize.JSON,
+  },
+  price: {
+    type: Sequelize.JSON,
+  },
 });
 
 module.exports = OrderHistory;

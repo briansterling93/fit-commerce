@@ -77,6 +77,9 @@ export const RecentsDiv = styled.div`
 
     :hover {
       opacity: 0.6;
+      background-color: #333333;
+      color: white;
+      font-weight: 500;
     }
   }
 `;

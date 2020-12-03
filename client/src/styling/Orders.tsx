@@ -61,19 +61,14 @@ export const RecentsDiv = styled.div`
 `;
 
 export const ItemBox = styled.div`
-  height: 22rem;
-  width: 60rem;
+  // height: 22rem;
+  min-height: 10rem;
+  width: 50rem;
   border: 1px solid #dbdbdb;
-  // background-color: #999;
-
-  img {
-    height: 3rem;
-    width: 3rem;
-  }
 `;
 
 export const DivSpacer = styled.div`
-  padding: 0.5rem;
+  padding: 1rem;
 `;
 
 export const ItemSection = styled.div`
@@ -84,6 +79,7 @@ export const ItemSection = styled.div`
 export const ItemHeader = styled.div`
   display: flex;
   flex-direction: row;
+  background-color: #f7f7f7;
   justify-content: space-between;
   align-items: center;
   height: 4rem;
@@ -95,10 +91,13 @@ export const ItemDate = styled.div`
 
   h1 {
     font-size: 1rem;
+    color: #666666;
+    font-weight: 600;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 `;
 export const ItemTotal = styled.div`
@@ -106,22 +105,43 @@ export const ItemTotal = styled.div`
 
   h1 {
     font-size: 1rem;
+    color: #666666;
+    font-weight: 600;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+
+    font-weight: 600;
   }
 `;
 export const ItemBoxSecondary = styled.div`
   display: flex;
   flex-direction: row;
   padding-left: 1rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 
   img {
     height: 4rem;
-    width: 5rem;
+    width: 4rem;
   }
+`;
+
+export const ItemName = styled.div`
+  height: 4.5rem;
+  font-family: digital;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  padding-left: 3rem;
+  text-align: left;
+  font-size: 1rem;
+  width: 10rem;
+`;
+
+export const ItemQuantity = styled.div``;
+
+export const ItemPrice = styled.div`
+  color: #006e2c;
 `;
 
 export const Items = styled.div``;
