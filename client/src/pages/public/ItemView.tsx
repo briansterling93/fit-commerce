@@ -135,11 +135,15 @@ const ItemView: React.FC = () => {
 
                           let newItem = { item, price, path, quantity };
 
-                          const body = JSON.stringify(newItem);
+                          //add item to session storage
 
-                          const res3 = await axios.post('/cart', body, config);
+                          sessionStorage.setItem('newItem', `${JSON.stringify(newItem)}`);
 
-                          res3 ? setRoute(<Redirect to="cart" />) : console.log('');
+                          // const body = JSON.stringify(newItem);
+
+                          // const res3 = await axios.post('/cart', body, config);
+
+                          await setRoute(<Redirect to="cart" />);
 
                           console.log(res);
                         } catch (error) {
