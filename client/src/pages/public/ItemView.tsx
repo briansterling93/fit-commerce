@@ -18,6 +18,7 @@ import {
 import FlairText from '../../components/FlairText';
 import { Redirect } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
+import Swal from 'sweetalert2';
 import Navbar from '../../components/Navbar';
 import axios from 'axios';
 
@@ -107,45 +108,23 @@ const ItemView: React.FC = () => {
                           let item = res.data.item;
                           let price = res.data.price;
                           let path = res.data.path;
-                          let quantity = res.data.quantity;
+                          let quantity = UIquantity;
                           let description = res.data.Description;
 
-                          //GET request to check if item is already in cart
-                          let cartQuery = await axios.get('/cart');
-
-                          let cartQuery2 = await cartQuery.data.findAll.map((g: any) => g.item);
-
-                          let cartQuery3 = await cartQuery2.filter((s: any) => s === item);
-
-                          if (cartQuery3.length >= 1) {
-                            let item_name = await item;
-
-                            let item_increment = { item_name };
-
-                            const config = {
-                              headers: {
-                                'Content-Type': 'application/json',
-                              },
-                            };
-
-                            const body = JSON.stringify(item_increment);
-
-                            const res = await axios.post('/cart/increment', body, config);
-                          } else quantity = (await cartQuery3.length) + parseInt(`${UIquantity}`);
-
-                          let newItem = { item, price, path, quantity };
+                          let newItem = { item, price, path, quantity, description };
 
                           //add item to session storage
 
                           sessionStorage.setItem('newItem', `${JSON.stringify(newItem)}`);
 
-                          // const body = JSON.stringify(newItem);
+                          await Swal.fire({
+                            icon: 'info',
+                            timer: 1100,
+                            title: 'Please sign in to access your cart!',
+                            width: 400,
+                          });
 
-                          // const res3 = await axios.post('/cart', body, config);
-
-                          await setRoute(<Redirect to="cart" />);
-
-                          console.log(res);
+                          await setRoute(<Redirect to="signin" />);
                         } catch (error) {
                           console.log(error);
                         }

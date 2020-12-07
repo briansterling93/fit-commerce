@@ -35,10 +35,10 @@ const ProtectedCart: React.FC = () => {
   const [shippingTotal, updateShippingTotal] = useState<any>();
 
   useEffect(() => {
-    state.token || 'token' in localStorage ? populateCart() : setRoute(<Redirect to="/signin" />);
+    state.token || 'token' in sessionStorage ? populateCart() : setRoute(<Redirect to="/signin" />);
   }, []);
 
-  //extract from "cart" localStorage key into "total_items"
+  //extract from "cart" sessionStorage key into "total_items"
 
   const populateCart = async () => {
     try {
@@ -48,7 +48,7 @@ const ProtectedCart: React.FC = () => {
         },
       };
 
-      const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`);
+      const res = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}`);
 
       const res2 = await res.data.queried_user.map((i: any) => (
         <ul key={i.id}>
@@ -78,7 +78,7 @@ const ProtectedCart: React.FC = () => {
                         const body = JSON.stringify(newItem);
 
                         const res = await axios.post(
-                          `/user_carts/${localStorage.getItem('userID')}/remove`,
+                          `/user_carts/${sessionStorage.getItem('userID')}/remove`,
                           body,
                           config
                         );
@@ -102,7 +102,7 @@ const ProtectedCart: React.FC = () => {
 
       //get cart total function below
 
-      const res3 = await axios.get(`/user_carts/${localStorage.getItem('userID')}/total`);
+      const res3 = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}/total`);
 
       const res4 = res3.data.findAll.map((p: any) => p.price * p.quantity);
 
@@ -170,7 +170,7 @@ const ProtectedCart: React.FC = () => {
                               },
                             };
 
-                            const res = await axios.get(`/user_carts/${localStorage.getItem('userID')}`, config);
+                            const res = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}`, config);
 
                             const getCart = await res.data.queried_user;
 
@@ -178,7 +178,7 @@ const ProtectedCart: React.FC = () => {
 
                             let items_ordered = await getCart.map((j: any) => j.item);
 
-                            let customer_id = localStorage.getItem('userID');
+                            let customer_id = sessionStorage.getItem('userID');
 
                             let order_total = await cartTotal;
 
@@ -194,10 +194,13 @@ const ProtectedCart: React.FC = () => {
                             const res2 = await axios.post('/orders/new', body, config);
 
                             const clearCart = await axios.post(
-                              `/user_carts/${localStorage.getItem('userID')}/removeall`,
+                              `/user_carts/${sessionStorage.getItem('userID')}/removeall`,
                               config
                             );
 
+                            if (res2.data.errors) {
+                              return null;
+                            }
                             await Swal.fire({
                               icon: 'success',
                               timer: 1500,

@@ -30,13 +30,13 @@ const Order: React.FC = () => {
   const [route, setRoute] = useState<any>();
   const [img, setImg] = useState<any>([]);
   useEffect(() => {
-    state.token || 'token' in localStorage ? getOrderHistory() : setRoute(<Redirect to="/signin" />);
+    state.token || 'token' in sessionStorage ? getOrderHistory() : setRoute(<Redirect to="/signin" />);
   }, []);
 
   //get users order history from backend
   const getOrderHistory = async () => {
     try {
-      const res = await axios.get(`/orders/${localStorage.getItem('userID')}`);
+      const res = await axios.get(`/orders/${sessionStorage.getItem('userID')}`);
 
       if (res.data.queried_orderHistory.length < 1) {
         setOrderHistory('No orders yet!');

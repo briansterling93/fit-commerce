@@ -65,6 +65,7 @@ export const appActions: AppAction = {
   [APP_ACTIONS.UPDATE_DESCRIPTION]: (state: IState, actions: any) => {
     return { ...state, Description: actions.payload };
   },
+
   [APP_ACTIONS.UPDATE_CART]: (state: IState, actions: any) => {
     return { ...state, cart: [...state.cart, actions.payload] };
   },

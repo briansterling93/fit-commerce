@@ -33,14 +33,16 @@ const Dashboard: React.FC = () => {
   const { name, token } = state;
 
   useEffect(() => {
-    state.token || ('token' && 'userID' in localStorage) ? genUser() : setRoute(<Redirect to="/signin" />);
+    state.token || ('token' in sessionStorage && 'userID' in sessionStorage)
+      ? genUser()
+      : setRoute(<Redirect to="/signin" />);
   }, []);
 
   //generate user profile on load
   const genUser = async () => {
     try {
-      if ('token' in localStorage) {
-        const tokenValue: any = localStorage.getItem('token');
+      if ('token' in sessionStorage) {
+        const tokenValue: any = sessionStorage.getItem('token');
 
         dispatch({
           type: APP_ACTIONS.UPDATE_TOKEN,
@@ -62,7 +64,7 @@ const Dashboard: React.FC = () => {
       } else {
         await setValue(state.token);
 
-        const tokenValue: any = localStorage.getItem('token');
+        const tokenValue: any = sessionStorage.getItem('token');
 
         const config = {
           headers: {
@@ -77,15 +79,53 @@ const Dashboard: React.FC = () => {
         setAge(res.data.createdAt);
         setEmail(res.data.email_address);
 
-        //push user ID to localStorage
-        localStorage.setItem('userID', res.data.id);
+        //push user ID to sessionStorage
+        sessionStorage.setItem('userID', res.data.id);
+
+        //determine if addPublicCart() should be ran
+        sessionStorage.getItem('newItem') ? addPublicCart() : console.log('');
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  //set token value in localStorage
+  //add any public items that were added to cart, to the users cart
+  const addPublicCart = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const publicCartItem: any = sessionStorage.getItem('newItem');
+
+    if (publicCartItem) {
+      let item = JSON.parse(publicCartItem).item;
+      let price = JSON.parse(publicCartItem).price;
+      let path = JSON.parse(publicCartItem).path;
+      let quantity = JSON.parse(publicCartItem).quantity;
+      let customer_id = sessionStorage.getItem('userID');
+
+      let newItem = { item, price, path, quantity, customer_id };
+
+      const body = JSON.stringify(newItem);
+
+      const res = await axios.post('/user_carts', body, config);
+
+      await sessionStorage.removeItem('newItem');
+
+      await window.location.reload();
+    } else {
+      console.log('');
+    }
+
+    // clear session storage "newItem" after adding to cart
+
+    // await sessionStorage.removeItem('newItem');
+  };
+
+  //set token value in sessionStorage
   const setValue = async (value: any) => {
     try {
       let key = 'token';
@@ -93,16 +133,16 @@ const Dashboard: React.FC = () => {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
 
       setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      window.sessionStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
     }
   };
 
-  //remove token from localStorage
+  //remove token from sessionStorage
   const removeToken = async () => {
     try {
-      await localStorage.clear();
+      await sessionStorage.clear();
 
       await window.location.reload();
     } catch (error) {}

@@ -29,7 +29,6 @@ const ItemView: React.FC = () => {
   const [price, setPrice] = useState<string>('');
   const [UIquantity, setQuantity] = useState<number>(1);
   const [route, setRoute] = useState<any>('');
-  const [spinner, setSpinner] = useState<any>('');
   const [error, setError] = useState<string>('');
 
   const { itemDisplay } = state;
@@ -71,7 +70,6 @@ const ItemView: React.FC = () => {
             <BoxSpacer>
               <ItemBox1>
                 <img src={path} />
-                {spinner}
               </ItemBox1>
             </BoxSpacer>
             <BoxSpacer2>
@@ -115,10 +113,10 @@ const ItemView: React.FC = () => {
                           let path = res.data.path;
                           let quantity = res.data.quantity;
                           let description = res.data.Description;
-                          let customer_id = localStorage.getItem('userID');
+                          let customer_id = sessionStorage.getItem('userID');
 
                           //GET request to check if item is already in cart
-                          let cartQuery = await axios.get(`/user_carts/${localStorage.getItem('userID')}`);
+                          let cartQuery = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}`);
 
                           let cartQuery2 = await cartQuery.data.queried_user.map((g: any) => g.item);
 
@@ -138,11 +136,13 @@ const ItemView: React.FC = () => {
                             const body = JSON.stringify(item_increment);
 
                             const res = await axios.post(
-                              `/user_carts/${localStorage.getItem('userID')}/increment`,
+                              `/user_carts/${sessionStorage.getItem('userID')}/increment`,
                               body,
                               config
                             );
                           } else quantity = (await cartQuery3.length) + parseInt(`${UIquantity}`);
+
+                          //post items to backend cart
 
                           let newItem = { item, price, path, quantity, customer_id };
 
