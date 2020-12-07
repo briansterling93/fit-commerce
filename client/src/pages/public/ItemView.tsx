@@ -120,7 +120,7 @@ const ItemView: React.FC = () => {
                           await Swal.fire({
                             icon: 'info',
                             timer: 1100,
-                            title: 'Please sign in to access your cart!',
+                            title: 'Please sign in to access your cart',
                             width: 400,
                           });
 

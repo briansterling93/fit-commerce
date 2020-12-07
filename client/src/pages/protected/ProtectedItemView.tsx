@@ -124,8 +124,9 @@ const ItemView: React.FC = () => {
 
                           if (cartQuery3.length >= 1) {
                             let item_name = await item;
+                            let item_quantity = await UIquantity;
 
-                            let item_increment = { item_name };
+                            let item_increment = { item_name, item_quantity };
 
                             const config = {
                               headers: {

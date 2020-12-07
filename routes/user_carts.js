@@ -47,7 +47,10 @@ router.post(
 //increment the quantity of an item within the USER cart
 router.post(
   "/:id/increment",
-  [check("item_name", "item name is required").not().isEmpty()],
+  [
+    check("item_name", "item name is required").not().isEmpty(),
+    check("item_quantity", "item quantity is required").not().isEmpty(),
+  ],
 
   async (req, res) => {
     try {
@@ -56,7 +59,7 @@ router.post(
       if (!errors.isEmpty()) {
         return res.json({ errors: errors.array() });
       } else {
-        let { item_name } = req.body;
+        let { item_name, item_quantity } = req.body;
 
         const findCart = await UserSpecificCarts.findOne({
           where: {
@@ -64,7 +67,7 @@ router.post(
           },
         });
 
-        await findCart.increment("quantity", { by: 1 });
+        await findCart.increment("quantity", { by: item_quantity });
 
         res.send("success");
       }
