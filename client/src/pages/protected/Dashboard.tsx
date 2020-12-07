@@ -92,37 +92,63 @@ const Dashboard: React.FC = () => {
 
   //add any public items that were added to cart, to the users cart
   const addPublicCart = async () => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
 
-    const publicCartItem: any = sessionStorage.getItem('newItem');
+      const publicCartItem: any = sessionStorage.getItem('newItem');
 
-    if (publicCartItem) {
-      let item = JSON.parse(publicCartItem).item;
-      let price = JSON.parse(publicCartItem).price;
-      let path = JSON.parse(publicCartItem).path;
-      let quantity = JSON.parse(publicCartItem).quantity;
-      let customer_id = sessionStorage.getItem('userID');
+      if (publicCartItem) {
+        let item = JSON.parse(publicCartItem).item;
+        let price = JSON.parse(publicCartItem).price;
+        let path = JSON.parse(publicCartItem).path;
+        let quantity = JSON.parse(publicCartItem).quantity;
+        let customer_id = sessionStorage.getItem('userID');
 
-      let newItem = { item, price, path, quantity, customer_id };
+        //GET request to check if item is already in cart
+        let cartQuery = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}`);
 
-      const body = JSON.stringify(newItem);
+        let cartQuery2 = await cartQuery.data.queried_user.map((g: any) => g.item);
 
-      const res = await axios.post('/user_carts', body, config);
+        let cartQuery3 = await cartQuery2.filter((s: any) => s === item);
 
-      await sessionStorage.removeItem('newItem');
+        if (cartQuery3.length >= 1) {
+          let item_name = await JSON.parse(publicCartItem).item;
+          let item_quantity = await JSON.parse(publicCartItem).quantity;
 
-      await window.location.reload();
-    } else {
-      console.log('');
+          let item_increment = { item_name, item_quantity };
+
+          const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          };
+
+          const body = JSON.stringify(item_increment, item_quantity);
+
+          return await axios.post(`/user_carts/${sessionStorage.getItem('userID')}/increment`, body, config);
+        }
+
+        ///
+
+        let newItem = { item, price, path, quantity, customer_id };
+
+        const body = JSON.stringify(newItem);
+
+        const res = await axios.post('/user_carts', body, config);
+
+        await sessionStorage.removeItem('newItem');
+
+        await window.location.reload();
+      } else {
+        console.log('');
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-    // clear session storage "newItem" after adding to cart
-
-    // await sessionStorage.removeItem('newItem');
   };
 
   //set token value in sessionStorage
