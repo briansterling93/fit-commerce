@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  height: 3rem;
+  min-height: 3rem;
   background-color: #fafafa;
   diplay: flex;
   justify-content: center;
@@ -28,5 +28,34 @@ export const TextDiv = styled.div`
       color: #5b5959;
       font-weight: 700;
     }
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+`;
+
+export const HamburgerMenu = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    padding: 1rem;
+  }
+`;
+
+export const MobileNavLinks = styled.div`
+  padding-left: 15rem;
+  padding-top: 3rem;
+  width: 100%;
+
+  a {
+    padding: 0.5rem;
+    font-family: digital;
+    text-decoration: none;
+    color: #5b5959;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
   }
 `;
