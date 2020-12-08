@@ -23,7 +23,6 @@ export const TextDiv = styled.div`
     color: #5b5959;
     font-weight: 500;
     font-size: 0.9rem;
-    // display: flex;
     :hover {
       color: #5b5959;
       font-weight: 700;
@@ -40,6 +39,7 @@ export const HamburgerMenu = styled.div`
 
   @media only screen and (max-width: 600px) {
     display: flex;
+    justify-content: center;
     padding: 1rem;
   }
 `;
@@ -52,10 +52,12 @@ export const MobileNavLinks = styled.div`
   a {
     padding: 0.5rem;
     font-family: digital;
+    letter-spacing: 0.1rem;
     text-decoration: none;
     color: #5b5959;
     font-weight: 600;
     font-size: 0.9rem;
     display: flex;
+    animation: moveInRight;
   }
 `;

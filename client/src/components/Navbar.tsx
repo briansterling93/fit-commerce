@@ -5,26 +5,38 @@ import { Squash as Hamburger } from 'hamburger-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [test, setTest] = useState<any>('');
+  const [nav, setNav] = useState<any>('');
 
   const showNav = () => {
-    console.log('hh');
+    if (!isOpen) {
+      setNav(
+        <MobileNavLinks id="mobile-nav-links">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/shop">Shop</NavLink>
+          <NavLink to="/signin">Sign In</NavLink>
+          <NavLink to="/cart">
+            Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          </NavLink>
+        </MobileNavLinks>
+      );
+    } else {
+      setNav('');
+    }
+  };
+
+  const hideNav = () => {
+    setNav('');
   };
 
   return (
     <div>
       <MainSection>
         <HamburgerMenu>
-          <Hamburger toggled={isOpen} toggle={setOpen} size={30} direction="right" color="#001F9A" />
+          <div onClick={showNav}>
+            <Hamburger toggled={isOpen} toggle={setOpen} size={30} direction="right" color="#001F9A" />
+          </div>
 
-          <MobileNavLinks id="mobile-nav-links">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/shop">Shop</NavLink>
-            <NavLink to="/signin">Sign In</NavLink>
-            <NavLink to="/cart">
-              Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
-            </NavLink>
-          </MobileNavLinks>
+          {nav}
         </HamburgerMenu>
         <TextDiv>
           <NavLink to="/">Home</NavLink>

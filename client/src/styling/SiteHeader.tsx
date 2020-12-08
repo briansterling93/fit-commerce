@@ -21,6 +21,53 @@ export const SecondarySection = styled.div`
   background-color: transparent;
   flex-direction: column;
   align-items: center;
+
+  img {
+    width: 70rem;
+  }
+
+  @media only screen and (max-width: 1125px) {
+    img {
+      width: 50rem;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    img {
+      width: 45rem;
+    }
+  }
+
+  @media only screen and (max-width: 750px) {
+    img {
+      width: 40rem;
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    img {
+      width: 35rem;
+    }
+  }
+
+  @media only screen and (max-width: 585px) {
+    img {
+      width: 25rem;
+    }
+  }
+
+  @media only screen and (max-width: 433px) {
+    img {
+      width: 20rem;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    img {
+      width: 15rem;
+    }
+  }
+}
 `;
 
 export const ScrollDiv = styled.div`

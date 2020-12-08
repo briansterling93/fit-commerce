@@ -67,6 +67,9 @@ export const ItemBox = styled.div`
     height: 13rem;
     width: 12rem;
     border-bottom: 1px solid #f0eeee;
+
+    @media only screen and (max-width: 1260px) {
+    }
   }
 
   button {
