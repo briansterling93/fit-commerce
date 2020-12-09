@@ -26,7 +26,7 @@ export const SecondarySection = styled.div`
     width: 70rem;
   }
 
-  @media only screen and (max-width: 1125px) {
+  @media only screen and (max-width: 1150px) {
     img {
       width: 50rem;
     }

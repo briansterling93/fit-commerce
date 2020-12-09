@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
+
   background-color: #FAFAFA;
   height: 100vh;
   background-image: linear-gradient(
@@ -137,8 +138,8 @@ export const ItemBox = styled.div`
 export const ItemTitle = styled.div`
   padding-top: 0.3rem;
   font-weight: 700;
-  font-size: 1.2rem;
-  font-family: digital;
+  font-size: 1.1rem;
+  font-family: arial;
   color: #4f4f4e;
   height: 2rem;
 `;

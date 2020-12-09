@@ -39,24 +39,29 @@ export const HamburgerMenu = styled.div`
 
   @media only screen and (max-width: 600px) {
     display: flex;
-    justify-content: center;
-    padding: 1rem;
+    justify-content: left;
+    padding: 0.5rem;
   }
 `;
 
 export const MobileNavLinks = styled.div`
-  padding-left: 15rem;
-  padding-top: 3rem;
+  // padding-left: 15rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
   width: 100%;
 
   a {
+    display: flex;
+    text-align: center;
+    align-items: center;
     padding: 0.5rem;
-    font-family: digital;
+    font-family: arial;
     letter-spacing: 0.1rem;
     text-decoration: none;
-    color: #5b5959;
+    color: black;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: flex;
     animation: moveInRight;
   }

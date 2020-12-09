@@ -16,7 +16,7 @@ import ItemView from './pages/public/ItemView';
 import ProtectedItemView from './pages/protected/ProtectedItemView';
 
 const Universal = createGlobalStyle`
-  body {
+ body {
     padding: 0;
     box-sizing: none;
     margin: 0;

@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
       <MainSection>
         <HamburgerMenu>
           <div onClick={showNav}>
-            <Hamburger toggled={isOpen} toggle={setOpen} size={30} direction="right" color="#001F9A" />
+            <Hamburger toggled={isOpen} toggle={setOpen} size={20} direction="right" color="#001F9A" />
           </div>
 
           {nav}
