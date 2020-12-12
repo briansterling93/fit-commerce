@@ -25,6 +25,12 @@ const Universal = createGlobalStyle`
     input {
       font-family: "Segoe UI"; 
     }
+ 
+
+    ::-webkit-scrollbar{
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+  }
   }
 `;
 

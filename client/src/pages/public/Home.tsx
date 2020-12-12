@@ -92,6 +92,7 @@ const Home: React.FC = () => {
         <SecondarySection>
           <h1>New Arrivals</h1>
           {route}
+
           <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
       </MainSection>

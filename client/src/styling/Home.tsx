@@ -10,9 +10,13 @@ export const MainSection = styled.div`
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  // overflow-y: scroll;
-  overflow-y: scroll;
+
   overflow-x: hidden;
+  ul {
+    padding: 1rem;
+    margin: 0;
+  }
+
 `;
 
 export const SecondarySection = styled.div`
@@ -22,8 +26,11 @@ export const SecondarySection = styled.div`
   background-color: transparent;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   h1 {
-    font-size: 1.5rem;
+    height: 1.3rem;
+    width: 15rem;
+    font-size: 1.3rem;
     color: black;
     text-transform: uppercase;
     font-weight: 600;
@@ -33,6 +40,13 @@ export const SecondarySection = styled.div`
   li {
     list-style-type: none;
   }
+
+  @media only screen and (max-width: 580px) {
+    h1 {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+    }
+  }
 `;
 
 export const ItemArray = styled.div`
@@ -40,6 +54,7 @@ export const ItemArray = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
   height: 12rem;
   width: 75rem;
 
@@ -56,15 +71,43 @@ export const ItemArray = styled.div`
   }
 
   @media only screen and (max-width: 630px) {
-    width: 35rem;
+    width: 44rem;
   }
 
   @media only screen and (max-width: 580px) {
-    width: 27rem;
+    width: 40rem;
+
+    ul {
+      padding: 0.5rem;
+      margin: 0;
+    }
   }
 
-  @media only screen and (max-width: 420px) {
-    width: 20rem;
+  @media only screen and (max-width: 460px) {
+    width: 34rem;
+
+    ul {
+      padding: 0.4rem;
+      margin: 0;
+    }
+  }
+
+  @media only screen and (max-width: 393px) {
+    width: 25rem;
+
+    ul {
+      padding: 0.4rem;
+      margin: 0;
+    }
+  }
+
+  @media only screen and (max-width: 353px) {
+    width: 18rem;
+
+    ul {
+      padding: 0.2rem;
+      margin: 0;
+    }
   }
 `;
 
@@ -133,11 +176,10 @@ export const ItemBox = styled.div`
   }
 
   @media only screen and (max-width: 580px) {
-    width: 13rem;
+    width: 10rem;
 
     button {
-      width: 6rem;
-      font-size: 0.6rem;
+      width: 5.3rem;
 
       :hover {
         opacity: 0.9;
@@ -146,7 +188,7 @@ export const ItemBox = styled.div`
     }
 
     img {
-      width: 13rem;
+      width: 10rem;
       height: 13rem;
     }
 
@@ -156,8 +198,8 @@ export const ItemBox = styled.div`
     }
   }
 
-  @media only screen and (max-width: 420px) {
-    width: 12rem;
+  @media only screen and (max-width: 460px) {
+    width: 8rem;
     padding: 1.4rem;
 
     :hover {
@@ -166,8 +208,8 @@ export const ItemBox = styled.div`
     }
 
     button {
-      width: 6rem;
-      height: 1.7rem;
+      width: 7rem;
+      height: 1.2rem;
       font-size: 0.7rem;
 
       :hover {
@@ -177,8 +219,60 @@ export const ItemBox = styled.div`
     }
 
     img {
-      width: 12rem;
+      width: 8rem;
       height: 13rem;
+    }
+  }
+
+  @media only screen and (max-width: 393px) {
+    width: 6.6rem;
+    padding: 1.4rem;
+
+    :hover {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
+      transform: translateY(0rem);
+    }
+
+    button {
+      width: 7rem;
+      height: 1.2rem;
+      font-size: 0.7rem;
+
+      :hover {
+        opacity: 0.9;
+        background-color: black;
+      }
+    }
+
+    img {
+      width: 6.6rem;
+      height: 13rem;
+    }
+  }
+
+  @media only screen and (max-width: 353px) {
+    width: 5rem;
+    padding: 1.4rem;
+
+    :hover {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
+      transform: translateY(0rem);
+    }
+
+    button {
+      width: 6rem;
+      height: 1.2rem;
+      font-size: 0.7rem;
+
+      :hover {
+        opacity: 0.9;
+        background-color: black;
+      }
+    }
+
+    img {
+      width: 5rem;
+      height: 12rem;
     }
   }
 `;
@@ -192,15 +286,23 @@ export const ItemTitle = styled.div`
   height: 2rem;
 
   @media only screen and (max-width: 630px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   @media only screen and (max-width: 580px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
-  @media only screen and (max-width: 420px) {
-    font-size: 1.1rem;
+  @media only screen and (max-width: 460px) {
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 353px) {
+    font-size: 0.9rem;
+  }
+
+  @media only screen and (max-width: 353px) {
+    font-size: 0.8rem;
   }
 `;
 export const ItemPrice = styled.div`
@@ -208,10 +310,10 @@ export const ItemPrice = styled.div`
   font-size: 1rem;
   font-family: arial;
   color: #a90000;
-  width: 2rem;
+  min-width: 1rem;
 
-  @media only screen and (max-width: 420px) {
-    font-size: 1rem;
+  @media only screen and (max-width: 460px) {
+    font-size: 0.9rem;
   }
 `;
 
@@ -231,9 +333,15 @@ export const ItemDescription = styled.div`
     font-size: 0.9rem;
   }
 
-  @media only screen and (max-width: 420px) {
-    font-size: 0.9rem;
-    width: 10rem;
+  @media only screen and (max-width: 460px) {
+    font-size: 0.8rem;
+    width: 8rem;
+  }
+
+  @media only screen and (max-width: 353px) {
+    font-size: 0.7rem;
+    // height: 4rem;
+    width: 6rem;
   }
 `;
 
@@ -241,4 +349,12 @@ export const ItemsBottom = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 2.5rem;
+
+  @media only screen and (max-width: 460px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;

@@ -28,7 +28,7 @@ export const TextDiv = styled.div`
       font-weight: 700;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 970px) {
       display: none;
     }
   }
@@ -37,7 +37,7 @@ export const TextDiv = styled.div`
 export const HamburgerMenu = styled.div`
   display: none;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 970px) {
     display: flex;
     justify-content: left;
     padding: 0.5rem;
@@ -49,20 +49,22 @@ export const MobileNavLinks = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
-  width: 100%;
+  min-width: 4rem;
+  border-radius: 1rem;
+  background-color: #4d4c4c;
+  padding: 1rem;
 
   a {
     display: flex;
     text-align: center;
     align-items: center;
     padding: 0.5rem;
-    font-family: arial;
+    font-family: Montserrat, sans-serif;
     letter-spacing: 0.1rem;
     text-decoration: none;
-    color: black;
-    font-weight: 600;
+    color: #f2f2f2;
+    font-weight: 300;
     font-size: 0.8rem;
     display: flex;
-    animation: moveInRight;
   }
 `;
