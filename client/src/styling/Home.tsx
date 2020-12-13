@@ -252,6 +252,7 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 353px) {
     width: 5rem;
+    height: 21rem;
     padding: 1.4rem;
 
     :hover {
@@ -272,7 +273,7 @@ export const ItemBox = styled.div`
 
     img {
       width: 5rem;
-      height: 12rem;
+      height: 8rem;
     }
   }
 `;
@@ -295,10 +296,6 @@ export const ItemTitle = styled.div`
 
   @media only screen and (max-width: 460px) {
     font-size: 1rem;
-  }
-
-  @media only screen and (max-width: 353px) {
-    font-size: 0.9rem;
   }
 
   @media only screen and (max-width: 353px) {
@@ -340,6 +337,7 @@ export const ItemDescription = styled.div`
 
   @media only screen and (max-width: 353px) {
     font-size: 0.7rem;
+    height: 5rem;
     // height: 4rem;
     width: 6rem;
   }
