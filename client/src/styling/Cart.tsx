@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
   background-color: white;
-  height: 100vh;
+  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -10,7 +10,7 @@ export const MainSection = styled.div`
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow: scroll;
+  overflow-x hidden;
 
 `;
 
@@ -43,15 +43,100 @@ export const BoxDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @media only screen and (max-width: 985px) {
+    width: 45rem;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 742px) {
+    width: 37rem;
+  }
+
+  @media only screen and (max-width: 610px) {
+    width: 25rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 20rem;
+  }
+
+  @media only screen and (max-width: 342px) {
+    width: 17rem;
+  }
 `;
 
 export const BoxSpacer = styled.div`
   padding: 1.5rem;
+
+  @media only screen and (max-width: 985px) {
+    display: flex;
+    justify-content: center;
+    min-height: 20rem;
+  }
+
+  @media only screen and (max-width: 742px) {
+    min-height: 17rem;
+  }
+
+  @media only screen and (max-width: 610px) {
+    min-height: 15rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    min-height: 13rem;
+  }
+
+  @media only screen and (max-width: 342px) {
+    min-height: 11rem;
+  }
+`;
+
+export const BoxSpacer2 = styled.div`
+  padding: 1.5rem;
+
+  @media only screen and (max-width: 985px) {
+    display: flex;
+    justify-content: center;
+    padding-right: 0rem;
+    padding: 0;
+  }
 `;
 
 export const CartBox = styled.div`
   width: 27rem;
   border-radius: 0.2rem;
+
+  @media only screen and (max-width: 610px) {
+    width: 18rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+
+    font-size: 0.9rem;
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 14rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+
+    font-size: 0.8rem;
+  }
+
+  @media only screen and (max-width: 342px) {
+    width: 14rem;
+
+    h1 {
+      font-size: 0.9rem;
+    }
+
+    font-size: 0.8rem;
+  }
 `;
 
 export const TotalBox = styled.div`
@@ -61,6 +146,49 @@ export const TotalBox = styled.div`
   text-align: center;
   font-weight: 300;
   font-size: 1.3rem;
+
+  @media only screen and (max-width: 985px) {
+    width: 22rem;
+    border: none;
+    border-top: 1px solid #dfdfdf;
+    text-align: center;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 742px) {
+    width: 20rem;
+
+    h1 {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media only screen and (max-width: 610px) {
+    width: 18rem;
+
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 16rem;
+
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 342px) {
+    width: 13rem;
+
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export const CartItems = styled.div`
@@ -135,6 +263,30 @@ export const Btn1 = styled.div`
 
     :hover {
       opacity: 0.6;
+    }
+  }
+
+  @media only screen and (max-width: 985px) {
+    button {
+      width: 6rem;
+      font-size: 0.7rem;
+      height: 1.7rem;
+    }
+  }
+
+  @media only screen and (max-width: 742px) {
+    button {
+      width: 5rem;
+      font-size: 0.7rem;
+      height: 1.7rem;
+    }
+  }
+
+  @media only screen and (max-width: 610px) {
+    button {
+      width: 5rem;
+      font-size: 0.6rem;
+      height: 1.7rem;
     }
   }
 `;

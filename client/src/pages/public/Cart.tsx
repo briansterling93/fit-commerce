@@ -12,6 +12,7 @@ import {
   TotalBox,
   BoxDiv,
   BoxSpacer,
+  BoxSpacer2,
   TotalBoxBtns,
   BtnPadding,
   Btn1,
@@ -63,7 +64,7 @@ const Cart: React.FC = () => {
                 {cartItems}
               </CartBox>
             </BoxSpacer>
-            <BoxSpacer>
+            <BoxSpacer2>
               <TotalBox>
                 <h1>Total</h1>
 
@@ -78,7 +79,7 @@ const Cart: React.FC = () => {
                   </BtnPadding>
                 </TotalBoxBtns>
               </TotalBox>
-            </BoxSpacer>
+            </BoxSpacer2>
           </BoxDiv>
         </SecondarySection>
       </MainSection>
