@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-background-color: #FAFAFA;
-  height: 100vh;
+background-color: white;
+  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -10,6 +10,7 @@ background-color: #FAFAFA;
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
+  overflow-x: hidden;
 `;
 
 export const AuthBoxBorder = styled.div`
@@ -18,6 +19,10 @@ export const AuthBoxBorder = styled.div`
   background-color: white;
   margin-top: 6rem;
   background-color: transparent;
+
+  @media only screen and (max-width: 462px) {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const AuthUI = styled.div`
@@ -30,6 +35,7 @@ export const AuthUI = styled.div`
   width: 28rem;
   background: rgba(0, 0, 0, 0.8);
   color: white;
+  border-radius: 1rem;
 
   input {
     background-color: transparent;
@@ -43,6 +49,30 @@ export const AuthUI = styled.div`
 
   h1 {
     font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 495px) {
+    width: 23rem;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media only screen and (max-width: 381px) {
+    width: 20rem;
+
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media only screen and (max-width: 335px) {
+    width: 17rem;
+
+    h1 {
+      font-size: 1.1rem;
+    }
   }
 `;
 
@@ -62,6 +92,16 @@ export const UIinput = styled.div`
 
   i {
     color: #07006b;
+  }
+
+  @media only screen and (max-width: 495px) {
+    width: 14rem;
+    height: 1rem;
+  }
+
+  @media only screen and (max-width: 335px) {
+    width: 11rem;
+    height: 0.8rem;
   }
 `;
 
@@ -83,13 +123,33 @@ export const UiBtn = styled.div`
     height: 2rem;
     width: 7rem;
   }
-  s p {
+  p {
     font-size: 0.9rem;
   }
 
   a {
     color: #68a5ff;
     text-decoration: none;
+  }
+
+  @media only screen and (max-width: 495px) {
+    button {
+      width: 8rem;
+      height: 1.7rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 335px) {
+    button {
+      width: 7rem;
+      height: 1.5rem;
+      font-size: 0.7rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
   }
 `;
 

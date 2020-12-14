@@ -57,7 +57,7 @@ export const AuthUI = styled.div`
     width: 24rem;
 
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 
