@@ -1,23 +1,29 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  background-color: #FAFAFA;
-  height: 100vh;
+  background-color: white;
+  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
       rgba(51, 51, 51, 0.8),
       rgba(64, 64, 64, 0.8)
     ), 
-   
-  background-size: cover;
+background-size: cover;
+overflow-x: hidden;
+overflow-y: hidden;
 `;
 
 export const AuthBoxBorder = styled.div`
   display: flex;
   justify-content: center;
+
   margin-top: 10rem;
-  background-color: #fafafa;
+  background-color: white;
+
+  @media only screen and (max-width: 462px) {
+    margin-top: 3rem;
+  }
 `;
 
 export const AuthUI = styled.div`
@@ -46,6 +52,35 @@ export const AuthUI = styled.div`
   h1 {
     font-size: 1.5rem;
   }
+
+  @media only screen and (max-width: 462px) {
+    width: 24rem;
+
+    h1 {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media only screen and (max-width: 395px) {
+    width: 21rem;
+
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    width: 18rem;
+    // height: 19rem;
+
+    input {
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 export const UIinput = styled.div`
@@ -64,6 +99,21 @@ export const UIinput = styled.div`
 
   i {
     color: #07006b;
+  }
+
+  @media only screen and (max-width: 462px) {
+    width: 16rem;
+    height: 1.2rem;
+  }
+
+  @media only screen and (max-width: 395px) {
+    width: 14rem;
+    height: 1rem;
+  }
+
+  @media only screen and (max-width: 350px) {
+    width: 12rem;
+    height: 1rem;
   }
 `;
 
@@ -98,6 +148,29 @@ export const UiBtn = styled.div`
     color: #68a5ff;
     text-decoration: none;
   }
+
+  @media only screen and (max-width: 395px) {
+    button {
+      width: 5rem;
+      height: 1.7rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    button {
+      width: 5rem;
+      height: 1.4rem;
+      font-size: 0.7rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 export const ErrorMsg = styled.div`
@@ -105,4 +178,8 @@ export const ErrorMsg = styled.div`
   text-align: center;
   font-size: 0.8rem;
   color: #ff6969;
+
+  @media only screen and (max-width: 395px) {
+    font-size: 0.7rem;
+  }
 `;

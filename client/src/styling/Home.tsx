@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainSection = styled.div`
-  background-color: #FAFAFA;
+  background-color: white;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -227,6 +227,7 @@ export const ItemBox = styled.div`
   @media only screen and (max-width: 393px) {
     width: 6.6rem;
     padding: 1.4rem;
+    height: 24rem;
 
     :hover {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
@@ -246,7 +247,7 @@ export const ItemBox = styled.div`
 
     img {
       width: 6.6rem;
-      height: 13rem;
+      height: 11rem;
     }
   }
 

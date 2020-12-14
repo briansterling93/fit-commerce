@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
   min-height: 3rem;
-  background-color: #fafafa;
+  background-color: white;
   diplay: flex;
   justify-content: center;
 
