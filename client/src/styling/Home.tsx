@@ -105,7 +105,7 @@ export const ItemArray = styled.div`
     width: 18rem;
 
     ul {
-      padding: 0.2rem;
+      padding: 0.5rem;
       margin: 0;
     }
   }
@@ -154,6 +154,7 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 630px) {
     width: 10rem;
+    height: 23rem;
 
     button {
       width: 5.3rem;
@@ -166,7 +167,7 @@ export const ItemBox = styled.div`
 
     img {
       width: 10rem;
-      height: 13rem;
+      height: 11rem;
     }
 
     :hover {
@@ -177,6 +178,7 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 580px) {
     width: 10rem;
+    height: 23rem;
 
     button {
       width: 5.3rem;
@@ -187,11 +189,6 @@ export const ItemBox = styled.div`
       }
     }
 
-    img {
-      width: 10rem;
-      height: 13rem;
-    }
-
     :hover {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
       transform: translateY(0rem);
@@ -200,6 +197,7 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 460px) {
     width: 8rem;
+    height: 21rem;
     padding: 1.4rem;
 
     :hover {
@@ -220,14 +218,15 @@ export const ItemBox = styled.div`
 
     img {
       width: 8rem;
-      height: 13rem;
+      height: 9rem;
     }
   }
 
   @media only screen and (max-width: 393px) {
     width: 6.6rem;
+
     padding: 1.4rem;
-    height: 24rem;
+    height: 20rem;
 
     :hover {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0);
@@ -247,13 +246,13 @@ export const ItemBox = styled.div`
 
     img {
       width: 6.6rem;
-      height: 11rem;
+      height: 8rem;
     }
   }
 
   @media only screen and (max-width: 353px) {
     width: 5rem;
-    height: 21rem;
+    height: 20rem;
     padding: 1.4rem;
 
     :hover {
@@ -274,7 +273,7 @@ export const ItemBox = styled.div`
 
     img {
       width: 5rem;
-      height: 8rem;
+      height: 7rem;
     }
   }
 `;

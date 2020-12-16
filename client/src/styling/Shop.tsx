@@ -225,7 +225,7 @@ export const ItemArray = styled.div`
     width: 18rem;
 
     ul {
-      padding: 0.3rem;
+      padding: 0.4rem;
       margin: 0;
     }
   }
@@ -294,9 +294,9 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 735px) {
     width: 8rem;
-    height: 23rem;
+    height: 22rem;
     img {
-      height: 11rem;
+      height: 10rem;
       width: 8rem;
       border-bottom: 1px solid #f0eeee;
     }
@@ -316,9 +316,9 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 675px) {
     width: 6rem;
-    height: 23rem;
+    height: 21rem;
     img {
-      height: 10rem;
+      height: 9rem;
       width: 6rem;
       border-bottom: 1px solid #f0eeee;
     }
@@ -326,31 +326,26 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 471px) {
     width: 7rem;
-    height: 23rem;
+    height: 20rem;
     padding: 0.5rem;
     img {
-      height: 10rem;
+      height: 7rem;
       width: 6rem;
       border-bottom: 1px solid #f0eeee;
     }
   }
   @media only screen and (max-width: 445px) {
     width: 7rem;
-    height: 23rem;
+    height: 20rem;
     padding: 0.5rem;
-    img {
-      height: 10rem;
-      width: 6rem;
-      border-bottom: 1px solid #f0eeee;
-    }
   }
 
   @media only screen and (max-width: 380px) {
     width: 5rem;
-    height: 21rem;
+    height: 19rem;
     padding: 0.5rem;
     img {
-      height: 9rem;
+      height: 6.5rem;
       width: 5rem;
       border-bottom: 1px solid #f0eeee;
     }

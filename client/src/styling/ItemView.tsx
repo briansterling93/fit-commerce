@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
   background-color: white;
-  height: 100vh;
+  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -11,13 +11,19 @@ export const MainSection = styled.div`
     ), 
    
   background-size: cover;
+
+  ul {
+    padding: 1rem;
+    margin: 0;
+  }
+
+  overflow-x: hidden;
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
   background-color: transparent;
-  flex-direction: column;
   align-items: center;
   li {
     list-style-type: none;
@@ -31,6 +37,9 @@ export const SecondarySection = styled.div`
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
+
+  @media only screen and (max-width: 985px) {
+  }
 `;
 
 export const BoxDiv = styled.div`
@@ -41,7 +50,6 @@ export const BoxDiv = styled.div`
   width: 70rem;
   display: flex;
   flex-direction: row;
-
 
   img {
     height: 20rem;
@@ -69,14 +77,34 @@ export const BoxDiv = styled.div`
       opacity: 0.9;
       background-color: green;
     }
+  }
+
+  @media only screen and (max-width: 1160px) {
+    width: 60rem;
+  }
+
+  @media only screen and (max-width: 985px) {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const BoxSpacer = styled.div`
   padding: 1.5rem;
+
+  @media only screen and (max-width: 985px) {
+    padding: 0;
+  }
 `;
 
 export const BoxSpacer2 = styled.div`
   margin-left: 30rem;
+
+  @media only screen and (max-width: 985px) {
+    margin-left: 0rem;
+  }
 `;
 
 export const ItemBox1 = styled.div`
@@ -84,28 +112,64 @@ export const ItemBox1 = styled.div`
   width: 1rem;
 
   margin-top: 1rem;
+
+  @media only screen and (max-width: 985px) {
+    height: 20rem;
+    width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const ItemBox2 = styled.div`
   height: 20rem;
   width: 1rem;
   margin-top: 2.5rem;
+
+  @media only screen and (max-width: 985px) {
+    width: 50rem;
+    margin-top: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.div`
   width: 30rem;
-  border-bottom: 1px solid #999;
-  font-size: 2rem;
-  // font-family: digital;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 500;
   padding-bottom: 0.5rem;
-  color: #3d3d3d;
+  color: black;
+
+  @media only screen and (max-width: 1160px) {
+    font-size: 1.4rem;
+    width: 15rem;
+  }
+
+  @media only screen and (max-width: 985px) {
+    font-size: 1.3rem;
+    min-width: 12rem;
+    align-items: center;
+  }
 `;
 
 export const Description = styled.div`
   width: 30rem;
   margin-top: 1.3rem;
   padding-bottom: 2rem;
+
+  @media only screen and (max-width: 1160px) {
+    font-size: 1rem;
+    width: 25rem;
+  }
+
+  @media only screen and (max-width: 985px) {
+    font-size: 0.9rem;
+    width: 20rem;
+  }
 `;
 
 export const Price = styled.div`
