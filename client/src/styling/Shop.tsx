@@ -370,6 +370,10 @@ export const ItemTitle = styled.div`
     font-size: 1rem;
   }
 
+  @media only screen and (max-width: 675px) {
+    font-size: 0.9rem;
+  }
+
   @media only screen and (max-width: 380px) {
     font-size: 0.9rem;
   }

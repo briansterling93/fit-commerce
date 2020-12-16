@@ -74,7 +74,7 @@ const ItemView: React.FC = () => {
                 <Title>{item}</Title>
                 <Description>{description}</Description>
                 <Quantity>
-                  Quantity
+                  <p> Quantity</p>
                   <input
                     onChange={(e: any) => setQuantity(e.target.value)}
                     type="number"

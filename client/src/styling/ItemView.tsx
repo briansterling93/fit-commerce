@@ -37,9 +37,6 @@ export const SecondarySection = styled.div`
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
   }
-
-  @media only screen and (max-width: 985px) {
-  }
 `;
 
 export const BoxDiv = styled.div`
@@ -63,7 +60,7 @@ export const BoxDiv = styled.div`
   button {
     cursor: pointer;
     background-color: #1c1c1c;
-    // border-radius: 0.1rem;
+
     color: white;
     border: 1px solid #999;
     height: 1.9rem;
@@ -88,6 +85,25 @@ export const BoxDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0rem;
+  }
+
+  @media only screen and (max-width: 826px) {
+    width: 40rem;
+  }
+
+  @media only screen and (max-width: 657px) {
+    width: 30rem;
+  }
+
+  @media only screen and (max-width: 510px) {
+    width: 20rem;
+    border: none;
+    margin-top: -3rem;
+    img {
+      height: 15rem;
+      width: 16rem;
+    }
   }
 `;
 
@@ -129,7 +145,7 @@ export const ItemBox2 = styled.div`
 
   @media only screen and (max-width: 985px) {
     width: 50rem;
-    margin-top: 0rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +167,7 @@ export const Title = styled.div`
 
   @media only screen and (max-width: 985px) {
     font-size: 1.3rem;
-    min-width: 12rem;
+    text-align: center;
     align-items: center;
   }
 `;
@@ -168,7 +184,13 @@ export const Description = styled.div`
 
   @media only screen and (max-width: 985px) {
     font-size: 0.9rem;
-    width: 20rem;
+    width: 25rem;
+    text-align: center;
+    min-height: 2rem;
+  }
+
+  @media only screen and (max-width: 510px) {
+    width: 15rem;
   }
 `;
 
@@ -177,36 +199,79 @@ export const Price = styled.div`
   font-size: 1.5rem;
   color: #a90000;
   font-weight: 600;
+
+  @media only screen and (max-width: 985px) {
+    font-size: 1.3rem;
+    padding-right: 3rem;
+    width: 10rem;
+  }
+
+  @media only screen and (max-width: 510px) {
+    font-size: 1.2rem;
+    padding-right: 0rem;
+    width: 6rem;
+  }
 `;
 
 export const AddBtn = styled.div`
-padding-left: 10rem;
-button {
-  cursor: pointer;
-  // background-color: #1c1c1c;
-  background-color: green;
-  border-radius: .3rem;
-  color: white;
-  border: 1px solid #999;
-  height: 2rem;
-  width: 7rem;
-  outline: none;
-  font-weight: 200;
-  font-family: arial;
-  text-transform: uppercase;
+  padding-left: 10rem;
+  button {
+    cursor: pointer;
 
-  :hover {
-    opacity: 0.7;
-    // background-color: green;
+    background-color: black;
+    border-radius: 0.3rem;
+    color: white;
+    border: 1px solid #999;
+    height: 2rem;
+    width: 7rem;
+    outline: none;
+    font-weight: 200;
+    font-family: arial;
+    text-transform: uppercase;
+
+    :hover {
+      opacity: 0.7;
+    }
+  }
+
+  @media only screen and (max-width: 985px) {
+    padding-left: 3rem;
+    width: 10rem;
+
+    button {
+      height: 1.5rem;
+      width: 8rem;
+
+      font-size: 0.9rem;
+    }
+  }
+
+  @media only screen and (max-width: 510px) {
+    padding-left: 0rem;
+    width: 10rem;
+
+    button {
+      height: 1.5rem;
+      width: 8rem;
+
+      font-size: 0.9rem;
+    }
   }
 `;
 
 export const FlexDiv = styled.div`
   display: flex;
   flex-direction: row;
-  width: 10rem;
+  min-width: 10rem;
 
   margin-top: 3rem;
+
+  @media only screen and (max-width: 985px) {
+    justify-content: center;
+    margin-top: 1rem;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const Quantity = styled.div`
@@ -214,13 +279,31 @@ export const Quantity = styled.div`
   flex-direction: column;
   text-transform: uppercase;
 
+  p {
+    font-size: 0.9rem;
+  }
+
   input {
     padding: 0.5rem;
     height: 1rem;
     font-weight: 550;
-    width: 5rem;
-    background-color: #eeeeee;
+    width: 2rem;
     border: 1px solid #dbdada;
+    text-align: center;
+    background-color: transparent;
+  }
+
+  @media only screen and (max-width: 985px) {
+    align-items: center;
+
+    input {
+      text-align: center;
+      width: 2rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
   }
 `;
 
@@ -230,4 +313,8 @@ export const ErrorMsg = styled.div`
   font-weight: 600;
   color: #750602;
   font-size: 0.8rem;
+
+  @media only screen and (max-width: 985px) {
+    text-align: center;
+  }
 `;
