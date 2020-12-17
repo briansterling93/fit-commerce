@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
   background-color: white;
-  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -11,13 +10,11 @@ export const MainSection = styled.div`
     ),
   background-size: cover;
   overflow-x hidden;
-
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;
@@ -56,6 +53,7 @@ export const BoxDiv = styled.div`
 
   @media only screen and (max-width: 610px) {
     width: 25rem;
+    border: none;
   }
 
   @media only screen and (max-width: 425px) {
@@ -64,6 +62,10 @@ export const BoxDiv = styled.div`
 
   @media only screen and (max-width: 342px) {
     width: 17rem;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 15rem;
   }
 `;
 
@@ -110,6 +112,10 @@ export const CartBox = styled.div`
 
   @media only screen and (max-width: 610px) {
     width: 18rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     h1 {
       font-size: 1rem;
@@ -172,6 +178,10 @@ export const TotalBox = styled.div`
     h1 {
       font-size: 0.8rem;
     }
+
+    p {
+      font-size: 1.1rem;
+    }
   }
 
   @media only screen and (max-width: 425px) {
@@ -192,7 +202,6 @@ export const TotalBox = styled.div`
 `;
 
 export const CartItems = styled.div`
-  border-bottom: 2px solid #e5e0e0;
   width: 25rem;
   align-items: center;
   font-family: Montserrat, sans-serif;
@@ -203,13 +212,68 @@ export const CartItems = styled.div`
   }
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: 985px) {
+    img {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    p {
+      padding-left: 0.7rem;
+    }
+
+    width: 21rem;
+  }
+
+  @media only screen and (max-width: 610px) {
+    img {
+      height: 4rem;
+      width: 4rem;
+      padding: 0;
+    }
+
+    p {
+      padding-left: 0.7rem;
+    }
+
+    min-width: 17rem;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 18.5rem;
+    img {
+      height: 4rem;
+      width: 3.5rem;
+      padding: 0;
+    }
+
+    p {
+      padding-left: 0.3rem;
+    }
+  }
 `;
 
 export const CartItem = styled.div`
-  width: 9rem;
+  width: 11rem;
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.5rem;
+
+  @media only screen and (max-width: 985px) {
+    font-size: 0.9rem;
+    width: 14rem;
+  }
+
+  @media only screen and (max-width: 742px) {
+    font-size: 0.9rem;
+    width: 15rem;
+  }
+
+  @media only screen and (max-width: 610px) {
+    font-size: 0.8rem;
+    width: 5rem;
+  }
 `;
 
 export const CartPrice = styled.div`
@@ -219,6 +283,10 @@ export const CartPrice = styled.div`
   font-weight: 600;
   padding: 0.5rem;
   font-family: Montserrat, sans-serif;
+
+  @media only screen and (max-width: 985px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const CartQuantity = styled.div`
@@ -230,6 +298,10 @@ export const CartRemoveBtn = styled.div`
   padding-left: 2.5rem;
   cursor: pointer;
   color: red;
+
+  @media only screen and (max-width: 610px) {
+    padding-left: 1rem;
+  }
 `;
 
 export const TotalBoxBtns = styled.div`
@@ -300,6 +372,15 @@ export const Btn2 = styled.div`
     :hover {
       opacity: 0.6;
       background-color: green;
+    }
+  }
+
+  @media only screen and (max-width: 610px) {
+    button {
+      width: 8rem;
+      font-size: 0.7rem;
+      height: 1.7rem;
+      background-color: black;
     }
   }
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
 background-color: white;
-  height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -10,13 +9,14 @@ background-color: white;
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow: scroll;
+
+
+  overflow-x: hidden;
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@ export const SecondarySection = styled.div`
 
 export const BoxDiv = styled.div`
   background-color: white;
-  // border: 1px solid #dfdfdf;
+
   min-height: 80vh;
   width: 90rem;
   display: flex;
@@ -82,6 +82,25 @@ export const RecentsDiv = styled.div`
       font-weight: 500;
     }
   }
+    @media only screen and (max-width: 580px) {
+      border-right: none;
+      border-bottom: 1px solid #dfdfdf;
+      height: 12rem;
+
+      button {
+        width: 9rem;
+        font-size: .9rem;
+      }
+
+      h1 {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 345px) {
+    border: none;
+  }
 `;
 export const InfoDiv = styled.div`
   height: 30rem;
@@ -93,6 +112,14 @@ export const InfoDiv = styled.div`
     text-align: center;
     font-size: 1.1rem;
   }
+
+  @media only screen and (max-width: 580px) {
+    height: 10rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const InfoText = styled.div`
@@ -103,11 +130,19 @@ export const InfoText = styled.div`
 export const BoxDivMain = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: 580px) {
+    flex-direction: column;
+  }
 `;
 
 export const WelcomeDiv = styled.div`
   padding-bottom: 1rem;
   font-size: 1.6rem;
+
+  @media only screen and (max-width: 580px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const DivSpacer = styled.div`
@@ -118,9 +153,12 @@ export const BtnDiv = styled.div`
   height: 1rem;
   padding-top: 10rem;
   text-align: center;
+
+  @media only screen and (max-width: 580px) {
+    padding-top: 1rem;
+  }
 `;
 export const LogoutBtn = styled.div`
-  margin-top: 10rem;
   height: 1rem;
 
   button {
@@ -135,6 +173,10 @@ export const LogoutBtn = styled.div`
 
     :hover {
       opacity: 0.6;
+    }
+  }
+    @media only screen and (max-width: 580px) {
+      margin-top: 2rem;
     }
   }
 `;

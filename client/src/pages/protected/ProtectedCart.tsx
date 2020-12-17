@@ -59,7 +59,9 @@ const ProtectedCart: React.FC = () => {
                   <img src={i.path} />
                 </div>
                 <CartItem>{i.item}</CartItem>
-                <CartQuantity>({i.quantity})</CartQuantity>x<CartPrice>{i.price}</CartPrice>
+                <CartQuantity>({i.quantity})</CartQuantity>
+                <p>x</p>
+                <CartPrice>{i.price}</CartPrice>
                 <CartRemoveBtn>
                   {/* //function to remove selected items */}
                   <i
@@ -156,7 +158,7 @@ const ProtectedCart: React.FC = () => {
                 <p>{shippingTotal}</p>
 
                 <p>
-                  <TotalPrice>Subtotal: ${cartTotal}</TotalPrice>
+                  <TotalPrice>Total: ${cartTotal}</TotalPrice>
                 </p>
                 <TotalBoxBtns>
                   <BtnPadding>

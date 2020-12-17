@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
 background-color: white;
-  height: 100vh;
+  // height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -10,13 +10,13 @@ background-color: white;
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow: scroll;
+  overflow-x: hidden;
 `;
 
 export const SecondarySection = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
+  // margin-top: 2.5rem;
   background-color: transparent;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,6 @@ export const SecondarySection = styled.div`
 
 export const BoxDiv = styled.div`
   background-color: white;
-  // border: 1px solid #dfdfdf;
   min-height: 80vh;
   width: 90rem;
   display: flex;
@@ -54,8 +53,6 @@ export const BoxDiv = styled.div`
 `;
 
 export const RecentsDiv = styled.div`
-  // min-height: 100rem;
-  // border: 1px solid black;
   min-width: 80rem;
   text-align: center;
 `;
@@ -79,7 +76,7 @@ export const ItemSection = styled.div`
 export const ItemHeader = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #f7f7f7;
+  background-color: #f9f9f9;
   justify-content: space-between;
   align-items: center;
   height: 4rem;
@@ -91,7 +88,7 @@ export const ItemDate = styled.div`
 
   h1 {
     font-size: 1rem;
-    color: #666666;
+    color: black;
     font-weight: 600;
   }
 
@@ -105,7 +102,7 @@ export const ItemTotal = styled.div`
 
   h1 {
     font-size: 1rem;
-    color: #666666;
+    color: black;
     font-weight: 600;
   }
 
@@ -129,12 +126,12 @@ export const ItemBoxSecondary = styled.div`
 
 export const ItemName = styled.div`
   height: 4.5rem;
-  font-family: digital;
+  font-family: arial;
   letter-spacing: 0.1rem;
   font-weight: 500;
   padding-left: 3rem;
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.9rem;
   width: 10rem;
 `;
 
