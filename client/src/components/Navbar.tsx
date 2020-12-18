@@ -17,7 +17,6 @@ const Navbar: React.FC = () => {
           <NavLink to="/cart">
             Cart<i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </NavLink>
-          <NavLink to="/admin">Admin</NavLink>
         </MobileNavLinks>
       );
     } else {
