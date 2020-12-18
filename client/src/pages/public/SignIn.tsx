@@ -45,8 +45,8 @@ const SignIn: React.FC = () => {
           type: APP_ACTIONS.UPDATE_TOKEN,
           payload: res.data.token,
         });
-        console.log(res);
-        // (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
+
+        (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
       }
     } catch (error) {
       console.log(error);
