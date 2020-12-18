@@ -316,9 +316,9 @@ export const ItemBox = styled.div`
 
   @media only screen and (max-width: 675px) {
     width: 6rem;
-    height: 21rem;
+    height: 20rem;
     img {
-      height: 9rem;
+      height: 8rem;
       width: 6rem;
       border-bottom: 1px solid #f0eeee;
     }

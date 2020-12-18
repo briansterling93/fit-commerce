@@ -59,12 +59,12 @@ export const MobileNavLinks = styled.div`
     text-align: center;
     align-items: center;
     padding: 0.5rem;
-    font-family: Montserrat, sans-serif;
+    font-family: arial;
     letter-spacing: 0.1rem;
     text-decoration: none;
     color: #f2f2f2;
-    font-weight: 300;
-    font-size: 0.8rem;
+    font-weight: 500;
+    font-size: 0.7rem;
     display: flex;
   }
 `;
