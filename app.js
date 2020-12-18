@@ -20,10 +20,6 @@ app.use("/cart", require("./routes/cart.js"));
 app.use("/user_carts", require("./routes/user_carts.js"));
 app.use("/orders", require("./routes/order_history.js"));
 
-app.get("/", (req, res) => {
-  res.send("hello world from express");
-});
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -31,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`App running on Port ${PORT}`);

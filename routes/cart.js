@@ -12,7 +12,7 @@ router.post(
   [
     check("item", "item name is required").not().isEmpty(),
     check("price", "item's price is required").not().isEmpty(),
-    check("path", "item's link/path is required").not().isEmpty(),
+    check("path", "item's link/path is required!").not().isEmpty(),
     check("quantity", "quantity is required").not().isEmpty(),
   ],
   async (req, res) => {
