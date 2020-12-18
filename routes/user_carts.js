@@ -15,7 +15,7 @@ router.post(
     check("price", "item's price is required").not().isEmpty(),
     check("path", "item's link/path is required").not().isEmpty(),
     check("quantity", "quantity is required").not().isEmpty(),
-    check("customer_id", "customer id is required").not().isEmpty(),
+    check("customer_id", "customer id is required!").not().isEmpty(),
   ],
   async (req, res) => {
     try {
