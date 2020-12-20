@@ -141,4 +141,12 @@ export const ScrollDiv = styled.div`
       font-size: 1.6rem;
     }
   }
+
+  @media only screen and (max-width: 433px) {
+    font-size: 0.8rem;
+
+    i {
+      font-size: 1.3rem;
+    }
+  }
 `;

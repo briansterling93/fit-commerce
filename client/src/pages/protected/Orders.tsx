@@ -92,9 +92,10 @@ const Order: React.FC = () => {
   return (
     <div>
       {route}
-      <FlairText />
-      <AuthNavbar />
+
       <MainSection>
+        <FlairText />
+        <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
             <p>Recent Orders</p>

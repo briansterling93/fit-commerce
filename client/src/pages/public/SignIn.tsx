@@ -1,5 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignIn';
+import {
+  MainSection,
+  AuthBoxBorder,
+  AuthUI,
+  UIinput,
+  UIinputPadding,
+  UiBtn,
+  UiBtn2,
+  ErrorMsg,
+  BtnsDiv,
+} from '../../styling/SignIn';
 import { Route, Redirect, NavLink } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 import FlairText from '../../components/FlairText';
@@ -93,12 +103,17 @@ const SignIn: React.FC = () => {
               </UIinput>
               <ErrorMsg>{UIpassword}</ErrorMsg>
             </UIinputPadding>
-            <UiBtn>
-              <button onClick={handleLogin}>Login</button>
-              <p>
-                Don't have an account? <NavLink to="/signup">Create one here</NavLink>
-              </p>
-            </UiBtn>
+            <BtnsDiv>
+              <UiBtn2>
+                <NavLink to="/signup">
+                  {' '}
+                  <button>Create Account</button>
+                </NavLink>
+              </UiBtn2>
+              <UiBtn>
+                <button onClick={handleLogin}>Login</button>
+              </UiBtn>
+            </BtnsDiv>
           </AuthUI>
         </AuthBoxBorder>
       </MainSection>

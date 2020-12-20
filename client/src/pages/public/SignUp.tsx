@@ -86,7 +86,7 @@ const SignUp: React.FC = () => {
         <AuthBoxBorder>
           {route}
           <AuthUI>
-            <h1>Welcome, Sign up below!</h1>
+            <h1>Sign up below!</h1>
             <UIinputPadding>
               <UIinput>
                 <i className="fa fa-user" aria-hidden="true"></i>

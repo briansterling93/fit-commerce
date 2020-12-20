@@ -283,9 +283,9 @@ const ProtectedShop: React.FC = () => {
   }
   return (
     <div>
-      <FlairText />
-      <AuthNavbar />
       <MainSection>
+        <FlairText />
+        <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
             <FilterBox>

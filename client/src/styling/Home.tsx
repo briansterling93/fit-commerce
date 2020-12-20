@@ -292,15 +292,12 @@ export const ItemTitle = styled.div`
   height: 2rem;
 
   @media only screen and (max-width: 630px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   @media only screen and (max-width: 580px) {
-    font-size: 1rem;
-  }
-
-  @media only screen and (max-width: 460px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    height: 1.2rem;
   }
 
   @media only screen and (max-width: 353px) {

@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       setNav(
         <MobileNavLinks id="mobile-nav-links">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/aboutus">About Us</NavLink>
+          {/* <NavLink to="/aboutus">About Us</NavLink> */}
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/signin">Sign In</NavLink>
           <NavLink to="/cart">
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         </HamburgerMenu>
         <TextDiv>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/aboutus">About Us</NavLink>
+          {/* <NavLink to="/aboutus">About Us</NavLink> */}
           <NavLink to="/shop">Shop</NavLink>
           <NavLink to="/signin">Sign In</NavLink>
           <NavLink to="/cart">

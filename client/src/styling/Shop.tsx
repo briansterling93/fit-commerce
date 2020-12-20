@@ -393,11 +393,13 @@ export const ItemTitle = styled.div`
   }
 
   @media only screen and (max-width: 675px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    height: 1.2rem;
   }
 
   @media only screen and (max-width: 380px) {
     font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 `;
 export const ItemPrice = styled.div`
@@ -408,6 +410,7 @@ export const ItemPrice = styled.div`
 
   @media only screen and (max-width: 735px) {
     font-size: 0.9rem;
+    padding-bottom: 0.5rem;
   }
 `;
 
@@ -429,7 +432,7 @@ export const ItemDescription = styled.div`
   @media only screen and (max-width: 380px) {
     width: 5rem;
     height: 3rem;
-
+    padding-bottom: 1rem;
     font-size: 0.6rem;
   }
 `;
