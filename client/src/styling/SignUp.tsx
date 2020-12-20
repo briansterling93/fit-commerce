@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MainSection = styled.div`
 background-color: white;
-  // height: 100vh;
+
   background-image: linear-gradient(
       to right bottom,
       rgba(25, 26, 25, 0.8),
@@ -17,11 +17,10 @@ export const AuthBoxBorder = styled.div`
   display: flex;
   justify-content: center;
   background-color: white;
-  margin-top: 6rem;
-  background-color: transparent;
+  margin-top: 5rem;
 
   @media only screen and (max-width: 462px) {
-    margin-top: 1.5rem;
+    margin-top: 1.4rem;
   }
 `;
 

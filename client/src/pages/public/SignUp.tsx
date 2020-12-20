@@ -66,7 +66,7 @@ const SignUp: React.FC = () => {
               payload: res.data.token,
             });
 
-            // (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('');
+            (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('');
 
             if (res.data.token) {
               setRoute(<Redirect to="user/dashboard" />);

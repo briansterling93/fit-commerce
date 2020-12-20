@@ -21,9 +21,27 @@ export const SecondarySection = styled.div`
   background-color: transparent;
   flex-direction: column;
   align-items: center;
+  @keyframes moveInRight {
+    0% { 
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+
+    80% {
+      transform: translateX(0rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    } 
+  }
+  animation: moveInRight 2s;
+
+ 
 
   img {
-    width: 70rem;
+    width: 60rem;
   }
 
   @media only screen and (max-width: 1150px) {
@@ -71,20 +89,56 @@ export const SecondarySection = styled.div`
 `;
 
 export const ScrollDiv = styled.div`
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 100;
   color: #c4c4c4;
   padding-top: 7rem;
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+
+    80% {
+      transform: translateX(0rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  animation: moveInRight 3s;
 
   i {
     padding-top: 0.3rem;
     align-items: center;
     color: #d0d0d0;
-    font-size: 3rem;
-
+    font-size: 2.5rem;
     :hover {
       color: #6e6e6e;
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    font-size: 1.4rem;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 585px) {
+    font-size: 1.1rem;
+
+    i {
+      font-size: 1.6rem;
     }
   }
 `;

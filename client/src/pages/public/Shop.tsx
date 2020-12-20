@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../../components/Navbar';
 import FlairText from '../../components/FlairText';
+
 import axios from 'axios';
 import {
   MainSection,

@@ -18,11 +18,11 @@ export const AuthBoxBorder = styled.div`
   display: flex;
   justify-content: center;
 
-  margin-top: 10rem;
+  margin-top: 5rem;
   background-color: white;
 
   @media only screen and (max-width: 462px) {
-    margin-top: 3rem;
+    margin-top: 1.4rem;
   }
 `;
 

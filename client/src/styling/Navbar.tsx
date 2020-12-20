@@ -51,7 +51,7 @@ export const MobileNavLinks = styled.div`
   padding-top: 1rem;
   min-width: 4rem;
   border-radius: 1rem;
-  background-color: #4d4c4c;
+  background-color: black;
   padding: 1rem;
 
   a {

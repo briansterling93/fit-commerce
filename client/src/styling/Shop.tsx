@@ -190,6 +190,23 @@ export const ItemArray = styled.div`
   justify-content: center;
   width: 75rem;
 
+  @keyframes moveInRight {
+    0% { 
+      opacity: 0;
+      transform: translateX(5rem);
+    }
+
+    80% {
+      transform: translateX(0rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    } 
+  }
+  animation: moveInRight .9s;
+
   @media only screen and (max-width: 1370px) {
     width: 60rem;
   }
