@@ -80,9 +80,9 @@ const SignUp: React.FC = () => {
   };
   return (
     <div>
-      <FlairText />
-      <Navbar />
       <MainSection>
+        <FlairText />
+        <Navbar />
         <AuthBoxBorder>
           {route}
           <AuthUI>

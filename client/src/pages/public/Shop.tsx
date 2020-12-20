@@ -285,9 +285,9 @@ const Shop: React.FC = () => {
 
   return (
     <div>
-      <FlairText />
-      <Navbar />
       <MainSection>
+        <FlairText />
+        <Navbar />
         <SecondarySection>
           <BoxDiv>
             <FilterBox>

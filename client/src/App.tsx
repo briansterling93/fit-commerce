@@ -10,6 +10,7 @@ import Cart from './pages/public/Cart';
 import SignIn from './pages/public/SignIn';
 import SignUp from './pages/public/SignUp';
 import Admin from './pages/protected/Admin';
+import AboutUs from './pages/public/AboutUs';
 import Dashboard from './pages/protected/Dashboard';
 import { StateContext, initialState, reducer } from './context/StateContext';
 import ItemView from './pages/public/ItemView';
@@ -28,8 +29,8 @@ const Universal = createGlobalStyle`
  
 
     ::-webkit-scrollbar{
-      width: 0px;  /* Remove scrollbar space */
-      background: transparent;  /* Optional: just make scrollbar invisible */
+      width: 0px;  
+      background: transparent;  
   }
   }
 `;
@@ -42,6 +43,7 @@ function App() {
         <Universal />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/aboutus" component={AboutUs} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/signin" component={SignIn} />

@@ -86,9 +86,10 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <FlairText />
-      <Navbar />
       <MainSection>
+        <FlairText />
+        <Navbar />
+
         <SiteHeader />
         <SecondarySection>
           <h1>New Arrivals</h1>

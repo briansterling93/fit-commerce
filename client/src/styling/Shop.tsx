@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const MainSection = styled.div`
 
   background-color: white;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   height: 100vh;
   background-image: linear-gradient(
       to right bottom,
@@ -18,10 +18,15 @@ export const MainSection = styled.div`
 
   ul {
     padding: 1rem;
-    margin: 0;
+    margin: 0; 
   }
 
   overflow-x: hidden;
+
+  ::-webkit-scrollbar{
+    width: 0px; 
+    background: transparent;  
+}
 
 `;
 
@@ -410,7 +415,7 @@ export const ItemDescription = styled.div`
   width: 10rem;
   height: 4rem;
   text-align: left;
-  font-weight: 585;
+  font-weight: 400;
   font-size: 0.9rem;
   margin-top: 1rem;
 

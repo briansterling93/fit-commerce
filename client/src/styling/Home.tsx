@@ -16,6 +16,11 @@ export const MainSection = styled.div`
     padding: 1rem;
     margin: 0;
   }
+  
+  ::-webkit-scrollbar{
+    width: 0px;  
+    background: transparent;  
+}
 
 `;
 
@@ -318,7 +323,7 @@ export const ItemDescription = styled.div`
   width: 10rem;
   height: 4rem;
   text-align: left;
-  font-weight: 585;
+  font-weight: 400;
   font-size: 0.9rem;
   margin-top: 1rem;
 

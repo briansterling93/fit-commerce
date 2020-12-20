@@ -48,9 +48,9 @@ const Cart: React.FC = () => {
 
   return (
     <div>
-      <FlairText />
-      <Navbar />
       <MainSection>
+        <FlairText />
+        <Navbar />
         <SecondarySection>
           <ContinueBtn>
             <NavLink to="/shop">
