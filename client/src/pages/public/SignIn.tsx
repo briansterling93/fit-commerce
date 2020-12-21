@@ -52,7 +52,10 @@ const SignIn: React.FC = () => {
         const res = await axios.post('/user/login', body, config);
 
         console.log(res);
-        console.log(state.token);
+        console.log({
+          email: state.email_address,
+          password: state.password,
+        });
 
         await dispatch({
           type: APP_ACTIONS.UPDATE_TOKEN,
