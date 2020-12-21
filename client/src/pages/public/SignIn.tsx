@@ -63,7 +63,7 @@ const SignIn: React.FC = () => {
           payload: res.data.token,
         });
 
-        (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
+        (await res.data.token) ? setRoute(<Redirect to="/user/dashboard" />) : passwordError('Invalid credentials');
       }
     } catch (error) {
       console.log(error);
