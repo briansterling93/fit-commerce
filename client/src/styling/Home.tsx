@@ -329,7 +329,7 @@ export const ItemDescription = styled.div`
   }
 
   @media only screen and (max-width: 580px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   @media only screen and (max-width: 460px) {

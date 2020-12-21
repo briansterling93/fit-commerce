@@ -89,12 +89,10 @@ const Home: React.FC = () => {
       <MainSection>
         <FlairText />
         <Navbar />
-
         <SiteHeader />
         <SecondarySection>
           <h1>New Arrivals</h1>
           {route}
-
           <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
       </MainSection>

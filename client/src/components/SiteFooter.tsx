@@ -5,7 +5,7 @@ const SiteFooter: React.FC = () => {
   return (
     <div>
       <MainSection>
-        <TextDiv>2020 | Coded by Brian Sterling</TextDiv>
+        <TextDiv>2020 | Brian Sterling</TextDiv>
       </MainSection>
     </div>
   );
