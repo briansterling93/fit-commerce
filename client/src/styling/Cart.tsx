@@ -292,6 +292,10 @@ export const CartPrice = styled.div`
 export const CartQuantity = styled.div`
   width: 2rem;
   font-size: 1.1rem;
+
+  @media only screen and (max-width: 610px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const CartRemoveBtn = styled.div`
