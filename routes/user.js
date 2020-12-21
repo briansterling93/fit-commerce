@@ -66,7 +66,7 @@ router.post(
 
           jwt.sign(
             payload,
-            config.get("jwtSecret"),
+            config.get("JWT_SECRET"),
             { expiresIn: 360000 },
             (err, token) => {
               if (err) {
@@ -125,7 +125,7 @@ router.post(
 
             jwt.sign(
               payload,
-              config.get("jwtSecret"),
+              config.get("JWT_SECRET"),
               { expiresIn: 3600 },
               (error, token) => {
                 if (error) res.json({ error: "Credential Error" });

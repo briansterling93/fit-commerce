@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
     return res.status(401).json({ error: "no authorized token recognized" });
   } else {
     try {
-      const decoded = jwt.verify(token, config.get("jwtSecret"));
+      const decoded = jwt.verify(token, config.get("JWT_SECRET"));
 
       req.user = decoded.user;
 
