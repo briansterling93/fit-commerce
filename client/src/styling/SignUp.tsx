@@ -89,6 +89,7 @@ export const UIinput = styled.div`
 
     ::placeholder {
       color: black;
+      font-size: 0.8rem;
     }
   }
 

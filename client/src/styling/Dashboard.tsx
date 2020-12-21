@@ -89,7 +89,7 @@ export const RecentsDiv = styled.div`
 
       button {
         width: 9rem;
-        font-size: .9rem;
+        font-size: .7rem;
       }
 
       h1 {
