@@ -56,7 +56,6 @@ const SignIn: React.FC = () => {
           email: state.email_address,
           password: state.password,
           token: state.token,
-          token: token,
         });
 
         await dispatch({
