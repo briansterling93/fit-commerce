@@ -36,12 +36,13 @@ export const SecondarySection = styled.div`
       transform: translate(0);
     } 
   }
-  animation: moveInRight 2s;
+  // animation: moveInRight 2s;
 
  
 
   img {
     width: 60rem;
+    animation: moveInRight 2s;
   }
 
   @media only screen and (max-width: 1150px) {
@@ -99,6 +100,11 @@ export const ScrollDiv = styled.div`
   justify-content: center;
   text-align: center;
 
+  img {
+    height: 4rem;
+    width: 4rem;
+  }
+
   @keyframes moveInRight {
     0% {
       opacity: 0;
@@ -132,6 +138,11 @@ export const ScrollDiv = styled.div`
     i {
       font-size: 2rem;
     }
+
+    img {
+      height: 2rem;
+      width: 3rem;
+    }
   }
 
   @media only screen and (max-width: 585px) {
@@ -144,6 +155,11 @@ export const ScrollDiv = styled.div`
 
   @media only screen and (max-width: 433px) {
     font-size: 0.8rem;
+
+    img {
+      height: 2rem;
+      width: 2.5rem;
+    }
 
     i {
       font-size: 1.3rem;

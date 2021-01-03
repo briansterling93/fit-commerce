@@ -117,6 +117,15 @@ const ItemView: React.FC = () => {
 
                           sessionStorage.setItem('newItem', `${JSON.stringify(newItem)}`);
 
+                          // let test = sessionStorage.getItem('newItem');
+
+                          // let testing = JSON.parse(test);
+                          // // if (sessionStorage.getItem('newItem') === null) {
+                          // //   sessionStorage.setItem('newItem', '[]');
+                          // // } else {
+                          // //   let current_cart = JSON.stringify(sessionStorage.getItem('newItem'));
+                          // // }
+
                           await Swal.fire({
                             icon: 'info',
                             timer: 1100,
