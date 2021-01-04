@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainSection = styled.div`
   background-color: white;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: scroll;
 `;
 
 export const AuthBoxBorder = styled.div`
@@ -11,7 +11,6 @@ export const AuthBoxBorder = styled.div`
   justify-content: center;
   margin-top: 2rem;
   background-color: white;
-
   @media only screen and (max-width: 580px) {
     margin-top: 0.5rem;
   }

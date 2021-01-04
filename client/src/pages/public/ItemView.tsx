@@ -58,9 +58,10 @@ const ItemView: React.FC = () => {
   return (
     <div>
       {route}
-      <FlairText />
-      <Navbar />
+
       <MainSection>
+        <FlairText />
+        <Navbar />
         <SecondarySection>
           <BoxDiv>
             <BoxSpacer>
@@ -117,19 +118,10 @@ const ItemView: React.FC = () => {
 
                           sessionStorage.setItem('newItem', `${JSON.stringify(newItem)}`);
 
-                          // let test = sessionStorage.getItem('newItem');
-
-                          // let testing = JSON.parse(test);
-                          // // if (sessionStorage.getItem('newItem') === null) {
-                          // //   sessionStorage.setItem('newItem', '[]');
-                          // // } else {
-                          // //   let current_cart = JSON.stringify(sessionStorage.getItem('newItem'));
-                          // // }
-
                           await Swal.fire({
                             icon: 'info',
-                            timer: 1100,
-                            title: 'Please sign in to access your cart',
+                            timer: 2000,
+                            title: 'Item added! Sign in to access your cart',
                             width: 400,
                           });
 

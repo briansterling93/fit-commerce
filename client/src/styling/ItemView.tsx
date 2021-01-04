@@ -18,6 +18,7 @@ export const MainSection = styled.div`
   }
 
   overflow-x: hidden;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`

@@ -23,10 +23,10 @@ export const MainSection = styled.div`
 
   overflow-x: hidden;
 
-  ::-webkit-scrollbar{
-    width: 0px; 
-    background: transparent;  
-}
+//   ::-webkit-scrollbar{
+//     width: 0px; 
+//     background: transparent;  
+// }
 
 `;
 

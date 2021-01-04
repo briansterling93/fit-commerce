@@ -9,7 +9,8 @@ export const MainSection = styled.div`
       rgba(64, 64, 64, 0.8)
     ),
   background-size: cover;
-  overflow-x hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`

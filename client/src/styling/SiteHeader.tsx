@@ -36,13 +36,13 @@ export const SecondarySection = styled.div`
       transform: translate(0);
     } 
   }
-  // animation: moveInRight 2s;
+
 
  
 
   img {
     width: 60rem;
-    animation: moveInRight 2s;
+  
   }
 
   @media only screen and (max-width: 1150px) {
@@ -107,7 +107,6 @@ export const ScrollDiv = styled.div`
 
   @keyframes moveInRight {
     0% {
-      opacity: 0;
       transform: translateY(5rem);
     }
 
@@ -117,10 +116,10 @@ export const ScrollDiv = styled.div`
 
     100% {
       opacity: 1;
-      transform: translate(0);
+      transform: translate(0rem);
     }
   }
-  animation: moveInRight 3s;
+  animation: moveInRight 6s;
 
   i {
     padding-top: 0.3rem;

@@ -4,11 +4,12 @@ export const MainSection = styled.div`
   background-color: white;
 
   overflow-x: hidden;
+  overflow-y: scroll;
 
-  ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
+  // ::-webkit-scrollbar {
+  //   width: 0px;
+  //   background: transparent;
+  // }
 `;
 
 export const AuthBoxBorder = styled.div`

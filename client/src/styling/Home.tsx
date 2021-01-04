@@ -17,10 +17,10 @@ export const MainSection = styled.div`
     margin: 0;
   }
   
-  ::-webkit-scrollbar{
-    width: 0px;  
-    background: transparent;  
-}
+//   ::-webkit-scrollbar{
+//     width: 0px;  
+//     // background: transparent;  
+// }
 
 `;
 

@@ -4,7 +4,7 @@ import FlairText from '../../components/FlairText';
 import { Redirect } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 import SiteHeader from '../../components/SiteHeader';
-import SiteFooter from '../../components/SiteFooter';
+
 import axios from 'axios';
 import {
   MainSection,
@@ -96,7 +96,6 @@ const Home: React.FC = () => {
           <ItemArray>{itemList}</ItemArray>
         </SecondarySection>
       </MainSection>
-      <SiteFooter />
     </div>
   );
 };

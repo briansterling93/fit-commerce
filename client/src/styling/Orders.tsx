@@ -4,6 +4,7 @@ export const MainSection = styled.div`
   background-color: white;
   background-size: cover;
   overflow-x: hidden;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`

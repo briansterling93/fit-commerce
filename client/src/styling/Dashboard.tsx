@@ -12,6 +12,7 @@ background-color: white;
 
 
   overflow-x: hidden;
+  overflow-y: scroll;
 `;
 
 export const SecondarySection = styled.div`
