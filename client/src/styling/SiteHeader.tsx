@@ -21,27 +21,47 @@ export const SecondarySection = styled.div`
   background-color: transparent;
   flex-direction: column;
   align-items: center;
-  @keyframes moveInRight {
-    0% { 
-      opacity: 0;
-      transform: translateY(5rem);
-    }
+  .arrow-div {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 3s infinite;
 
-    80% {
-      transform: translateX(0rem);
+    #arrow-1 {
+      color: #848484;
     }
+    #arrow-2 {
+      color: #989898;
+    }
+    #arrow-3 {
+      color: #c7c7c7;
+    }
+  }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0.1;
+    }
+    25% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    75% {
+      opacity: 0.8;
+    }
     100% {
       opacity: 1;
-      transform: translate(0);
-    } 
+    }
   }
+ 
 
 
  
 
   img {
     width: 60rem;
+    animation: fadeIn 1s;
   
   }
 
@@ -100,31 +120,10 @@ export const ScrollDiv = styled.div`
   justify-content: center;
   text-align: center;
 
-  img {
-    height: 4rem;
-    width: 4rem;
-  }
-
-  @keyframes moveInRight {
-    0% {
-      transform: translateY(5rem);
-    }
-
-    80% {
-      transform: translateX(0rem);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translate(0rem);
-    }
-  }
-  animation: moveInRight 6s;
-
   i {
     padding-top: 0.3rem;
     align-items: center;
-    color: #d0d0d0;
+    // color: #d0d0d0;
     font-size: 2.5rem;
     :hover {
       color: #6e6e6e;
