@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import AuthNavbar from '../../components/AuthNavbar';
 import FlairText from '../../components/FlairText';
 import { NavLink } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 import axios from 'axios';
 import {
@@ -20,80 +21,154 @@ import {
 import { Redirect } from 'react-router-dom';
 import { StateContext, APP_ACTIONS } from '../../context/StateContext';
 
-type FormElem = React.FormEvent<HTMLFormElement>;
-
 const Dashboard: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
   const [storedValue, setStoredValue] = useState<any>();
   const [route, setRoute] = useState<any>('');
-  const [userToken, setToken] = useState<string>('');
   const [userName, setName] = useState<string>('');
   const [userEmail, setEmail] = useState<string>('');
   const [userAge, setAge] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>();
 
   const { name, token } = state;
+
   useEffect(() => {
-    if (!state.token) {
-      return setRoute(<Redirect to="/signin" />);
-    } else {
-      loadUser();
-    }
+    state.token || ('token' in sessionStorage && 'userID' in sessionStorage)
+      ? genUser()
+      : setRoute(<Redirect to="/signin" />);
   }, []);
 
-  const loadUser = async () => {
+  //generate user profile on load
+  const genUser = async () => {
+    try {
+      if ('token' in sessionStorage) {
+        const tokenValue: any = sessionStorage.getItem('token');
+
+        dispatch({
+          type: APP_ACTIONS.UPDATE_TOKEN,
+          payload: JSON.parse(tokenValue),
+        });
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': JSON.parse(tokenValue),
+          },
+        };
+
+        const res = await axios.get('/user/authorized', config);
+
+        setName(res.data.name);
+        setAge(res.data.createdAt);
+        setEmail(res.data.email_address);
+      } else {
+        await setValue(state.token);
+
+        const tokenValue: any = sessionStorage.getItem('token');
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': JSON.parse(tokenValue),
+          },
+        };
+
+        const res = await axios.get('/user/authorized', config);
+
+        setName(res.data.name);
+        setAge(res.data.createdAt);
+        setEmail(res.data.email_address);
+
+        //push user ID to sessionStorage
+        sessionStorage.setItem('userID', res.data.id);
+
+        //determine if addPublicCart() should be ran
+        sessionStorage.getItem('newItem') ? addPublicCart() : console.log('');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //add any public items that were added to cart, to the users cart
+  const addPublicCart = async () => {
     try {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'x-auth-token': `${state.token}`,
         },
       };
 
-      const res = await axios.get('/user/authorized', config);
+      const publicCartItem: any = sessionStorage.getItem('newItem');
 
-      setName(res.data.name);
-      setAge(res.data.createdAt);
-      setEmail(res.data.email_address);
-      setValue(state.token);
-    } catch (error) {}
-  };
+      if (publicCartItem) {
+        let item = JSON.parse(publicCartItem).item;
+        let price = JSON.parse(publicCartItem).price;
+        let path = JSON.parse(publicCartItem).path;
+        let quantity = JSON.parse(publicCartItem).quantity;
+        let customer_id = sessionStorage.getItem('userID');
 
-  //filter through local storage item list function to remove a token
-  const useLocalStorage = (key: any) => {
-    try {
-      const item = window.localStorage.getItem(key);
+        //GET request to check if item is already in cart
+        let cartQuery = await axios.get(`/user_carts/${sessionStorage.getItem('userID')}`);
 
-      return item ? localStorage.removeItem(key) : console.log('');
+        let cartQuery2 = await cartQuery.data.queried_user.map((g: any) => g.item);
+
+        let cartQuery3 = await cartQuery2.filter((s: any) => s === item);
+
+        if (cartQuery3.length >= 1) {
+          let item_name = await JSON.parse(publicCartItem).item;
+          let item_quantity = await JSON.parse(publicCartItem).quantity;
+
+          let item_increment = { item_name, item_quantity };
+
+          const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          };
+
+          const body = JSON.stringify(item_increment, item_quantity);
+
+          return await axios.post(`/user_carts/${sessionStorage.getItem('userID')}/increment`, body, config);
+        }
+
+        ///
+
+        let newItem = { item, price, path, quantity, customer_id };
+
+        const body = JSON.stringify(newItem);
+
+        const res = await axios.post('/user_carts', body, config);
+
+        await sessionStorage.removeItem('newItem');
+
+        await window.location.reload();
+      } else {
+        console.log('');
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
-  //set token function
+  //set token value in sessionStorage
   const setValue = async (value: any) => {
     try {
-      let key = `${userEmail} token`;
+      let key = 'token';
 
       const valueToStore = value instanceof Function ? value(storedValue) : value;
 
       setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      window.sessionStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
     }
   };
 
-  //test function to set value
-  const testFunc = () => {
-    setValue(state.token);
-  };
-
-  //remove token from storage on logout
+  //remove token from sessionStorage
   const removeToken = async () => {
     try {
-      const remove = useLocalStorage;
-
-      await remove(`${userEmail} token`);
+      await sessionStorage.clear();
 
       await window.location.reload();
     } catch (error) {}
@@ -103,31 +178,45 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       {route}
-      <FlairText />
+
       <MainSection>
+        <FlairText />
         <AuthNavbar />
         <SecondarySection>
           <BoxDiv>
-            <WelcomeDiv>Welcome, {`${userName}!`}</WelcomeDiv>
+            <WelcomeDiv>
+              <p>{`Welcome, ${userName}!`}</p>
+            </WelcomeDiv>
             <BoxDivMain>
               <DivSpacer>
                 {' '}
                 <RecentsDiv>
-                  <h1>Recent Orders</h1>
+                  <h1>Options</h1>
+                  <DivSpacer>
+                    {' '}
+                    <NavLink to="/user/cart">
+                      <button>View Cart</button>
+                    </NavLink>
+                  </DivSpacer>
+
+                  <div>
+                    <NavLink to="/user/orders">
+                      <button>View Order History</button>
+                    </NavLink>
+                  </div>
                 </RecentsDiv>
               </DivSpacer>
               <DivSpacer>
                 <InfoDiv>
-                  <h1>Your Info</h1>{' '}
+                  <h1>Your Info</h1>
                   <InfoText>
-                    <div>Email Address: {userEmail}</div>
-                    <div>Member Since: {userAge}</div>
+                    <div>{userEmail}</div>
+
                     <BtnDiv>
                       <LogoutBtn>
                         <NavLink to="/" onClick={removeToken}>
                           <button>Logout</button>
                         </NavLink>
-                        <button onClick={testFunc}>Get current user</button>
                       </LogoutBtn>
                     </BtnDiv>
                   </InfoText>

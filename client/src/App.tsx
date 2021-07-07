@@ -5,15 +5,19 @@ import Home from './pages/public/Home';
 import Shop from './pages/public/Shop';
 import ProtectedShop from './pages/protected/ProtectedShop';
 import ProtectedCart from './pages/protected/ProtectedCart';
+import Orders from './pages/protected/Orders';
 import Cart from './pages/public/Cart';
 import SignIn from './pages/public/SignIn';
 import SignUp from './pages/public/SignUp';
 import Admin from './pages/protected/Admin';
+import AboutUs from './pages/public/AboutUs';
 import Dashboard from './pages/protected/Dashboard';
 import { StateContext, initialState, reducer } from './context/StateContext';
+import ItemView from './pages/public/ItemView';
+import ProtectedItemView from './pages/protected/ProtectedItemView';
 
 const Universal = createGlobalStyle`
-  body {
+ body {
     padding: 0;
     box-sizing: none;
     margin: 0;
@@ -22,6 +26,12 @@ const Universal = createGlobalStyle`
     input {
       font-family: "Segoe UI"; 
     }
+ 
+
+    ::-webkit-scrollbar{
+      width: 0px;  
+      background: transparent;  
+  }
   }
 `;
 
@@ -33,14 +43,18 @@ function App() {
         <Universal />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/aboutus" component={AboutUs} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/item" component={ItemView} />
+          <Route exact path="/user/item" component={ProtectedItemView} />
           <Route exact path="/user/dashboard" component={Dashboard} />
           <Route exact path="/user/shop" component={ProtectedShop} />
           <Route exact path="/user/cart" component={ProtectedCart} />
+          <Route exact path="/user/orders" component={Orders} />
         </Switch>
       </Router>
     </StateContext.Provider>

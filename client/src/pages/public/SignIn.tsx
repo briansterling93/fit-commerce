@@ -1,5 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { MainSection, AuthBoxBorder, AuthUI, UIinput, UIinputPadding, UiBtn, ErrorMsg } from '../../styling/SignIn';
+import {
+  MainSection,
+  AuthBoxBorder,
+  AuthUI,
+  UIinput,
+  UIinputPadding,
+  UiBtn,
+  UiBtn2,
+  ErrorMsg,
+  BtnsDiv,
+} from '../../styling/SignIn';
 import { Route, Redirect, NavLink } from 'react-router-dom';
 import { StateContext, initialState, APP_ACTIONS } from '../../context/StateContext';
 import FlairText from '../../components/FlairText';
@@ -15,19 +25,6 @@ const SignIn: React.FC = () => {
   const { state, dispatch } = useContext<any>(StateContext);
 
   const { email_address, password, token } = state;
-
-  const setAuthToken = async (token: FormElem) => {
-    if (state.token) {
-      axios.defaults.headers.common['x-auth-token'] = state.token;
-    } else {
-      delete axios.defaults.headers.common['x-auth-token'];
-    }
-    try {
-      axios.get('/user/authorized');
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleLogin = async () => {
     try {
@@ -54,12 +51,19 @@ const SignIn: React.FC = () => {
 
         const res = await axios.post('/user/login', body, config);
 
+        console.log(res);
+        console.log({
+          email: state.email_address,
+          password: state.password,
+          token: res.data.token,
+        });
+
         await dispatch({
           type: APP_ACTIONS.UPDATE_TOKEN,
           payload: res.data.token,
         });
 
-        (await res.data.token) ? setRoute(<Redirect to="user/dashboard" />) : passwordError('Invalid credentials');
+        (await res.data.token) ? setRoute(<Redirect to="/user/dashboard" />) : passwordError('Invalid credentials');
       }
     } catch (error) {
       console.log(error);
@@ -67,8 +71,8 @@ const SignIn: React.FC = () => {
   };
   return (
     <div>
-      <FlairText />
       <MainSection>
+        <FlairText />
         <Navbar />
         <AuthBoxBorder>
           {route}
@@ -106,12 +110,17 @@ const SignIn: React.FC = () => {
               </UIinput>
               <ErrorMsg>{UIpassword}</ErrorMsg>
             </UIinputPadding>
-            <UiBtn>
-              <button onClick={handleLogin}>Login</button>
-              <p>
-                Don't have an account? <NavLink to="/signup">Create one here</NavLink>
-              </p>
-            </UiBtn>
+            <BtnsDiv>
+              <UiBtn2>
+                <NavLink to="/signup">
+                  {' '}
+                  <button>Create Account</button>
+                </NavLink>
+              </UiBtn2>
+              <UiBtn>
+                <button onClick={handleLogin}>Login</button>
+              </UiBtn>
+            </BtnsDiv>
           </AuthUI>
         </AuthBoxBorder>
       </MainSection>

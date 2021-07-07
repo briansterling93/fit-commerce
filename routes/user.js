@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-const config = require("config");
+const config = require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.js");
 const Sequelize = require("sequelize");
@@ -66,8 +66,8 @@ router.post(
 
           jwt.sign(
             payload,
-            config.get("jwtSecret"),
-            { expiresIn: 3600 },
+            process.env.JWT_SECRET,
+            { expiresIn: 360000 },
             (err, token) => {
               if (err) {
                 throw err;
@@ -125,7 +125,7 @@ router.post(
 
             jwt.sign(
               payload,
-              config.get("jwtSecret"),
+              process.env.JWT_SECRET,
               { expiresIn: 3600 },
               (error, token) => {
                 if (error) res.json({ error: "Credential Error" });
@@ -138,7 +138,7 @@ router.post(
         }
       } catch (error) {
         console.log(error);
-        res.json({ error: "invalid credentials" });
+        res.json({ error: "invalid credentials!" });
       }
   }
 );
